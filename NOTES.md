@@ -8,6 +8,7 @@ brew cask install slack
 brew cask install macvim
 brew cask install evernote
 brew cask install spotify
+brew cask install dropbox
 
 # Taps
 brew install chruby

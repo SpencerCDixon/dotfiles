@@ -10,7 +10,7 @@ brew cask install evernote
 brew cask install spotify
 brew cask install dropbox
 
-# Taps
+# Brews
 brew install chruby
 brew install ruby-install
 brew install the_silver_searcher
@@ -34,6 +34,7 @@ nvm install 5.10.0
 * have an alias that displays all aliases that are available with a description
 * store aliases in separate files inside an alias folder if they get too big
 * potentially store vundle/bundles in a vimrc.bundles and source it immediately in my main vimrc
+* echo a random alias everytime I open vim or terminal until I have them all memorized
 
 Alias Types
 * file system
@@ -50,8 +51,6 @@ alias shop='mvim ~/Dropbox/docs/shopping.md'
 alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
 alias ='mvim ~/Dropbox/docs/bug-journal.md'
 
-
 # Leader Mapping Ideas
 space space - go back to last file
 space - clear highlights (first need to figure out how to preserve highlights from searching)
-

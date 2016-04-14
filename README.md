@@ -1,20 +1,24 @@
-# Installation
+My dotfiles configuration.  Use at your own risk ;-)
+=======
+1.  [Installation](#installation)
+2.  [Directory Structure](#directory_structure)
+3.  [Leader Mappings](#leader_mappings)
+4.  [Plugins](#plugins)
+5.  [Abbreviations](#abbreviations)
+6.  [Functions](#functions)
+7.  [Aliases](#aliases)
+=======
+
+## Installation
 ```
 git clone <url> .dotfiles
 rake install
 ```
 
 ## Directory Structure
+The `rake link` task will sym link all the relevant dotfiles into your home directory.  
 
 ## Plugins
-
-**Tabular**: [Video explaining use](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/)
-```
-:Tab /= (regex)
-,a=   " align equal signs
-,a:   " align colons
-```
-
 **YouCompleteMe**: Intelligent in editor text completetion.  Tab to cycle through options.
 
 ```
@@ -24,7 +28,48 @@ cd .vim/bundle/YouCompleteMe
 ./install.py
 ```
 
+**SuperTab** - allows for multiple bindings on the <tab> key so that YouCompleteMe can play nice with UltiSnips.
+
+**NerdCommenter** - allows for quick commenting like in most text editors.  Mapped to `,/`
+
+**CtrlP** - fuzzy find files, uses Ag under the hood for performance benefits.
+
+**NerdTree** - simulates file tree like most editors have.
+
+**UltiSnips** - snippets to reduce boilerplate typing.
+
+**Tabular** - helper for aligning text. [Video explaining use](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/)
+```
+:Tab /= (regex)
+,a=   " align equal signs
+,a:   " align colons
+```
+
 ## Leader Mappings
 |Combo|Plugin|Description|
 |-----|------|-----------|
+|`,,`|vim|easy access to the shell `:!`|
+|`,ev`|vim|edit vimrc file in split window|
+|`,sv`|vim|source vimrc file|
+|`,=`|vim|auto format an entire file|
+|`,j`|vim|go to next tab|
+|`,k`|vim|go to previous tab|
+|`,pi`|Vundle|install all plugins|
 |`,f`|ctrlP|search file system|
+|`,\\`|NERDTree|open file tree|
+|`,|`|NERDTree|go to current file in file tree|
+
+
+## Abbreviations
+|Letters|Correction|
+|-----|------|
+|@@|spencercdixon@gmail.com|
+
+## Functions
+`tre` - like 'tree' command but avoids directories I don't care about and adds nice colors
+`v` - opens macvim with current directory or given argument 
+`mkd` - make directory and cd into it
+
+## Aliases
+Running `aliases` in the terminal will open up all available aliases.  There are too many to write out in the readme.  The most important ones for configuring the dotfiles are below:
+

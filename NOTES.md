@@ -1,6 +1,6 @@
 Misc Setup Tasks
 * install homebrew (get curl command from github repo)
-* set global git email and name
+* install node via website
 
 # Applications I want to have in every dev environment
 brew cask install shiftit   # then add shiftit to sys accesibility prefs (requires sudo)
@@ -24,6 +24,7 @@ ruby-install ruby 2.3.0
 # Useful Links
 [relative line numbers](http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/)
 [getting snippets and youcompleteme to work together](http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme)
+[look into settin gup ctags](https://github.com/LaunchAcademy/vim-config/blob/4e54606e6e201612a7c2152eb190538166a8afc2/init/keybindings.vim#L80)
 
 # Design Ideas
 * separate plugin initializers into their own folder (vim/init)
@@ -36,3 +37,18 @@ Alias Types
 * git helpers
 * rake/rspec/npm helpers
 * ns (npm start)
+
+# Todo
+* snippet integration
+* make files/folders in dropbox for aliases:
+
+alias todos='mvim ~/Dropbox/docs/todos.md'
+alias shop='mvim ~/Dropbox/docs/shopping.md'
+alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
+alias ='mvim ~/Dropbox/docs/bug-journal.md'
+
+
+# Leader Mapping Ideas
+space space - go back to last file
+space - clear highlights (first need to figure out how to preserve highlights from searching)
+

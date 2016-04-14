@@ -1,5 +1,59 @@
+####################
+# Configuration 
+####################
+alias aliases='vim ~/.dotfiles/aliases'
+alias zconfig='vim ~/.dotfiles/zshrc'
+alias zfunc='vim ~/.dotfiles/functions'
+alias vconfig='vim ~/.dotfiles/vimrc'
+alias d='cd ~/.dotfiles'
+
+####################
+# Personal 
+####################
+alias drop='cd ~/Dropbox'
+alias todos='mvim ~/Dropbox/docs/todos.md'
+alias shop='mvim ~/Dropbox/docs/shopping.md'
+alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
+alias jokes='mvim ~/Dropbox/docs/jokes.txt'
+
+####################
+# Project Utils
+####################
+alias sbox='mvim ~/.sbox'
+alias ss='cd ~/work/ss'
+
+####################
 # Git Aliases
+####################
 alias gfp='git push origin HEAD -f'
 alias gap='git add -N .;git add -p'
 alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
+alias gd='git diff'
+alias gco='git checkout'
+
+####################
+# Ruby/Rails
+####################
+alias killruby='killall -9 ruby'
+
+####################
+# System Utilities 
+####################
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# One of @janmoesen’s ProTip™s
+for method in get head post put delete; do
+	alias "$method"="lwp-request -m '$method'"
+done

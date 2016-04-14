@@ -28,6 +28,7 @@ Plugin 'ervandew/supertab'        " util for <tab> with snippets
 Plugin 'Valloric/YouCompleteMe'   " inline autocomplete
 Plugin 'SirVer/ultisnips'         " snippets
 Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/nerdcommenter'
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'
@@ -36,16 +37,19 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'kien/ctrlp.vim'           " search file system
 Plugin 'rking/ag.vim'             " integrate with silver searcher
 
+" Navigation
+Plugin 'scrooloose/nerdtree'
+
 " Languages
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'chrisbra/csv.vim'	
+Plugin 'chrisbra/csv.vim'
 Plugin 'isRuslan/vim-es6'
 
 " All of your Plugins must be added before the following line
-call vundle#end()           
-filetype plugin indent on    
+call vundle#end()
+filetype plugin indent on
 
 if need_to_install_plugins == 1
   echo "Installing plugins via Vundle. Please ignore warnings afterwards."
@@ -58,8 +62,9 @@ endif
 " ========================================================================
 " General Stuff
 " ========================================================================
-colorscheme jellybeans
+scriptencoding utf-8
 syntax on
+colorscheme jellybeans
 let mapleader = ','
 
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -87,18 +92,13 @@ set splitbelow                  " ... and bottom
 set wildmode=list:longest       " Bash-like tab completion
 set scrolloff=3                 " Scroll when the cursor is 3 lines from edge
 set mouse=a                     " Use mouse support in XTerm/iTerm.
-scriptencoding utf-8
+set autoread                    " No prompt for file changes outside Vim
+set laststatus=2                " Always show statusline
 
 
 " Write all writeable buffers when changing buffers or losing focus.
 set autowriteall                " Save when doing various buffer-switching things.
-autocmd BufLeave,FocusLost * silent! wall  " Save anytime we leave a buffer or MacVim loses focus.
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or MacVim loses focus.
 
 " ========================================================================
 " Plugin Settings
@@ -108,6 +108,10 @@ let g:vim_markdown_folding_disabled = 1
 
 " Map ctrlP 'f' for 'find'
 let g:ctrlp_map = '<leader>f'
+
+" Pad comment delimeters with spaces
+let NERDSpaceDelims = 1
+let NERDTreeShowHidden=1
 
 " =========
 " Searching
@@ -133,15 +137,84 @@ endif
 " ========================================================================
 " Key mappings
 " ========================================================================
-
 " Re-source my vimrc
-map <Leader>so :so %<cr>
+map <Leader>sv :so $MYVIMRC<cr>
+map <leader>ev :vsplit $MYVIMRC<cr>
 
 " Install Vundle Plugins
 map <Leader>pi :PluginInstall<cr>
+" File tree browser
+map \ :NERDTreeToggle<CR>
+
+" File tree browser showing current file - pipe (shift-backslash)
+map \| :NERDTreeFind<CR>
+
+" Easy access to the shell
+map <Leader><Leader> :!
+
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>""
 
 " Align by text by = or :
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
+
+"indent/unindent visual mode selection with tab/shift+tab
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+" Quicker window movement
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
+" Substitution
+nmap <Leader>s  :%s/
+vmap <Leader>s  :s/
+
+" Commenting
+map <Leader>/ <plug>NERDCommenterToggle
+
+" Tab Movement
+nnoremap <leader>j :tabnext<CR>
+nnoremap <leader>k :tabprevious<CR>
+
+" Auto indent the whole file
+nmap <leader>=  gg=G``
+
+" Fast scrolling
+nnoremap <C-e>  3<C-e>
+nnoremap <C-y>  3<C-y>
+
+" ========================================================================
+" Abbreviations
+" ========================================================================
+iabbrev @@ spencercdixon@gmail.com
+iabbrev adn and
+iabbrev que queue 
+
+" ========================================================================
+" Autocommands
+" ========================================================================
+augroup vimrcEx
+  autocmd!
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it for commit messages, when the position is invalid, or when
+  " inside an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  " Set syntax highlighting for specific file types
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+  " Enable spellchecking for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal spell
+
+  " Automatically wrap at 80 characters for Markdown
+  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+augroup END

@@ -1,18 +1,20 @@
 My dotfiles configuration.  Use at your own risk ;-)
 =======
 1.  [Installation](#installation)
-2.  [Directory Structure](#directory_structure)
-3.  [Leader Mappings](#leader_mappings)
+2.  [Directory Structure](#directory-structure)
+3.  [Leader Mappings](#leader-mappings)
 4.  [Plugins](#plugins)
 5.  [Abbreviations](#abbreviations)
 6.  [Functions](#functions)
 7.  [Aliases](#aliases)
+
 =======
 
 ## Installation
 ```
 git clone <url> .dotfiles
-rake install
+rake link    # symlink dotfiles into ~ directory
+rake aliases # list out aliases in command line
 ```
 
 ## Directory Structure

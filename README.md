@@ -59,7 +59,6 @@ cd .vim/bundle/YouCompleteMe
 |`,\\`|NERDTree|open file tree|
 |`,|`|NERDTree|go to current file in file tree|
 
-
 ## Abbreviations
 |Letters|Correction|
 |-----|------|
@@ -73,3 +72,10 @@ cd .vim/bundle/YouCompleteMe
 ## Aliases
 Running `aliases` in the terminal will open up all available aliases.  There are too many to write out in the readme.  The most important ones for configuring the dotfiles are below:
 
+```
+alias aliases='vim ~/.dotfiles/aliases'
+alias zconfig='vim ~/.dotfiles/zshrc'
+alias zfunc='vim ~/.dotfiles/functions'
+alias vconfig='vim ~/.dotfiles/vimrc'
+alias d='cd ~/.dotfiles'
+```

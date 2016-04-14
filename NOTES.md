@@ -20,6 +20,9 @@ brew install tree
 ruby-install ruby 2.1.5
 ruby-install ruby 2.2.0
 ruby-install ruby 2.3.0
+nvm install 5.1.0
+nvm install 5.3.0
+nvm install 5.10.0
 
 # Useful Links
 [relative line numbers](http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/)
@@ -27,9 +30,9 @@ ruby-install ruby 2.3.0
 [look into settin gup ctags](https://github.com/LaunchAcademy/vim-config/blob/4e54606e6e201612a7c2152eb190538166a8afc2/init/keybindings.vim#L80)
 
 # Design Ideas
-* separate plugin initializers into their own folder (vim/init)
-* have an alias that displays all aliases
-* store aliases in separate files inside an alias folder
+* separate plugin initializers into their own folder (vim/init) 
+* have an alias that displays all aliases that are available with a description
+* store aliases in separate files inside an alias folder if they get too big
 * potentially store vundle/bundles in a vimrc.bundles and source it immediately in my main vimrc
 
 Alias Types

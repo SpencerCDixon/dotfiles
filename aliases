@@ -31,11 +31,19 @@ alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
 alias gd='git diff'
 alias gco='git checkout'
+# pretty logs
+alias gl='git lola'
 
 ####################
 # Ruby/Rails
 ####################
 alias killruby='killall -9 ruby'
+
+####################
+# Node/Javascript
+####################
+alias ns='npm start'
+alias nt='npm test'
 
 ####################
 # System Utilities 

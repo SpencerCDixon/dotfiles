@@ -49,6 +49,19 @@ desc "install all brews and cask required for vim config"
 task :brew do
 end
 
+desc "displays all command line aliases"
+task :aliases do
+  File.open(File.join(ENV['HOME'], '.dotfiles/aliases'), 'r') do |file|
+    file.each_line do |line|
+      puts line 
+    end
+  end
+end
+
+#####################
+# Utility Functions #
+#####################
+
 def replace_file(file)
   system %Q{rm "$HOME/.#{file}"}
   link_file(file)

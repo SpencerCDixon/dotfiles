@@ -8,12 +8,12 @@ end
 
 desc "install dot files into home directory"
 task :link do
-  file_black_list = %w{Rakefile README.md NOTES.md aliases vim UltiSnips}
+        file_black_list = %w{Rakefile README.md NOTES.md aliases vim UltiSnips id_rsa.pub}
 
   replace_all = false
   Dir['*'].each do |file|
     next if file_black_list.include?(file)
-    
+
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
       if replace_all
         replace_file(file)
@@ -36,12 +36,9 @@ task :link do
     end
   end 
 
-  # Eventually link publish ssh key so all computers use the same,
-  # for now just going to ignore this.
-  #
-  # puts "Linking public ssh key"
-  # system %Q{rm "$HOME/.ssh/id_dsa.pub"}
-  # system %Q{ln -s "$PWD/id_dsa.pub" "$HOME/.ssh/id_dsa.pub"}
+  puts "Linking public ssh key"
+  system %Q{rm "$HOME/.ssh/id_rsa.pub"}
+  system %Q{ln -s "$PWD/id_rsa.pub" "$HOME/.ssh/id_rsa.pub"}
 end
 
 # TODO

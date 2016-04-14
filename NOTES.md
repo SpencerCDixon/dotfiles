@@ -15,6 +15,9 @@ brew install chruby
 brew install ruby-install
 brew install the_silver_searcher
 brew install tree
+brew install mysql
+brew install v8-315
+brew link --force v8-315
 
 # Install common rubies
 ruby-install ruby 2.1.5

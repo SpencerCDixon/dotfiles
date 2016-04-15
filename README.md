@@ -7,6 +7,7 @@ My dotfiles configuration.  Use at your own risk ;-)
 5.  [Abbreviations](#abbreviations)
 6.  [Functions](#functions)
 7.  [Aliases](#aliases)
+8.  [Notes](./NOTES.md)
 
 =======
 

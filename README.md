@@ -47,7 +47,7 @@ cd .vim/bundle/YouCompleteMe
 ,a:   " align colons
 ```
 
-## Leader Mappings
+## Key Mappings
 |Combo|Plugin|Description|
 |-----|------|-----------|
 |`,,`|vim|easy access to the shell `:!`|
@@ -56,10 +56,13 @@ cd .vim/bundle/YouCompleteMe
 |`,=`|vim|auto format an entire file|
 |`,j`|vim|go to next tab|
 |`,k`|vim|go to previous tab|
+|`,as`|vim|alphabetically sort|
 |`,pi`|Vundle|install all plugins|
 |`,f`|ctrlP|search file system|
 |`,\\`|NERDTree|open file tree|
 |`,|`|NERDTree|go to current file in file tree|
+|`  ` (space space)|vim|go to last file|
+|` ` (space )|vim|clear search highlight|
 
 ## Abbreviations
 |Letters|Correction|

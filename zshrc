@@ -42,3 +42,7 @@ source /usr/local/share/chruby/auto.sh
 # import all zsh related files
 source /Users/sdixon/.dotfiles/aliases
 source /Users/sdixon/.dotfiles/functions
+
+# set up nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm

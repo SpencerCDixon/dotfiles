@@ -1,11 +1,12 @@
 ####################
 # Configuration 
 ####################
-alias aliases='vim ~/.dotfiles/aliases'
-alias zconfig='vim ~/.dotfiles/zshrc'
-alias zfunc='vim ~/.dotfiles/functions'
-alias vconfig='vim ~/.dotfiles/vimrc'
+alias aliases='v ~/.dotfiles/aliases'
+alias zconfig='v ~/.dotfiles/zshrc'
+alias zfunc='v ~/.dotfiles/functions'
+alias vconfig='v ~/.dotfiles/vimrc'
 alias d='cd ~/.dotfiles'
+alias reload='source ~/.zshrc'
 
 ####################
 # Personal 
@@ -14,7 +15,7 @@ alias drop='cd ~/Dropbox'
 alias todos='mvim ~/Dropbox/docs/todos.md'
 alias shop='mvim ~/Dropbox/docs/shopping.md'
 alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
-alias jokes='mvim ~/Dropbox/docs/jokes.txt'
+alias jokes='mvim ~/Dropbox/docs/jokes.md'
 
 ####################
 # Project Utils
@@ -46,6 +47,11 @@ alias ns='npm start'
 alias nt='npm test'
 
 ####################
+# Databases
+####################
+alias sql='mysql.server start'
+
+####################
 # System Utilities 
 ####################
 
@@ -63,5 +69,5 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # One of @janmoesen’s ProTip™s
 for method in get head post put delete; do
-	alias "$method"="lwp-request -m '$method'"
+        alias "$method"="lwp-request -m '$method'"
 done

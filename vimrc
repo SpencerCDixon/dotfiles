@@ -101,6 +101,7 @@ set scrolloff=3                " scroll when the cursor is 3 lines from edge
 set shiftwidth=2
 set showcmd                    " display incomplete commands
 set showmatch                  " show matching brackets
+set shiftround                 " use multiple of shiftwidth when indenting with '<' and '>'
 set splitbelow                 " add new windows towards the bottom
 set splitright                 " add new windows towards the right
 set swapfile                   " keep swapfiles
@@ -124,6 +125,7 @@ let g:ctrlp_map = '<leader>f'
 
 " Pad comment delimeters with spaces
 let NERDSpaceDelims = 1
+" Show hidden files in NERDTree
 let NERDTreeShowHidden=1
 
 " Use consistent theme for airline
@@ -135,7 +137,7 @@ let g:jsx_ext_required=0
 " Turn on syntax highlighting for ruby operators (==, ||, &&, etc)
 let ruby_operators=1
 
-" recommended by gitgutter
+" Recommended by gitgutter
 set updatetime=250
 
 " ========================================================================
@@ -173,9 +175,9 @@ map <leader>eb :vsplit ~/Dropbox/docs/bug-journal.md<cr>
 
 " Install Vundle Plugins
 map <Leader>pi :PluginInstall<cr>
+
 " File tree browser
 map \ :NERDTreeToggle<cr>
-
 " File tree browser showing current file - pipe (shift-backslash)
 map \| :NERDTreeFind<cr>
 
@@ -230,6 +232,8 @@ iabbrev @@ spencercdixon@gmail.com
 iabbrev adn and
 iabbrev que queue
 iabbrev teh the
+ab req request
+ab res response
 
 " ========================================================================
 " Autocommands
@@ -253,3 +257,6 @@ augroup vimrcEx
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 augroup END
+
+" conert md to markdown for syntax highlighting
+au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdown

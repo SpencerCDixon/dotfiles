@@ -73,50 +73,41 @@ endif
 " ========================================================================
 " General Stuff
 " ========================================================================
-let mapleader = ','
 syntax on
+let mapleader = ','
 scriptencoding utf-8
 
 " Theme
 syntax enable
-set t_Co=256
 colorscheme OceanicNext
+set autoread                   " no prompt for file changes outside Vim
 set background=dark
-
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=500                " keep 500 lines of command line history
-set ruler                      " show cursor position at all times
-
 set backupdir=~/.tmp
 set directory=~/.tmp           " don't clutter up dir with swp and tmp files
-set incsearch                  " do incremental searching
-set laststatus=2               " Always display the status line
-set showcmd                    " display incomplete commands
-set swapfile                   " Keep swapfiles
-set relativenumber
-
-set expandtab                  " Use soft tabs
-set tabstop=2                  " Tab settings
-set shiftwidth=2
-
-                               " Line wrap at 80 characters for Ruby Convention
-set tw=80
-
-set list                       " Show whitespace
-set listchars=trail:·
-
-set autoread                   " No prompt for file changes outside Vim
-set hidden                     " Allow hidden, unsaved buffers
-set laststatus=2               " Always show statusline
-set mouse=a                    " Use mouse support in XTerm/iTerm.
-set scrolloff=3                " Scroll when the cursor is 3 lines from edge
-set showmatch                  " Show matching brackets
-set splitbelow                 " ... and bottom
-set splitright                 " Add new windows towards the right
-set wildmode=list:longest      " Bash-like tab completion
-
+set expandtab                  " use soft tabs
+set hidden                     " allow hidden, unsaved buffers
+set history=500                " keep 500 lines of command line history
 set hlsearch                   " highlight all search results
-
+set incsearch                  " do incremental searching
+set laststatus=2               " always display the status line
+set laststatus=2               " always show statusline
+set list                       " show whitespace
+set listchars=trail:·          " whitespace character
+set mouse=a                    " use mouse support in XTerm/iTerm.
+set relativenumber
+set ruler                      " show cursor position at all times
+set scrolloff=3                " scroll when the cursor is 3 lines from edge
+set shiftwidth=2
+set showcmd                    " display incomplete commands
+set showmatch                  " show matching brackets
+set splitbelow                 " add new windows towards the bottom
+set splitright                 " add new windows towards the right
+set swapfile                   " keep swapfiles
+set t_Co=256                   " terminal colors
+set tabstop=2                  " tab settings
+set textwidth=80               " line wrap at 80 characters for Ruby Convention
+set wildmode=list:longest      " bash-like tab completion
 
 " Write all writeable buffers when changing buffers or losing focus.
 set autowriteall                " Save when doing various buffer-switching things.

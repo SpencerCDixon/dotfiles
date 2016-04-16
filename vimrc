@@ -228,12 +228,24 @@ nnoremap <C-y>  3<C-y>
 " ========================================================================
 " Abbreviations
 " ========================================================================
-iabbrev @@ spencercdixon@gmail.com
-iabbrev adn and
-iabbrev que queue
-iabbrev teh the
-ab req request
-ab res response
+iab @@ spencercdixon@gmail.com
+iab adn and
+iab que queue
+iab teh the
+iab req request
+iab res response
+iab i I
+iab iv I've
+iab il I'll
+iab dont don't
+iab monday Monday
+iab tuesday Tuesday
+iab wednesday Wednesday
+iab thursday Thursday
+iab friday Friday
+iab saturday Saturday
+iab sunday Sunday
+iab cof CoffeeScript
 
 " ========================================================================
 " Autocommands

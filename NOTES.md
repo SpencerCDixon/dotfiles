@@ -60,3 +60,10 @@ alias ='mvim ~/Dropbox/docs/bug-journal.md'
 # Leader Mapping Ideas
 ~space space - go back to last file~
 ~space - clear highlights (first need to figure out how to preserve highlights from searching)~
+
+
+eslint
+babel-eslint
+eslint-config-airbnb
+eslint@2.7
+npm i eslint-plugin-jsx-a11y@^0.6.2 -g

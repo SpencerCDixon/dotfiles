@@ -140,6 +140,9 @@ let ruby_operators=1
 " Recommended by gitgutter
 set updatetime=250
 
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = '/Users/sdixon/.nvm/versions/node/v5.3.0/bin/eslint'
+
 " ========================================================================
 " Searching
 " ========================================================================

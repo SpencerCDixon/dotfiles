@@ -43,8 +43,6 @@ cd .vim/bundle/YouCompleteMe
 **Tabular** - helper for aligning text. [Video explaining use](http://vimcasts.org/episodes/aligning-text-with-tabular-vim/)
 ```
 :Tab /= (regex)
-,a=   " align equal signs
-,a:   " align colons
 ```
 
 **Surround** - text editing tool to change content of surrounding characters
@@ -69,6 +67,9 @@ cd .vim/bundle/YouCompleteMe
 |`,|`|NERDTree|go to current file in file tree|
 |`  ` (space space)|vim|go to last file|
 |` `(space )|vim|clear search highlight|
+|`,a=`|vim|aligns equal signs|
+|`,a:`|vim|aligns colons|
+|`,af`|vim|aligns 'from's|
 
 
 ## Abbreviations

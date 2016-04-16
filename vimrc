@@ -196,6 +196,7 @@ nmap <Leader>a= :Tabularize /=<cr>
 vmap <Leader>a= :Tabularize /=<cr>
 nmap <Leader>a: :Tabularize /:\zs<cr>
 vmap <Leader>a: :Tabularize /:\zs<cr>
+vmap <Leader>af :Tabularize /from<cr>
 
 "indent/unindent visual mode selection with tab/shift+tab
 vmap <tab> >gv

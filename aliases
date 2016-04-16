@@ -39,6 +39,12 @@ alias gia='git commit --amend --no-edit'
 alias gcm='git ci -m'
 
 ####################
+# Global Aliases
+####################
+# Global aliases can appear anywhere in the terminal string
+alias -g G='| grep' # now you can do: ls foo G something
+
+####################
 # Ruby/Rails
 ####################
 alias killruby='killall -9 ruby'

@@ -16,6 +16,7 @@ CASKES = [
   'evernote',
   'spotify',
   'dropbox',
+  'alfred',
 ]
 
 RUBIES = [

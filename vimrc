@@ -27,24 +27,26 @@ Plugin 'SirVer/ultisnips'         " snippets
 Plugin 'Valloric/YouCompleteMe'   " inline autocomplete
 Plugin 'ervandew/supertab'        " util for <tab> with snippets
 Plugin 'godlygeek/tabular'        " text aligning
-Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'honza/vim-snippets'       " faster code generation
+Plugin 'scrooloose/nerdcommenter' " easy code commenting
 Plugin 'tpope/vim-endwise'        " autocomplete 'end's
-Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'   " git changes in gutter
+Plugin 'tpope/vim-surround'       " change surrounding characters quickly
+Plugin 'scrooloose/syntastic'     " automatic linting inside vim
 
 " Themes
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'mhartington/oceanic-next'
+Plugin 'nanotech/jellybeans.vim'  " yummy
+Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
 
 " Airline
-Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
 
 " Searching
 Plugin 'kien/ctrlp.vim'           " search file system
 Plugin 'rking/ag.vim'             " integrate with silver searcher
 
 " Navigation
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'      " file system bar
 
 " Languages
 Plugin 'vim-ruby/vim-ruby'
@@ -54,6 +56,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'othree/yajs.vim'          " better js highlighting
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
+Plugin 'vim-perl/vim-perl'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -170,7 +173,12 @@ endif
 " ========================================================================
 " Re-source my vimrc
 map <Leader>sv :so $MYVIMRC<cr>
+
+" Edit <useful files>
 map <leader>ev :vsplit $MYVIMRC<cr>
+map <leader>ea :vsplit ~/.dotfiles/aliases<cr>
+map <leader>et :vsplit ~/Dropbox/docs/todos.md<cr>
+map <leader>eb :vsplit ~/Dropbox/docs/bug-journal.md<cr>
 
 " Install Vundle Plugins
 map <Leader>pi :PluginInstall<cr>

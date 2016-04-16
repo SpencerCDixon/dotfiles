@@ -9,8 +9,6 @@ My dotfiles configuration.  Use at your own risk ;-)
 7.  [Aliases](#aliases)
 8.  [Notes](./NOTES.md)
 
-=======
-
 ## Installation
 ```
 git clone <url> .dotfiles
@@ -48,22 +46,29 @@ cd .vim/bundle/YouCompleteMe
 ,a:   " align colons
 ```
 
+**Surround** - text editing tool to change content of surrounding characters
+(i.e "hello" to 'hello', etc)
+
 ## Key Mappings
 |Combo|Plugin|Description|
 |-----|------|-----------|
 |`,,`|vim|easy access to the shell `:!`|
 |`,ev`|vim|edit vimrc file in split window|
+|`,ea`|vim|edit aliases file in split window|
+|`,et`|vim|edit todos file in split window|
+|`,eb`|vim|edit bug journal file in split window|
 |`,sv`|vim|source vimrc file|
 |`,=`|vim|auto format an entire file|
 |`,j`|vim|go to next tab|
 |`,k`|vim|go to previous tab|
-|`,as`|vim|alphabetically sort|
+|`,as`|vim|alphabetically sort (in visual or normal)|
 |`,pi`|Vundle|install all plugins|
 |`,f`|ctrlP|search file system|
 |`,\\`|NERDTree|open file tree|
 |`,|`|NERDTree|go to current file in file tree|
 |`  ` (space space)|vim|go to last file|
-|` ` (space )|vim|clear search highlight|
+|` `(space )|vim|clear search highlight|
+
 
 ## Abbreviations
 |Letters|Correction|

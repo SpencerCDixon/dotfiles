@@ -56,5 +56,5 @@ alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
 alias ='mvim ~/Dropbox/docs/bug-journal.md'  
 
 # Leader Mapping Ideas
-space space - go back to last file
-space - clear highlights (first need to figure out how to preserve highlights from searching)
+~space space - go back to last file~
+~space - clear highlights (first need to figure out how to preserve highlights from searching)~

@@ -32,9 +32,10 @@ alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
 alias gd='git diff'
 alias gco='git checkout'
-# pretty logs
 alias gl='git lola'
 alias gpoh='git push origin head'
+alias gag='git add . && git commit --amend --no-edit && git push -f'
+alias gia='git commit --amend --no-edit'
 
 ####################
 # Ruby/Rails
@@ -72,3 +73,8 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 for method in get head post put delete; do
         alias "$method"="lwp-request -m '$method'"
 done
+
+####################
+# Typo Convenience
+####################
+alias mastre='master'

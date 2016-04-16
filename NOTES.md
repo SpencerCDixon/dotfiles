@@ -34,11 +34,12 @@ nvm install 5.10.0
 * [could be cool plugin](https://github.com/easymotion/vim-easymotion)  
 
 # Design Ideas
-* separate plugin initializers into their own folder (vim/init) 
-* have an alias that displays all aliases that are available with a description
-* store aliases in separate files inside an alias folder if they get too big
-* potentially store vundle/bundles in a vimrc.bundles and source it immediately in my main vimrc
-* echo a random alias everytime I open vim or terminal until I have them all memorized
+* separate plugin initializers into their own folder (vim/init)  
+* have an alias that displays all aliases that are available with a description  
+* store aliases in separate files inside an alias folder if they get too big  
+* potentially store vundle/bundles in a vimrc.bundles and source it immediately in my main vimrc  
+* echo a random alias every time I open vim or terminal until I have them all memorized  
+
 
 Alias Types
 * file system
@@ -49,6 +50,7 @@ Alias Types
 # Todo
 * snippet integration
 * make files/folders in dropbox for aliases:
+* figure out how to install zshrc and rubies in command line
 
 alias todos='mvim ~/Dropbox/docs/todos.md'  
 alias shop='mvim ~/Dropbox/docs/shopping.md'  

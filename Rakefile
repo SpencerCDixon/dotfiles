@@ -9,7 +9,7 @@ PACKAGES = [
   'v8-315',
 ]
 
-CASKS = [
+CASKES = [
   'shiftit',
   'slack',
   'macvim',
@@ -31,9 +31,10 @@ NODES = [
 ]
 
 desc "bootstrap a fresh computer with my preferred settings"
+# TODO - create script that installs all brews
 task :bootstrap do
-  # TODO - create script that installs all brews
   Rake::Task['link'].invoke
+  Rake::Task['brew'].invoke
 end
 
 desc "install dot files into home directory"
@@ -81,15 +82,15 @@ task :brew do
   PACKAGES.each { |package| install_package(package) }
 
   puts
-  puts "Installing casks..." 
-  CASKS.each { |cask| install_cask(cask) }
+  puts "Installing caskes..." 
+  CASKES.each { |cask| install_cask(cask) }
 end
 
 desc "displays all command line aliases"
 task :aliases do
   File.open(File.join(ENV['HOME'], '.dotfiles/aliases'), 'r') do |file|
     file.each_line do |line|
-      puts line 
+      puts line
     end
   end
 end

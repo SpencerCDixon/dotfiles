@@ -13,6 +13,7 @@ My dotfiles configuration.  Use at your own risk ;-)
 ```
 git clone <url> .dotfiles
 rake link    # symlink dotfiles into ~ directory
+rake brew    # install brew packages and caskes
 rake aliases # list out aliases in command line
 ```
 

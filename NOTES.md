@@ -67,3 +67,31 @@ babel-eslint
 eslint-config-airbnb
 eslint@2.7
 npm i eslint-plugin-jsx-a11y@^0.6.2 -g
+
+# Commands To Learn
+
+- vit - visual highlight text object
+- daw - delete a word (repeatable with .)
+- ctrl + a - increment number on cursor or next found num
+- ctrl + x - decrement number on cursor or next found num
+- ctrl + o - in insert mode lets us run normal command then re-enter insert.  'zz' is useful example to get better surrounding
+
+Normal Mode
+- <C-w>s - quicker split window
+- <C-w>v - quicker vertical split
+- <C-w>T - move current window into a new tab
+
+Command Mode
+- <C-p> - cycle through history of commands up
+- <C-n> - cycle through history of commands down
+
+Visual Mode
+- <C-r>= in insert mode for calculations when in insert mode. 
+- o will redefine the anchor of the visual selection
+
+
+
+
+Settings
+- set nrformats=    - treat all numbers as base 10
+

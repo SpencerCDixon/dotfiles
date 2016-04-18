@@ -31,9 +31,10 @@ Plugin 'godlygeek/tabular'        " text aligning
 Plugin 'honza/vim-snippets'       " basic snippets to use with UltiSnips
 Plugin 'scrooloose/nerdcommenter' " easy code commenting
 Plugin 'scrooloose/syntastic'     " automatic linting inside vim
+Plugin 'skammer/vim-css-color'    " color hex colors in terminal
 Plugin 'tpope/vim-endwise'        " autocomplete 'end's
 Plugin 'tpope/vim-surround'       " change surrounding characters quickly
-Plugin 'skammer/vim-css-color'    " color hex colors in terminal
+Plugin 'evansalter/vim-checklist' " sweet markdown checklists
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -156,6 +157,9 @@ let g:UltiSnipsListSnippets="<c-s-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsEditSplit="vertical"
 
+" Vim Checklist
+let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']
+
 " ========================================================================
 " Searching
 " ========================================================================
@@ -191,6 +195,10 @@ map <leader>eb :vsplit ~/Dropbox/docs/bug-journal.md<cr>
 map <leader>ep :vsplit ~/Dropbox/docs/athena.md<cr>
 map <leader>ew :vsplit ~/Dropbox/docs/words.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
+
+" Checklists
+nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
+vnoremap <leader>ct :ChecklistToggleCheckbox<cr>
 
 " Install Vundle Plugins
 map <Leader>pi :PluginInstall<cr>

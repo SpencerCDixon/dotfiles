@@ -16,11 +16,13 @@ alias todos='mvim ~/Dropbox/docs/todos.md'
 alias shop='mvim ~/Dropbox/docs/shopping.md'
 alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
 alias jokes='mvim ~/Dropbox/docs/jokes.md'
+alias athena='v ~/Dropbox/docs/athena.md'
+alias words='v ~/Dropbox/docs/words.md'
 
 ####################
 # Project Utils
 ####################
-alias sbox='mvim ~/.sbox'
+alias sbox='cd ~/.sbox'
 alias ss='cd ~/work/ss'
 
 ####################

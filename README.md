@@ -56,6 +56,7 @@ cd .vim/bundle/YouCompleteMe
 |`,ea`|vim|edit aliases file in split window|
 |`,et`|vim|edit todos file in split window|
 |`,eb`|vim|edit bug journal file in split window|
+|`,es`|UltiSnips|edit snippets for current file type|
 |`,sv`|vim|source vimrc file|
 |`,=`|vim|auto format an entire file|
 |`,j`|vim|go to next tab|
@@ -70,6 +71,9 @@ cd .vim/bundle/YouCompleteMe
 |`,a=`|vim|aligns equal signs|
 |`,a:`|vim|aligns colons|
 |`,af`|vim|aligns 'from's|
+|`<C-l>`|UltiSnips|expand snippet|
+|`<C-l>`|UltiSnips|go to next snippet section once expanded|
+
 
 
 ## Abbreviations

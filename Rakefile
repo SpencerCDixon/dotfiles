@@ -34,13 +34,16 @@ NODES = [
 desc "bootstrap a fresh computer with my preferred settings"
 # TODO - create script that installs all brews
 task :bootstrap do
+  if confirm('Need to install vundle')
+    system('git clone https://github.com/VundleVim/Vundle.vim.git ~/.dotfiles/bundle/vundle')
+  end
   Rake::Task['link'].invoke
   Rake::Task['brew'].invoke
 end
 
 desc "install dot files into home directory"
 task :link do
-        file_black_list = %w{Rakefile README.md NOTES.md aliases vim UltiSnips id_rsa.pub}
+  file_black_list = %w{Rakefile README.md NOTES.md aliases vim id_rsa.pub}
 
   replace_all = false
   Dir['*'].each do |file|
@@ -93,6 +96,12 @@ task :aliases do
     file.each_line do |line|
       puts line
     end
+  end
+end
+
+task :example do
+  if confirm('did this work?')
+    puts 'worked'
   end
 end
 

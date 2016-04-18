@@ -25,14 +25,15 @@ Plugin 'gmarik/Vundle.vim'        " vim package manager
 " General Editing
 Plugin 'SirVer/ultisnips'         " snippets
 Plugin 'Valloric/YouCompleteMe'   " inline autocomplete
+Plugin 'airblade/vim-gitgutter'   " git changes in gutter
 Plugin 'ervandew/supertab'        " util for <tab> with snippets
 Plugin 'godlygeek/tabular'        " text aligning
-Plugin 'honza/vim-snippets'       " faster code generation
+Plugin 'honza/vim-snippets'       " basic snippets to use with UltiSnips
 Plugin 'scrooloose/nerdcommenter' " easy code commenting
-Plugin 'tpope/vim-endwise'        " autocomplete 'end's
-Plugin 'airblade/vim-gitgutter'   " git changes in gutter
-Plugin 'tpope/vim-surround'       " change surrounding characters quickly
 Plugin 'scrooloose/syntastic'     " automatic linting inside vim
+Plugin 'tpope/vim-endwise'        " autocomplete 'end's
+Plugin 'tpope/vim-surround'       " change surrounding characters quickly
+Plugin 'skammer/vim-css-color'    " color hex colors in terminal
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -87,7 +88,7 @@ set backupdir=~/.tmp
 set directory=~/.tmp           " don't clutter up dir with swp and tmp files
 set expandtab                  " use soft tabs
 set hidden                     " allow hidden, unsaved buffers
-set history=500                " keep 500 lines of command line history
+set history=750                " keep 750 lines of command line history
 set hlsearch                   " highlight all search results
 set incsearch                  " do incremental searching
 set laststatus=2               " always display the status line
@@ -108,7 +109,10 @@ set swapfile                   " keep swapfiles
 set t_Co=256                   " terminal colors
 set tabstop=2                  " tab settings
 set textwidth=80               " line wrap at 80 characters for Ruby Convention
-set wildmode=list:longest      " bash-like tab completion
+" set wildmode=list:longest      " bash-like tab completion
+set wildmenu                   " zsh like tab completion
+set wildmode=full              " ^
+set nrformats=                 " treat all numbers as base 10
 
 " Write all writeable buffers when changing buffers or losing focus.
 set autowriteall                " Save when doing various buffer-switching things.
@@ -143,6 +147,15 @@ set updatetime=250
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = '/Users/sdixon/.nvm/versions/node/v5.3.0/bin/eslint'
 
+"" YouCompleteMe
+let g:ycm_key_list_previous_completion=['<Up>']
+
+"" Ultisnips
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsEditSplit="vertical"
+
 " ========================================================================
 " Searching
 " ========================================================================
@@ -175,6 +188,9 @@ map <leader>ev :vsplit $MYVIMRC<cr>
 map <leader>ea :vsplit ~/.dotfiles/aliases<cr>
 map <leader>et :vsplit ~/Dropbox/docs/todos.md<cr>
 map <leader>eb :vsplit ~/Dropbox/docs/bug-journal.md<cr>
+map <leader>ep :vsplit ~/Dropbox/docs/athena.md<cr>
+map <leader>ew :vsplit ~/Dropbox/docs/words.md<cr>
+map <leader>es :UltiSnipsEdit<cr>
 
 " Install Vundle Plugins
 map <Leader>pi :PluginInstall<cr>
@@ -229,6 +245,10 @@ nmap <leader>=  gg=G``
 nnoremap <C-e>  3<C-e>
 nnoremap <C-y>  3<C-y>
 
+" Better command history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " ========================================================================
 " Abbreviations
 " ========================================================================
@@ -249,7 +269,6 @@ iab thursday Thursday
 iab friday Friday
 iab saturday Saturday
 iab sunday Sunday
-iab cof CoffeeScript
 
 " ========================================================================
 " Autocommands

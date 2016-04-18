@@ -61,7 +61,6 @@ alias ='mvim ~/Dropbox/docs/bug-journal.md'
 ~space space - go back to last file~
 ~space - clear highlights (first need to figure out how to preserve highlights from searching)~
 
-
 eslint
 babel-eslint
 eslint-config-airbnb
@@ -90,8 +89,5 @@ Visual Mode
 - o will redefine the anchor of the visual selection
 
 
-
-
 Settings
 - set nrformats=    - treat all numbers as base 10
-

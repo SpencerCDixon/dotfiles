@@ -119,3 +119,16 @@ def link_file(file)
   puts "linking ~/.#{file}"
   system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
 end
+
+def confirm(question)
+  puts "#{question}? [yn]"
+  response = $stdin.gets.chomp
+  if response =~ /y/i
+    true
+  elsif response =~ /n/i
+    false
+  else
+    puts "Please choose y/n"
+    confirm(question)
+  end
+end

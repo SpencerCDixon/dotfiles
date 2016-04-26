@@ -24,6 +24,7 @@ alias words='v ~/Dropbox/docs/words.md'
 ####################
 alias sbox='cd ~/.sbox'
 alias ss='cd ~/work/ss'
+alias work='cd ~/work'
 
 ####################
 # Git Aliases
@@ -87,3 +88,16 @@ done
 # Typo Convenience
 ####################
 alias mastre='master'
+
+####################
+# Typo Convenience
+####################
+alias dev='ssh sdixon@dev109.athenahealth.com'
+
+####################
+# Smart Scheduling
+####################
+alias prodc='ssh atlas -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c production\""'
+alias stagec='ssh staging -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c staging\""'
+alias prevc='ssh preview -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c production\""'
+alias evalc='ssh eval -t "sudo su - deploy -c \"cd /srv/www/evaluation/current && bundle exec rails c production\""'

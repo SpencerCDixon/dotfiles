@@ -35,6 +35,7 @@ Plugin 'skammer/vim-css-color'    " color hex colors in terminal
 Plugin 'tpope/vim-endwise'        " autocomplete 'end's
 Plugin 'tpope/vim-surround'       " change surrounding characters quickly
 Plugin 'evansalter/vim-checklist' " sweet markdown checklists
+Plugin 'gcmt/taboo.vim'           " rename tabs for easier code navigation
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -193,8 +194,12 @@ map <leader>ea :vsplit ~/.dotfiles/aliases<cr>
 map <leader>et :vsplit ~/Dropbox/docs/todos.md<cr>
 map <leader>eb :vsplit ~/Dropbox/docs/bug-journal.md<cr>
 map <leader>ep :vsplit ~/Dropbox/docs/athena.md<cr>
-map <leader>ew :vsplit ~/Dropbox/docs/words.md<cr>
+map <leader>ew :vsplit ~/Dropbox/docs/writing.md<cr>
+map <leader>eb :vsplit ~/Dropbox/docs/blog-posts.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
+
+" Rename vim tabs quickly
+map <leader>tr :TabooRename
 
 " Checklists
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>

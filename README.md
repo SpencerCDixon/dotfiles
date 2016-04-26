@@ -48,6 +48,8 @@ cd .vim/bundle/YouCompleteMe
 **Surround** - text editing tool to change content of surrounding characters
 (i.e "hello" to 'hello', etc)
 
+**Taboo** - rename tabs for easier code organization
+
 ## Key Mappings
 |Combo|Plugin|Description|
 |-----|------|-----------|
@@ -73,6 +75,7 @@ cd .vim/bundle/YouCompleteMe
 |`,af`|vim|aligns 'from's|
 |`<C-l>`|UltiSnips|expand snippet|
 |`<C-l>`|UltiSnips|go to next snippet section once expanded|
+|`,tr`|Taboo|Rename current tab|
 
 
 

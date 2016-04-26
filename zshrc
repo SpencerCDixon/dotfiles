@@ -3,14 +3,11 @@ export ZSH=/Users/sdixon/.oh-my-zsh
 
 ZSH_THEME="sorin"
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails perl)
+plugins=(git osx ruby rails perl chruby docker node)
 
 # User configuration
 

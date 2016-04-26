@@ -88,6 +88,12 @@ Visual Mode
 - <C-r>= in insert mode for calculations when in insert mode. 
 - o will redefine the anchor of the visual selection
 
-
 Settings
 - set nrformats=    - treat all numbers as base 10
+
+## Zsh related plugins
+`node-docs` - brings up the api docs for the current version of node being used
+`man-preview` - open up man docs in preview
+`rc` - rails console
+`rg` - rails generate
+`rs` - rails server

@@ -1,5 +1,218 @@
+########################
+# General Javascript
+########################
+snippet c
+const ${1} = ${0};
+endsnippet
+
+snippet log
+console.log(${0});
+endsnippet
+
+snippet imp
+	import ${1} from ${2};
+endsnippet
+
+snippet impc
+	import { ${1} } from ${2};
+endsnippet
+
+########################
+# React Snippets
+########################
+
+snippet cls
+import React, { Component, PropTypes } from 'react';
+
+const propTypes = {
+};
+
+class ${1:ClassName} extends Component {
+	render() {
+		return (
+			${0}
+		)
+	}
+}
+
+$1.propTypes = propTypes;
+export default $1;
+endsnippet
+
+snippet req
+	import React from 'react';
+endsnippet
+
+snippet cdm 
+componentDidMount() {
+	${0}
+}
+endsnippet
+
+snippet cwrp 
+componentWillReceiveProps(nextProps) {
+	${0}
+}
+endsnippet
+
+snippet pts
+PropTypes.string,
+endsnippet
+
+snippet ptn
+PropTypes.number,
+endsnippet
+
+snippet pta
+PropTypes.array,
+endsnippet
+
+snippet pto
+PropTypes.object,
+endsnippet
+
+snippet pte
+PropTypes.element,
+endsnippet
+
+snippet ptb
+PropTypes.bool,
+endsnippet
+
+snippet ptf
+PropTypes.func,
+endsnippet
+
+snippet ptsr
+PropTypes.string.isRequired,
+endsnippet
+
+snippet ptnr
+PropTypes.number.isRequired,
+endsnippet
+
+snippet ptar
+PropTypes.array.isRequired,
+endsnippet
+
+snippet ptor
+PropTypes.object.isRequired,
+endsnippet
+
+snippet pter
+PropTypes.element.isRequired,
+endsnippet
+
+snippet ptbr
+PropTypes.bool.isRequired,
+endsnippet
+
+snippet ptfr
+PropTypes.func.isRequired,
+endsnippet
+
+snippet h1
+<h1>${0}</h1>
+endsnippet
+
+snippet h2
+<h2>${0}</h2>
+endsnippet
+
+snippet h3
+<h3>${0}</h3>
+endsnippet
+
+snippet h4
+<h4>${0}</h4>
+endsnippet
+
+snippet h5
+<h5>${0}</h5>
+endsnippet
+
+snippet h6
+<h6>${0}</h6>
+endsnippet
+
+snippet div
+<div>${0}</div>
+endsnippet
+
+snippet pty
+const propTypes = {
+	${1}
+};
+endsnippet
+
+########################
+# Redux Related Snippets
+########################
+snippet mstp
+function mapStateToProps(state) {
+	return {
+		${0}
+	}
+}
+endsnippet
+
+snippet mdtp
+function mapDispatchToProps(dispatch) {
+	return {
+		${0}
+	}
+}
+endsnippet
+
+snippet act
+export const ${1:ActionName} = '$1';
+endsnippet
+
+snippet rmod
+// Constants
+${0}
+export const constants = {
+
+};
+
+// Action Creators
+
+export const actions = {
+
+};
+
+// Reducer
+export const defaultState = {
+
+};
+
+export default function(state = defaultState, action) {
+	switch (action.type) {
+	default:
+		return state;
+	}
+}
+endsnippet
+
+########################
+# Testing Snippets
+########################
 snippet it
 it("${1}", function() {
-  ${2}
+	${2}
 });
+endsnippet
+
+snippet redt
+const initialState = {${1}};
+deepFreeze(initialState);
+
+const action = {
+	type: ${2}
+};
+const nextState = {
+	${3}
+};
+
+expect(reducer(initialState, action)).to.eql(nextState);
 endsnippet

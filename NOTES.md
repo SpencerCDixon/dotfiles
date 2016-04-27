@@ -39,6 +39,9 @@ nvm install 5.10.0
 * store aliases in separate files inside an alias folder if they get too big  
 * potentially store vundle/bundles in a vimrc.bundles and source it immediately in my main vimrc  
 * echo a random alias every time I open vim or terminal until I have them all memorized  
+* to handle different computers it might make sense to have different branches.
+    Master can have all the common dotfile configuration and then a separate
+    branch for each machine. I.E. my local dev env vs. the athena dev boxes  
 
 
 Alias Types
@@ -58,14 +61,15 @@ alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
 alias ='mvim ~/Dropbox/docs/bug-journal.md'  
 
 # Leader Mapping Ideas
-~space space - go back to last file~
-~space - clear highlights (first need to figure out how to preserve highlights from searching)~
+~space space - go back to last file~  
+~space - clear highlights (first need to figure out how to preserve highlights from searching)~  
 
-eslint
-babel-eslint
-eslint-config-airbnb
-eslint@2.7
-npm i eslint-plugin-jsx-a11y@^0.6.2 -g
+**Eslint required globals for syntastic to work properly:**  
+eslint  
+babel-eslint  
+eslint-config-airbnb  
+eslint@2.7  
+npm i eslint-plugin-jsx-a11y@^0.6.2 -g  
 
 # Commands To Learn
 
@@ -92,8 +96,8 @@ Settings
 - set nrformats=    - treat all numbers as base 10
 
 ## Zsh related plugins
-`node-docs` - brings up the api docs for the current version of node being used
-`man-preview` - open up man docs in preview
-`rc` - rails console
-`rg` - rails generate
-`rs` - rails server
+`node-docs` - brings up the api docs for the current version of node being used  
+`man-preview` - open up man docs in preview  
+`rc` - rails console  
+`rg` - rails generate  
+`rs` - rails server  

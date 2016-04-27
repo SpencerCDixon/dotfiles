@@ -70,10 +70,6 @@ task :link do
       link_file(file)
     end
   end 
-
-  puts "Linking public ssh key"
-  system %Q{rm "$HOME/.ssh/id_rsa.pub"}
-  system %Q{ln -s "$PWD/id_rsa.pub" "$HOME/.ssh/id_rsa.pub"}
 end
 
 desc "install all brews and cask required for vim config"

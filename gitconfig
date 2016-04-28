@@ -21,8 +21,5 @@
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   save = !git add -A && git commit -m 'SAVEPOINT'
   undo = reset HEAD~1 --mixed
-[github]
-  user = spencercdixon
-  api-token = 0d16dd5e6ba82c5d70af3bd8912acc835fe701ea
 [core]
   editor = vim

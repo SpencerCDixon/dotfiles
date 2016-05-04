@@ -40,7 +40,7 @@ export default $1;
 endsnippet
 
 snippet req
-	import React from 'react';
+import React from 'react';
 endsnippet
 
 snippet cdm 
@@ -198,9 +198,25 @@ endsnippet
 # Testing Snippets
 ########################
 snippet it
-it("${1}", function() {
+it('${1}', function() {
 	${2}
 });
+endsnippet
+
+snippet desc
+describe('${1}', function() {
+	${2}
+});
+endsnippet
+
+snippet con
+context('${1}', function() {
+	${2}
+});
+endsnippet
+
+snippet expect
+expect(${1}).to.${2}(${0});
 endsnippet
 
 snippet redt
@@ -215,4 +231,10 @@ const nextState = {
 };
 
 expect(reducer(initialState, action)).to.eql(nextState);
+endsnippet
+
+snippet bef
+before(function() {
+	${0}
+});
 endsnippet

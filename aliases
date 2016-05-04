@@ -25,6 +25,7 @@ alias words='v ~/Dropbox/docs/words.md'
 alias sbox='cd ~/.sbox'
 alias ss='cd ~/work/ss'
 alias work='cd ~/work'
+alias integrate='cd ~/work/athenaintegration && v'
 
 ####################
 # Git Aliases

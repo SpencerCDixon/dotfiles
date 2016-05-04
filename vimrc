@@ -263,6 +263,10 @@ nnoremap <C-y>  3<C-y>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+" Copy current file path to system pasteboard
+map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
+map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
+
 " ========================================================================
 " Abbreviations
 " ========================================================================

@@ -77,6 +77,7 @@ cd .vim/bundle/YouCompleteMe
 |`<C-l>`|UltiSnips|go to next snippet section once expanded|
 |`,tr`|Taboo|Rename current tab|
 |`cmd + shift + c`|vim|copy current filepath to system clipboard (useful for specs)|
+|`,v`|vim|split screen vertically|
 
 
 

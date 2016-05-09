@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/sdixon/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="sorin"
 
@@ -37,8 +37,8 @@ source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
 # import all zsh related files
-source /Users/sdixon/.dotfiles/aliases
-source /Users/sdixon/.dotfiles/functions
+source $HOME/.dotfiles/aliases
+source $HOME/.dotfiles/functions
 
 # set up nvm
 export NVM_DIR="$HOME/.nvm"

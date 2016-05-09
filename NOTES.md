@@ -18,6 +18,9 @@ brew install tree
 brew install mysql  
 brew install v8-315  
 brew link --force v8-315  
+brew tap homebrew/binary
+brew install perforce
+brew install perforce-server
 
 # Install common rubies
 ruby-install ruby 2.1.5  

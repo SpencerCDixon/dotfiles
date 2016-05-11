@@ -314,5 +314,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 augroup END
 
-" conert md to markdown for syntax highlighting
+" convert md to markdown for syntax highlighting
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdown
+
+" convert md to markdown for syntax highlighting
+au BufNewFile,BufRead *.t,*.pl,*.pm setf perl

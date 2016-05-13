@@ -23,19 +23,22 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'        " vim package manager
 
 " General Editing
-Plugin 'SirVer/ultisnips'         " snippets
-Plugin 'Valloric/YouCompleteMe'   " inline autocomplete
-Plugin 'airblade/vim-gitgutter'   " git changes in gutter
-Plugin 'ervandew/supertab'        " util for <tab> with snippets
-Plugin 'godlygeek/tabular'        " text aligning
-Plugin 'honza/vim-snippets'       " basic snippets to use with UltiSnips
-Plugin 'scrooloose/nerdcommenter' " easy code commenting
-Plugin 'scrooloose/syntastic'     " automatic linting inside vim
-Plugin 'skammer/vim-css-color'    " color hex colors in terminal
-Plugin 'tpope/vim-endwise'        " autocomplete 'end's
-Plugin 'tpope/vim-surround'       " change surrounding characters quickly
-Plugin 'evansalter/vim-checklist' " sweet markdown checklists
-Plugin 'gcmt/taboo.vim'           " rename tabs for easier code navigation
+Plugin 'SirVer/ultisnips'            " snippets
+Plugin 'Valloric/YouCompleteMe'      " inline autocomplete
+Plugin 'airblade/vim-gitgutter'      " git changes in gutter
+Plugin 'ervandew/supertab'           " util for <tab> with snippets
+Plugin 'godlygeek/tabular'           " text aligning
+Plugin 'honza/vim-snippets'          " basic snippets to use with UltiSnips
+Plugin 'scrooloose/nerdcommenter'    " easy code commenting
+Plugin 'scrooloose/syntastic'        " automatic linting inside vim
+Plugin 'skammer/vim-css-color'       " color hex colors in terminal
+Plugin 'tpope/vim-endwise'           " autocomplete 'end's
+Plugin 'tpope/vim-surround'          " change surrounding characters quickly
+Plugin 'evansalter/vim-checklist'    " sweet markdown checklists
+Plugin 'gcmt/taboo.vim'              " rename tabs for easier code navigation
+Plugin 'ecomba/vim-ruby-refactoring' " faster ruby/rails refactoring
+Plugin 'tpope/vim-bundler'           " wrapper for bundler
+Plugin 'tpope/vim-rails'             " rails shortcuts
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -228,6 +231,9 @@ nmap <Leader>a: :Tabularize /:\zs<cr>
 vmap <Leader>a: :Tabularize /:\zs<cr>
 vmap <Leader>af :Tabularize /from<cr>
 
+" Automatically align text when in insert mode - http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
 "indent/unindent visual mode selection with tab/shift+tab
 vmap <tab> >gv
 vmap <s-tab> <gv
@@ -269,6 +275,10 @@ map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%"
 
 " Split screen
 map <leader>v   :vsp<CR>
+
+" Rails
+nmap <leader>b :BundleInstall<CR>
+nmap <leader>et :AV<CR>
 
 " ========================================================================
 " Abbreviations
@@ -319,3 +329,17 @@ au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdo
 
 " convert md to markdown for syntax highlighting
 au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
+
+" ========================================================================
+" Custom Functions
+" ========================================================================
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction

@@ -79,6 +79,10 @@ cd .vim/bundle/YouCompleteMe
 |`cmd + shift + c`|vim|copy current filepath to system clipboard (useful for specs)|
 |`,v`|vim|split screen vertically|
 
+## Rails Key Mappings
+|Combo|Plugin|Description|
+|-----|------|-----------|
+|`,et`|vim-rails|edit test for current file|
 
 
 ## Abbreviations

@@ -63,6 +63,7 @@ Plugin 'othree/yajs.vim'          " better js highlighting
 Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
 Plugin 'vim-perl/vim-perl'
+Plugin 'kovisoft/slimv'           " Lisp development
 
 " All of your Plugins must be added before the following line
 call vundle#end()

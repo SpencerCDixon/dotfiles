@@ -52,6 +52,7 @@ alias -g G='| grep' # now you can do: ls foo G something
 # Ruby/Rails
 ####################
 alias killruby='killall -9 ruby'
+alias rsapi='rails s -p 3001'
 
 ####################
 # Node/Javascript
@@ -63,6 +64,7 @@ alias nt='npm test'
 # Databases
 ####################
 alias sql='mysql.server start'
+alias redis='redis-server /usr/local/etc/redis.conf'
 
 ####################
 # System Utilities 

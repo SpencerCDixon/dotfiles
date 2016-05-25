@@ -94,7 +94,7 @@ done
 alias mastre='master'
 
 ####################
-# Typo Convenience
+# Athena Health
 ####################
 alias dev='ssh sdixon@dev109.athenahealth.com'
 

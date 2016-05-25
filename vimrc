@@ -103,6 +103,7 @@ set list                       " show whitespace
 set listchars=trail:·          " whitespace character
 set mouse=a                    " use mouse support in XTerm/iTerm.
 set relativenumber
+set number
 set ruler                      " show cursor position at all times
 set scrolloff=3                " scroll when the cursor is 3 lines from edge
 set shiftwidth=2

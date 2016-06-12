@@ -21,7 +21,7 @@ rake aliases # list out aliases in command line
 The `rake link` task will sym link all the relevant dotfiles into your home directory.  
 
 ## Plugins
-**YouCompleteMe**: Intelligent in editor text completetion.  Tab to cycle through options.
+**YouCompleteMe**: Intelligent in editor text completion.  Tab to cycle through options.
 
 ```
 brew install cmake

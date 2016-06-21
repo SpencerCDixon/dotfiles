@@ -98,6 +98,7 @@ cd .vim/bundle/YouCompleteMe
 `tre` - like 'tree' command but avoids directories I don't care about and adds nice colors  
 `v` - opens macvim with current directory or given argument   
 `mkd` - make directory and cd into it  
+`mov2gif` - convert a .mov file from quicktime into a gif  
 
 ## Aliases
 Running `aliases` in the terminal will open up all available aliases.  There are too many to write out in the readme.  The most important ones for configuring the dotfiles are below:

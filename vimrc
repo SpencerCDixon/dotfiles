@@ -151,8 +151,17 @@ let ruby_operators=1
 " Recommended by gitgutter
 set updatetime=250
 
+" Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = '/Users/sdixon/.nvm/versions/node/v5.3.0/bin/eslint'
+let g:syntastic_jsx_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 "" YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']
@@ -202,6 +211,8 @@ map <leader>ep :vsplit ~/Dropbox/docs/athena.md<cr>
 map <leader>ew :vsplit ~/Dropbox/docs/writing.md<cr>
 map <leader>eb :vsplit ~/Dropbox/docs/blog-posts.md<cr>
 map <leader>edj :vsplit ~/Dropbox/docs/dream-journal.md<cr>
+map <leader>eg :vsplit ~/Dropbox/docs/goals.md<cr>
+map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
 map <leader>es :UltiSnipsEdit<cr>
 
 " Rename vim tabs quickly

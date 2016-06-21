@@ -22,3 +22,9 @@ function v() {
 function mkd() {
         mkdir -p "$@" && cd "$_";
 }
+
+# Convert .mov files into gifs
+mov2gif() {
+  ffmpeg -i "$1" -r 10 -f image2pipe -vcodec ppm - |\
+  convert -delay 5 -layers Optimize -loop 0 - "$2"
+}

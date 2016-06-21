@@ -109,4 +109,5 @@ alias zconfig='vim ~/.dotfiles/zshrc'
 alias zfunc='vim ~/.dotfiles/functions'
 alias vconfig='vim ~/.dotfiles/vimrc'
 alias d='cd ~/.dotfiles'
+alias reload='source ~/.zshrc'
 ```

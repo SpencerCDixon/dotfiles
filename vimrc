@@ -40,6 +40,7 @@ Plugin 'ecomba/vim-ruby-refactoring' " faster ruby/rails refactoring
 Plugin 'tpope/vim-bundler'           " wrapper for bundler
 Plugin 'tpope/vim-rails'             " rails shortcuts
 Plugin 'mattn/emmet-vim'             " faster html/JSX
+Plugin 'wakatime/vim-wakatime'       " for tracking coding
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy

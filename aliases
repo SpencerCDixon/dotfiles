@@ -26,6 +26,8 @@ alias sbox='cd ~/.sbox'
 alias ss='cd ~/work/ss'
 alias work='cd ~/work'
 alias integrate='cd ~/work/athenaintegration && v'
+alias waf='cd ~/apps/wish-alert-frontend'
+alias wab='cd ~/apps/wish-alert-backend'
 
 ####################
 # Git Aliases

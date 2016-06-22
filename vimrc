@@ -203,6 +203,7 @@ map <leader>ew :vsplit ~/Dropbox/docs/writing.md<cr>
 map <leader>eb :vsplit ~/Dropbox/docs/blog-posts.md<cr>
 map <leader>edj :vsplit ~/Dropbox/docs/dream-journal.md<cr>
 map <leader>eg :vsplit ~/Dropbox/docs/goals.md<cr>
+map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
 map <leader>es :UltiSnipsEdit<cr>
 
 " Rename vim tabs quickly

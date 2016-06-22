@@ -39,6 +39,7 @@ Plugin 'gcmt/taboo.vim'              " rename tabs for easier code navigation
 Plugin 'ecomba/vim-ruby-refactoring' " faster ruby/rails refactoring
 Plugin 'tpope/vim-bundler'           " wrapper for bundler
 Plugin 'tpope/vim-rails'             " rails shortcuts
+Plugin 'mattn/emmet-vim'             " faster html/JSX
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -48,7 +49,7 @@ Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
 Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
 
 " Searching
-Plugin 'kien/ctrlp.vim'           " search file system
+Plugin 'ctrlpvim/ctrlp.vim'       " search file system
 Plugin 'rking/ag.vim'             " integrate with silver searcher
 
 " Navigation
@@ -57,13 +58,13 @@ Plugin 'scrooloose/nerdtree'      " file system bar
 " Languages
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'pangloss/vim-javascript'
+Plugin 'othree/yajs.vim'           " better js highlighting
+Plugin 'mxw/vim-jsx'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'chrisbra/csv.vim'
-Plugin 'othree/yajs.vim'          " better js highlighting
-Plugin 'mxw/vim-jsx'
 Plugin 'elzr/vim-json'
 Plugin 'vim-perl/vim-perl'
-Plugin 'kovisoft/slimv'           " Lisp development
+Plugin 'kovisoft/slimv'            " Lisp development
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -151,8 +152,17 @@ let ruby_operators=1
 " Recommended by gitgutter
 set updatetime=250
 
+" Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = '/Users/sdixon/.nvm/versions/node/v5.3.0/bin/eslint'
+let g:syntastic_jsx_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 "" YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']
@@ -165,6 +175,15 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Vim Checklist
 let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']
+
+" Emmet configuration
+let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 
 " ========================================================================
 " Searching

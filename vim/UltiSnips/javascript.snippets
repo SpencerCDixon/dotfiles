@@ -13,6 +13,10 @@ snippet imp
 import ${1} from ${2};
 endsnippet
 
+snippet n
+import cn from 'classnames';
+endsnippet
+
 snippet impc
 import { ${1} } from ${2};
 endsnippet
@@ -20,6 +24,12 @@ endsnippet
 ########################
 # React Snippets
 ########################
+
+snippet con
+constructor(props) {
+	super(props);
+}
+endsnippet
 
 snippet cls
 import React, { Component, PropTypes } from 'react';
@@ -31,7 +41,7 @@ class ${1:ClassName} extends Component {
 	render() {
 		return (
 			${0}
-		)
+		);
 	}
 }
 
@@ -39,10 +49,25 @@ $1.propTypes = propTypes;
 export default $1;
 endsnippet
 
+snippet fcls
+import React, { PropTypes } from 'react';
+
+function ${1:ClassName}({ $2 }) {
+	return (
+		${0}
+	);
+}
+
+$1.propTypes = {
+};
+export default $1;
+endsnippet
+
 snippet req
 import React from 'react';
 endsnippet
 
+<<<<<<< HEAD
 snippet cn
 import cn from 'classnames';
 endsnippet
@@ -73,6 +98,10 @@ endsnippet
 
 snippet ptn
 PropTypes.number,
+endsnippet
+
+snippet ptno
+PropTypes.node,
 endsnippet
 
 snippet pta
@@ -221,7 +250,7 @@ describe('${1}', function() {
 });
 endsnippet
 
-snippet con
+snippet cont
 context('${1}', function() {
 	${2}
 });

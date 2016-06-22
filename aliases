@@ -40,7 +40,7 @@ alias gd='git diff'
 alias gco='git checkout'
 alias gl='git lola'
 alias gpoh='git push origin head'
-alias gag='git add . && git commit --amend --no-edit && git push -f'
+alias gag='git commit --amend --no-edit && git push origin HEAD -f'
 alias gia='git commit --amend --no-edit'
 alias gcm='git ci -m'
 
@@ -49,6 +49,14 @@ alias gcm='git ci -m'
 ####################
 # Global aliases can appear anywhere in the terminal string
 alias -g G='| grep' # now you can do: ls foo G something
+
+####################
+# Docker Aliases
+####################
+alias dri='docker run -it'
+alias dc='docker-compose'
+alias dcr='docker-compose run'
+alias dcrw='docker-compose run web'
 
 ####################
 # Ruby/Rails

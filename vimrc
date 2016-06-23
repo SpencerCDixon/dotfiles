@@ -299,6 +299,7 @@ map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%"
 
 " Split screen
 map <leader>v   :vsp<CR>
+map <leader>s   :vsp<CR>
 
 " Rails
 nmap <leader>b :BundleInstall<CR>

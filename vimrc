@@ -213,6 +213,9 @@ endif
 " Re-source my vimrc
 map <Leader>sv :so $MYVIMRC<cr>
 
+" Install Vundle Plugins
+map <Leader>pi :PluginInstall<cr>
+
 " Edit <useful files>
 map <leader>ev :vsplit $MYVIMRC<cr>
 map <leader>ea :vsplit ~/.dotfiles/aliases<cr>
@@ -229,12 +232,20 @@ map <leader>es :UltiSnipsEdit<cr>
 " Rename vim tabs quickly
 map <leader>tr :TabooRename
 
+" open tabs with command-<tab number>
+map <D-1> :tabn 1<CR>
+map <D-2> :tabn 2<CR>
+map <D-3> :tabn 3<CR>
+map <D-4> :tabn 4<CR>
+map <D-5> :tabn 5<CR>
+map <D-6> :tabn 6<CR>
+map <D-7> :tabn 7<CR>
+map <D-8> :tabn 8<CR>
+map <D-9> :tabn 9<CR>
+
 " Checklists
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
 vnoremap <leader>ct :ChecklistToggleCheckbox<cr>
-
-" Install Vundle Plugins
-map <Leader>pi :PluginInstall<cr>
 
 " File tree browser
 map \ :NERDTreeToggle<cr>
@@ -297,9 +308,9 @@ cnoremap <C-n> <Down>
 map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
-" Split screen
-map <leader>v   :vsp<CR>
-map <leader>s   :vsp<CR>
+" window splitting mappings
+nmap <leader>v :vsplit<CR> <C-w><C-w>
+nmap <leader>s :split<CR> <C-w><C-w>
 
 " Rails
 nmap <leader>b :BundleInstall<CR>
@@ -351,6 +362,7 @@ augroup END
 
 " convert md to markdown for syntax highlighting
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdown
+au BufNewFile,BufRead *.styles setf css
 
 " convert md to markdown for syntax highlighting
 au BufNewFile,BufRead *.t,*.pl,*.pm setf perl

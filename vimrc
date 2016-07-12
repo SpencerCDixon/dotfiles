@@ -66,6 +66,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
 Plugin 'vim-perl/vim-perl'
 Plugin 'kovisoft/slimv'            " Lisp development
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -178,7 +179,7 @@ let g:UltiSnipsEditSplit="vertical"
 let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']
 
 " Emmet configuration
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_leader_key='<C-A>'
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',

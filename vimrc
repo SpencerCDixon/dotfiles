@@ -229,6 +229,7 @@ map <leader>edj :vsplit ~/Dropbox/docs/dream-journal.md<cr>
 map <leader>eg :vsplit ~/Dropbox/docs/goals.md<cr>
 map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
 map <leader>en :vsplit ~/Dropbox/docs/notes.md<cr>
+map <leader>er :vsplit ~/Dropbox/docs/reading-notes.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
 
 " Rename vim tabs quickly

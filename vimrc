@@ -366,7 +366,10 @@ augroup END
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdown
 au BufNewFile,BufRead *.styles setf css
 
-" convert md to markdown for syntax highlighting
+" convert CSS file types
+au BufNewFile,BufRead *.styles setf css
+
+" convert Perl file types
 au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
 
 " ========================================================================

@@ -41,6 +41,7 @@ Plugin 'tpope/vim-bundler'           " wrapper for bundler
 Plugin 'tpope/vim-rails'             " rails shortcuts
 Plugin 'mattn/emmet-vim'             " faster html/JSX
 Plugin 'wakatime/vim-wakatime'       " for tracking coding
+Plugin 'flowtype/vim-flow'           " do flow syntax checking on save
 
 " Themes
 Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -186,6 +187,8 @@ let g:user_emmet_settings = {
 \  },
 \}
 
+" If this is set to 1, the |quickfix| window opened when the plugin finds an error will close automatically.
+let g:flow#autoclose=1
 
 " ========================================================================
 " Searching

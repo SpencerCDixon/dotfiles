@@ -331,10 +331,8 @@ iab que queue
 iab teh the
 iab req request
 iab res response
-iab i I
 iab iv I've
 iab il I'll
-iab dont don't
 iab monday Monday
 iab tuesday Tuesday
 iab wednesday Wednesday

@@ -232,6 +232,7 @@ map <leader>edj :vsplit ~/Dropbox/docs/dream-journal.md<cr>
 map <leader>eg :vsplit ~/Dropbox/docs/goals.md<cr>
 map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
 map <leader>en :vsplit ~/Dropbox/docs/notes.md<cr>
+map <leader>er :vsplit ~/Dropbox/docs/reading-notes.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
 
 " Rename vim tabs quickly
@@ -369,7 +370,10 @@ augroup END
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdown
 au BufNewFile,BufRead *.styles setf css
 
-" convert md to markdown for syntax highlighting
+" convert CSS file types
+au BufNewFile,BufRead *.styles setf css
+
+" convert Perl file types
 au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
 
 " ========================================================================

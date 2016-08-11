@@ -28,6 +28,7 @@ alias work='cd ~/work'
 alias integrate='cd ~/work/athenaintegration && v'
 alias waf='cd ~/apps/wish-alert-frontend'
 alias wab='cd ~/apps/wish-alert-backend'
+alias rdytogo='cd $HOME/golang/src/github.com/spencercdixon'
 
 ####################
 # Git Aliases

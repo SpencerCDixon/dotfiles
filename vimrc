@@ -158,6 +158,8 @@ set updatetime=250
 " Syntastic settings
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_jsx_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = '`npm bin`/eslint'
+let g:syntastic_jsx_eslint_exec = '`npm bin`/eslint'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*

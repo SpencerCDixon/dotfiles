@@ -29,6 +29,7 @@ alias integrate='cd ~/work/athenaintegration && v'
 alias waf='cd ~/apps/wish-alert-frontend'
 alias wab='cd ~/apps/wish-alert-backend'
 alias rdytogo='cd $HOME/golang/src/github.com/spencercdixon'
+alias rdytojs='cd $HOME/CurrentProjects/Javascript'
 
 ####################
 # Git Aliases
@@ -100,6 +101,10 @@ for method in get head post put delete; do
         alias "$method"="lwp-request -m '$method'"
 done
 
+# Show all daemons that are being spawned on start of computer
+# that aren't associated with apple
+alias onstart="launchctl list | grep -v com.apple"
+
 ####################
 # Typo Convenience
 ####################
@@ -117,3 +122,10 @@ alias prodc='ssh atlas -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/cu
 alias stagec='ssh staging -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c staging\""'
 alias prevc='ssh preview -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c production\""'
 alias evalc='ssh eval -t "sudo su - deploy -c \"cd /srv/www/evaluation/current && bundle exec rails c production\""'
+
+####################
+# Blue Archive
+####################
+alias s3config='v ~/.s3cfg'
+alias blue='cd ~/bluearchive'
+

@@ -82,6 +82,18 @@ snippet rrc
 import { connect } from 'react-redux';
 endsnippet
 
+snippet sel
+import { createStructuredSelector } from 'reselect';
+endsnippet
+
+snippet flx
+import { Flex, Box } from 'reflexbox';
+endsnippet
+
+snippet crud
+import { updateResource, fetchResource, createResource } from 'util/crud';
+endsnippet
+
 snippet cdm 
 componentDidMount() {
 	${0}
@@ -207,6 +219,24 @@ endsnippet
 
 snippet act
 export const ${1:ActionName} = '$1';
+endsnippet
+
+snippet acta
+export const $1 = '$1';
+export const $1_SUCCESS = '$1_SUCCESS';
+export const ${1:ActionName}_FAIL = '$1_FAIL';
+endsnippet
+
+snippet cruda
+export const FETCH          = '$1/FETCH';
+export const FETCH_SUCCESS  = '$1/FETCH_SUCCESS';
+export const FETCH_FAIL     = '$1/FETCH_FAIL';
+export const CREATE         = '$1/CREATE';
+export const CREATE_SUCCESS = '$1/CREATE_SUCCESS';
+export const CREATE_FAIL    = '$1/CREATE_FAIL';
+export const UPDATE         = '$1/UPDATE';
+export const UPDATE_SUCCESS = '$1/UPDATE_SUCCESS';
+export const UPDATE_FAIL    = '${1:ActionName}/UPDATE_FAIL';
 endsnippet
 
 snippet rmod

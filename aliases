@@ -52,6 +52,7 @@ alias gpom='git pull origin master'
 ####################
 # Global aliases can appear anywhere in the terminal string
 alias -g G='| grep' # now you can do: ls foo G something
+alias -g BA='--endpoint-url http://localhost:8080'
 
 ####################
 # Docker Aliases

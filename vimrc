@@ -42,10 +42,13 @@ Plugin 'tpope/vim-rails'             " rails shortcuts
 Plugin 'mattn/emmet-vim'             " faster html/JSX
 Plugin 'wakatime/vim-wakatime'       " for tracking coding
 Plugin 'flowtype/vim-flow'           " do flow syntax checking on save
+Plugin 'davidbeckingsale/writegood.vim' " write better english 
+Plugin 'editorconfig/editorconfig-vim' " detect .editorconfigs and adjust my settings
 
 " Themes
-Plugin 'nanotech/jellybeans.vim'  " yummy
+" Plugin 'nanotech/jellybeans.vim'  " yummy
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
+Plugin 'trevordmiller/nova-vim'   " modern looking flat colors for es6
 
 " Airline
 Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
@@ -57,11 +60,15 @@ Plugin 'rking/ag.vim'             " integrate with silver searcher
 " Navigation
 Plugin 'scrooloose/nerdtree'      " file system bar
 
-" Languages
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/yajs.vim'           " better js highlighting
+" Nova Plugins
+Plugin 'pangloss/vim-javascript'   
 Plugin 'mxw/vim-jsx'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'othree/html5.vim'          " HTML5 syntax highlighting
+
+" General languages
+" Plugin 'othree/yajs.vim'           " better js highlighting
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
@@ -90,7 +97,7 @@ scriptencoding utf-8
 
 " Theme
 syntax enable
-colorscheme OceanicNext
+colorscheme nova
 set autoread                   " no prompt for file changes outside Vim
 set background=dark
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -325,8 +332,8 @@ map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
 map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 
 " window splitting mappings
-nmap <leader>v :vsplit<CR> <C-w><C-w>
-nmap <leader>s :split<CR> <C-w><C-w>
+nnoremap <leader>v <C-w>v
+nnoremap <leader>h <C-w>s
 
 " Rails
 nmap <leader>b :BundleInstall<CR>

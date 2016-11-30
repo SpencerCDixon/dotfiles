@@ -75,6 +75,8 @@ Plugin 'elzr/vim-json'
 Plugin 'vim-perl/vim-perl'
 Plugin 'kovisoft/slimv'            " Lisp development
 Plugin 'fatih/vim-go'
+Plugin 'junegunn/vim-emoji'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()

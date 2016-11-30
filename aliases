@@ -29,7 +29,10 @@ alias integrate='cd ~/work/athenaintegration && v'
 alias waf='cd ~/apps/wish-alert-frontend'
 alias wab='cd ~/apps/wish-alert-backend'
 alias rdytogo='cd $HOME/golang/src/github.com/spencercdixon'
+alias goblue='cd $HOME/golang/src/github.com/bluearchive/main/ui/console'
+alias gobluem='cd $HOME/golang/src/github.com/bluearchive/main'
 alias rdytojs='cd $HOME/CurrentProjects/Javascript'
+alias blog='cd $HOME/apps/spencercdixon'
 
 ####################
 # Git Aliases
@@ -46,6 +49,8 @@ alias gag='git commit --amend --no-edit && git push origin HEAD -f'
 alias gia='git commit --amend --no-edit'
 alias gcm='git ci -m'
 alias gpom='git pull origin master'
+alias gignore='git ls-files --other --ignored --exclude-standard'
+alias greignore='git rm --cached -r .'
 
 ####################
 # Global Aliases
@@ -74,6 +79,7 @@ alias rdbm='rake db:migrate'
 ####################
 alias ns='npm start'
 alias nt='npm test'
+alias ntd='npm run test:dev'
 
 ####################
 # Databases
@@ -105,6 +111,8 @@ done
 # Show all daemons that are being spawned on start of computer
 # that aren't associated with apple
 alias onstart="launchctl list | grep -v com.apple"
+# Show how many lines of code a project has
+alias loc='cloc $(git ls-files)'
 
 ####################
 # Typo Convenience
@@ -129,4 +137,4 @@ alias evalc='ssh eval -t "sudo su - deploy -c \"cd /srv/www/evaluation/current &
 ####################
 alias s3config='v ~/.s3cfg'
 alias blue='cd ~/bluearchive'
-
+alias vmbox='ssh spence-VirtualBox.local'

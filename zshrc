@@ -10,8 +10,9 @@ ZSH_THEME="sorin"
 plugins=(git osx ruby rails chruby docker node)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/scripts"
+# Add yarn to my path for npm dep management
+export PATH="$PATH:$HOME/.yarn/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh

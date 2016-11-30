@@ -21,6 +21,22 @@ snippet impc
 import { ${1} } from ${2};
 endsnippet
 
+snippet impcd
+import { ${0} } from '../../duck';
+endsnippet
+
+snippet impcs
+import { ${0} } from '../../selectors';
+endsnippet
+
+snippet impm
+import { ${1} } from 'modules/$1';
+endsnippet
+
+snippet impmu
+import { ${1} } from 'material-ui';
+endsnippet
+
 ########################
 # React Snippets
 ########################
@@ -203,6 +219,18 @@ endsnippet
 ########################
 # Redux Related Snippets
 ########################
+snippet connsel
+export default connect(
+	createStructuredSelector({
+		${0}
+	}), { ${2} }
+)(${1});
+endsnippet
+
+snippet saga
+import { ${0} } from 'redux-saga/effects';
+endsnippet
+
 snippet mstp
 const mapStateToProps = (state) => ({
 	${0}
@@ -219,6 +247,12 @@ endsnippet
 
 snippet act
 export const ${1:ActionName} = '$1';
+endsnippet
+
+snippet action
+export const ${1:ActionName} = (${2}) => ({
+	type: ${0},
+});
 endsnippet
 
 snippet acta
@@ -270,13 +304,13 @@ endsnippet
 ########################
 snippet it
 it('${1}', function() {
-	${2}
+	${0}
 });
 endsnippet
 
 snippet desc
 describe('${1}', function() {
-	${2}
+	${0}
 });
 endsnippet
 

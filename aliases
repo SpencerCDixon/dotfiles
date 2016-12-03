@@ -137,4 +137,9 @@ alias evalc='ssh eval -t "sudo su - deploy -c \"cd /srv/www/evaluation/current &
 ####################
 alias s3config='v ~/.s3cfg'
 alias blue='cd ~/bluearchive'
+
+####################
+# Virtual Machines
+####################
 alias vmbox='ssh spence-VirtualBox.local'
+alias vmscreen='VBoxManage setextradata global GUI/MaxGuestResolution 1600,1200'

@@ -44,11 +44,13 @@ Plugin 'wakatime/vim-wakatime'       " for tracking coding
 Plugin 'flowtype/vim-flow'           " do flow syntax checking on save
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
 Plugin 'editorconfig/editorconfig-vim' " detect .editorconfigs and adjust my settings
+Plugin 'majutsushi/tagbar.git'         " tagbar to display ctags
 
 " Themes
 " Plugin 'nanotech/jellybeans.vim'  " yummy
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
 Plugin 'trevordmiller/nova-vim'   " modern looking flat colors for es6
+Plugin 'fatih/molokai'
 
 " Airline
 Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
@@ -212,6 +214,35 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" Tagbar settings for go
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
 " ========================================================================
 " Searching
 " ========================================================================
@@ -362,6 +393,9 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
+" Adds ctags tag bar 
+nmap <leader>tb :TagbarToggle <cr>
+
 " ========================================================================
 " Abbreviations
 " ========================================================================
@@ -413,6 +447,9 @@ au BufNewFile,BufRead *.styles setf css
 
 " convert Perl file types
 au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
+
+" use better colorscheme for go programming
+au BufNewFile,BufRead *.go colorscheme molokai
 
 " ========================================================================
 " Custom Functions

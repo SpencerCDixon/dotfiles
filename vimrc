@@ -404,7 +404,6 @@ iab adn and
 iab que queue
 iab teh the
 iab req request
-iab res response
 iab iv I've
 iab il I'll
 iab monday Monday
@@ -414,6 +413,8 @@ iab thursday Thursday
 iab friday Friday
 iab saturday Saturday
 iab sunday Sunday
+iab *shrug* ¯\_(ツ)_/¯
+iab fliptable （╯°□°）╯ ┻━┻
 
 " ========================================================================
 " Autocommands

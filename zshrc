@@ -7,10 +7,11 @@ ZSH_THEME="sorin"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx ruby rails chruby docker node)
+plugins=(osx node)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.dotfiles/scripts"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 # Add yarn to my path for npm dep management
 export PATH="$PATH:$HOME/.yarn/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -45,5 +46,6 @@ source $HOME/.dotfiles/functions
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
+# set up golang home and include go bin in path
 export GOPATH=$HOME/golang
 export PATH=$PATH:$GOPATH/bin

@@ -4,6 +4,7 @@
 alias aliases='v ~/.dotfiles/aliases'
 alias zconfig='v ~/.dotfiles/zshrc'
 alias zfunc='v ~/.dotfiles/functions'
+alias zdebug='zsh -xv' # useful for figuring out why shell is slow to load
 alias vconfig='v ~/.dotfiles/vimrc'
 alias d='cd ~/.dotfiles'
 alias reload='source ~/.zshrc'
@@ -79,6 +80,7 @@ alias rdbm='rake db:migrate'
 alias ns='npm start'
 alias nt='npm test'
 alias ntd='npm run test:dev'
+alias nd='node-docs'
 
 ####################
 # Databases

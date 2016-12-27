@@ -57,7 +57,7 @@ Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
 
 " Searching
 Plugin 'ctrlpvim/ctrlp.vim'       " search file system
-Plugin 'rking/ag.vim'             " integrate with silver searcher
+" Plugin 'rking/ag.vim'             " integrate with silver searcher
 
 " Navigation
 Plugin 'scrooloose/nerdtree'      " file system bar
@@ -246,18 +246,18 @@ let g:tagbar_type_go = {
 " ========================================================================
 " Searching
 " ========================================================================
-" Use Silver Searcher instead of grep - brew install the_silver_searcher
+" Use Platinum Searcher instead of grep - brew install pt
 set wildignore+=tmp/**                " Ignore stuff that can't be opened
 
-if executable('ag')
+if executable('pt')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=pt\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   " Without --hidden, it never finds .travis.yml since it starts with a dot
-  let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+  let g:ctrlp_user_command = 'pt %s -l --hidden --nocolor -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " pt is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 else
   " https://github.com/kien/ctrlp.vim/issues/174

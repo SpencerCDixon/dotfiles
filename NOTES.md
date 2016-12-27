@@ -13,22 +13,19 @@ brew cask install dropbox
 # Brews
 brew install chruby  
 brew install ruby-install  
-brew install the_silver_searcher  
+brew install pt
 brew install tree  
 brew install mysql  
 brew install v8-315  
 brew link --force v8-315  
 brew tap homebrew/binary
-brew install perforce
-brew install perforce-server
 
 # Install common rubies
 ruby-install ruby 2.1.5  
 ruby-install ruby 2.2.0  
 ruby-install ruby 2.3.0  
-nvm install 5.1.0  
-nvm install 5.3.0  
-nvm install 5.10.0  
+curl -L https://git.io/n-install | bash
+
 
 # Useful Links
 * [relative line numbers](http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/)  

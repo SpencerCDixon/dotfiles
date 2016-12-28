@@ -303,6 +303,9 @@ map <leader>6 :tabn 6<CR>
 map <leader>7 :tabn 7<CR>
 map <leader>8 :tabn 8<CR>
 map <leader>9 :tabn 9<CR>
+map <leader>t :tabe<CR>
+map <leader>tc :tabc<CR>
+map <leader>to :tabo<CR>
 
 " Checklists
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>

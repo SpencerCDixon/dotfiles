@@ -7,6 +7,7 @@ OS = $(shell uname -s)
 # Targets #
 ###########
 install: .deps-$(OS)
+	bash ./install.sh
 
 .deps-Darwin:
 	$(call green, "Installing deps for Mac...")
@@ -23,6 +24,7 @@ install: .deps-$(OS)
 	which tree || sudo apt install tree
 	which n || curl -L https://git.io/n-install | bash
 	which ctags || sudo apt install exuberant-ctags
+
 
 #####################
 # Utility Functions #

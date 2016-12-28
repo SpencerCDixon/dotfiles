@@ -101,7 +101,8 @@ scriptencoding utf-8
 
 " Theme
 syntax enable
-colorscheme molokai
+colorscheme nova
+
 set autoread                   " no prompt for file changes outside Vim
 set background=dark
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
@@ -128,7 +129,8 @@ set shiftround                 " use multiple of shiftwidth when indenting with 
 set splitbelow                 " add new windows towards the bottom
 set splitright                 " add new windows towards the right
 set swapfile                   " keep swapfiles
-set t_Co=256                   " terminal colors
+" set t_Co=256                   " terminal colors
+set termguicolors              " set true color to work with themes
 set tabstop=2                  " tab settings
 set textwidth=80               " line wrap at 80 characters for Ruby Convention
 " set wildmode=list:longest      " bash-like tab completion

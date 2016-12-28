@@ -103,6 +103,7 @@ alias map="xargs -n1"
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias tmux='tmux -2'
 
 # One of @janmoesen’s ProTip™s
 for method in get head post put delete; do

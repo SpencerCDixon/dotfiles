@@ -101,12 +101,12 @@ scriptencoding utf-8
 
 " Theme
 syntax enable
-colorscheme nova
+colorscheme molokai
 set autoread                   " no prompt for file changes outside Vim
 set background=dark
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set backupdir=~/.tmp
-set directory=~/.tmp           " don't clutter up dir with swp and tmp files
+set backupdir=~/.vim-tmp
+set directory=~/.vim-tmp       " don't clutter up dir with swp and tmp files
 set expandtab                  " use soft tabs
 set hidden                     " allow hidden, unsaved buffers
 set history=750                " keep 750 lines of command line history

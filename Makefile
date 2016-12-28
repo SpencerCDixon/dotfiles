@@ -6,7 +6,7 @@ OS = $(shell uname -s)
 ###########
 # Targets #
 ###########
-install: .vim .deps-$(OS)
+install: .vim .deps-$(OS) .zsh
 	bash ./install.sh
 
 .deps-Darwin:
@@ -36,6 +36,9 @@ install: .vim .deps-$(OS)
 	cd ~/.vim/bundle/YouCompleteMe
 	./install.py
 
+.zsh:
+	test ~/.oh-my-zsh || git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	chsh -s /bin/zsh
 
 #####################
 # Utility Functions #
@@ -53,4 +56,4 @@ define red
 	@echo "$(COL_RED)$(1)$(COL_RESET)"
 endef
 
-PHONY: install
+PHONY: install .vim .zsh

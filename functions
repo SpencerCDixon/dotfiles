@@ -12,9 +12,9 @@ function tre() {
 
 function v() {
         if [ $# -eq 0 ]; then
-                mvim .;
+                vim .;
         else
-                mvim "$@";
+                vim "$@";
         fi;
 }
 

@@ -47,7 +47,7 @@ source $HOME/.dotfiles/functions
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # set up golang home and include go bin in path
-export GOPATH=$HOME/golang
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # Added by n-install (see http://git.io/n-install-repo).

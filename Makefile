@@ -6,24 +6,35 @@ OS = $(shell uname -s)
 ###########
 # Targets #
 ###########
-install: .deps-$(OS)
+install: .vim .deps-$(OS)
 	bash ./install.sh
 
 .deps-Darwin:
 	$(call green, "Installing deps for Mac...")
+	@which cmake || brew install cmake
 	@which zsh || brew install zsh
 	@which pt || brew install pt
 	@which tree || brew install tree
 	@which n || curl -L https://git.io/n-install | bash
-	which ctags || brew install ctags
+	@which ctags || brew install ctags
 
 .deps-Linux:
 	@echo Installing dependencies for Linux...
-	which zsh || sudo apt install zsh -y
-	which pt || go get github.com/monochromegane/the_platinum_searcher && GOBIN=$(GOPATH)/bin go install github.com/monochromegane/the_platinum_searcher/cmd/pt
-	which tree || sudo apt install tree
-	which n || curl -L https://git.io/n-install | bash
-	which ctags || sudo apt install exuberant-ctags
+	@which cmake || sudo apt install cmake -y
+	@which zsh || sudo apt install zsh -y
+	@which pt || go get github.com/monochromegane/the_platinum_searcher && go install github.com/monochromegane/the_platinum_searcher/cmd/pt
+	@which tree || sudo apt install tree
+	@which n || curl -L https://git.io/n-install | bash
+	@which ctags || sudo apt install exuberant-ctags
+
+.vim:
+	mkdir $HOME/.vim-tmp
+	mkdir -p ~/.vim/bundle
+	rm -rf ~/.vim/bundle/vundle
+	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	vim +PluginInstall +qall
+	cd ~/.vim/bundle/YouCompleteMe
+	./install.py
 
 
 #####################

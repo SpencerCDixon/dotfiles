@@ -35,8 +35,8 @@ fi
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # chruby auto switching on .ruby-version
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# source /usr/local/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
 
 # import all zsh related files
 source $HOME/.dotfiles/aliases

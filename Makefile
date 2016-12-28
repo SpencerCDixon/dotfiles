@@ -20,7 +20,7 @@ install: .deps-$(OS)
 .deps-Linux:
 	@echo Installing dependencies for Linux...
 	which zsh || sudo apt install zsh -y
-	which pt || go get github.com/monochromegane/the_platinum_searcher && GOBIN=$(GOPATH)/bin go install github.com/monochromegane/the_platinum_searcher/cmd/pt
+	# which pt || go get github.com/monochromegane/the_platinum_searcher && GOBIN=$(GOPATH)/bin go install github.com/monochromegane/the_platinum_searcher/cmd/pt
 	which tree || sudo apt install tree
 	which n || curl -L https://git.io/n-install | bash
 	which ctags || sudo apt install exuberant-ctags

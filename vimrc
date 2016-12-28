@@ -294,15 +294,15 @@ map <leader>es :UltiSnipsEdit<cr>
 map <leader>tr :TabooRename
 
 " open tabs with command-<tab number>
-map <D-1> :tabn 1<CR>
-map <D-2> :tabn 2<CR>
-map <D-3> :tabn 3<CR>
-map <D-4> :tabn 4<CR>
-map <D-5> :tabn 5<CR>
-map <D-6> :tabn 6<CR>
-map <D-7> :tabn 7<CR>
-map <D-8> :tabn 8<CR>
-map <D-9> :tabn 9<CR>
+map <leader>1 :tabn 1<CR>
+map <leader>2 :tabn 2<CR>
+map <leader>3 :tabn 3<CR>
+map <leader>4 :tabn 4<CR>
+map <leader>5 :tabn 5<CR>
+map <leader>6 :tabn 6<CR>
+map <leader>7 :tabn 7<CR>
+map <leader>8 :tabn 8<CR>
+map <leader>9 :tabn 9<CR>
 
 " Checklists
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>

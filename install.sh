@@ -110,7 +110,7 @@ install_dotfiles () {
   for src in $FILES_TO_SYMLINK
   do
     dst="$HOME/.$src"
-    link_file "$HOME/.dotfiles/$src" "$dst"
+    link_file "$DOTFILES_ROOT/$src" "$dst"
   done
 }
 

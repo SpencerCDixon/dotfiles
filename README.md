@@ -11,14 +11,8 @@ My dotfiles configuration.  Use at your own risk ;-)
 
 ## Installation
 ```
-git clone <url> .dotfiles
-rake link    # symlink dotfiles into ~ directory
-rake brew    # install brew packages and caskes
-rake aliases # list out aliases in command line
+git clone https://github.com/SpencerCDixon/dotfiles.git ~/.dotfiles
 ```
-
-## Directory Structure
-The `rake link` task will sym link all the relevant dotfiles into your home directory.  
 
 ## Plugins
 **YouCompleteMe**: Intelligent in editor text completetion.  Tab to cycle through options.

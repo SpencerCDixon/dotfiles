@@ -17,6 +17,7 @@ install: .vim .deps-$(OS) .zsh
 	@which tree || brew install tree
 	@which n || curl -L https://git.io/n-install | bash
 	@which ctags || brew install ctags
+	@which reattach-to-user-namespace || brew install reattach-to-user-namespace
 
 .deps-Linux:
 	@echo Installing dependencies for Linux...

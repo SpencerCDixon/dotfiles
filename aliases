@@ -103,7 +103,6 @@ alias map="xargs -n1"
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias tmux='tmux -2'
 
 # One of @janmoesen’s ProTip™s
 for method in get head post put delete; do
@@ -145,3 +144,9 @@ alias blue='cd ~/bluearchive'
 ####################
 alias vmbox='ssh spence-VirtualBox.local'
 alias vmscreen='VBoxManage setextradata global GUI/MaxGuestResolution 1600,1200'
+
+####################
+# Tmux Aliases
+####################
+alias tmux='tmux -2'
+alias ta='tmux attach -t'

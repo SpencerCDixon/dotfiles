@@ -45,6 +45,7 @@ Plugin 'flowtype/vim-flow'           " do flow syntax checking on save
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
 Plugin 'editorconfig/editorconfig-vim' " detect .editorconfigs and adjust my settings
 Plugin 'majutsushi/tagbar.git'         " tagbar to display ctags
+Plugin 'nazo/pt.vim'                   " for using Pt to search files
 
 " Themes
 " Plugin 'nanotech/jellybeans.vim'  " yummy

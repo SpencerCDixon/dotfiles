@@ -148,5 +148,5 @@ alias vmscreen='VBoxManage setextradata global GUI/MaxGuestResolution 1600,1200'
 ####################
 # Tmux Aliases
 ####################
-alias tmux='tmux -2'
+alias tmux='tmux -2 -u'
 alias ta='tmux attach -t'

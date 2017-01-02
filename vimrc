@@ -138,6 +138,7 @@ set textwidth=80               " line wrap at 80 characters for Ruby Convention
 set wildmenu                   " zsh like tab completion
 set wildmode=full              " ^
 set nrformats=                 " treat all numbers as base 10
+set clipboard=unnamed          " fix copy paste with tmux
 
 " Make tabs look pretty
 set listchars=tab:\|\ 
@@ -456,7 +457,7 @@ au BufNewFile,BufRead *.styles setf css
 au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
 
 " use better colorscheme for go programming
-au BufNewFile,BufRead *.go colorscheme molokai
+" au BufNewFile,BufRead *.go colorscheme molokai
 
 " ========================================================================
 " Custom Functions

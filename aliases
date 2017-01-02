@@ -33,6 +33,9 @@ alias goblue='cd $GOPATH/src/github.com/bluearchive/main/ui/console'
 alias gobluem='cd $GOPATH/src/github.com/bluearchive/main'
 alias rdytojs='cd $HOME/CurrentProjects/Javascript'
 alias blog='cd $HOME/apps/spencercdixon'
+alias lv='cd ~/apps/lv'
+alias lvt='cd ~/apps/lv/lv-test'
+alias lva='cd ~/apps/lv/lv-api'
 
 ####################
 # Git Aliases

@@ -23,29 +23,30 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'        " vim package manager
 
 " General Editing
-Plugin 'SirVer/ultisnips'            " snippets
-Plugin 'Valloric/YouCompleteMe'      " inline autocomplete
-Plugin 'airblade/vim-gitgutter'      " git changes in gutter
-Plugin 'ervandew/supertab'           " util for <tab> with snippets
-Plugin 'godlygeek/tabular'           " text aligning
-Plugin 'honza/vim-snippets'          " basic snippets to use with UltiSnips
-Plugin 'scrooloose/nerdcommenter'    " easy code commenting
-Plugin 'scrooloose/syntastic'        " automatic linting inside vim
-Plugin 'skammer/vim-css-color'       " color hex colors in terminal
-Plugin 'tpope/vim-endwise'           " autocomplete 'end's
-Plugin 'tpope/vim-surround'          " change surrounding characters quickly
-Plugin 'evansalter/vim-checklist'    " sweet markdown checklists
-Plugin 'gcmt/taboo.vim'              " rename tabs for easier code navigation
-Plugin 'ecomba/vim-ruby-refactoring' " faster ruby/rails refactoring
-Plugin 'tpope/vim-bundler'           " wrapper for bundler
-Plugin 'tpope/vim-rails'             " rails shortcuts
-Plugin 'mattn/emmet-vim'             " faster html/JSX
-Plugin 'wakatime/vim-wakatime'       " for tracking coding
-Plugin 'flowtype/vim-flow'           " do flow syntax checking on save
+Plugin 'SirVer/ultisnips'               " snippets
+Plugin 'Valloric/YouCompleteMe'         " inline autocomplete
+Plugin 'airblade/vim-gitgutter'         " git changes in gutter
+Plugin 'ervandew/supertab'              " util for <tab> with snippets
+Plugin 'godlygeek/tabular'              " text aligning
+Plugin 'honza/vim-snippets'             " basic snippets to use with UltiSnips
+Plugin 'scrooloose/nerdcommenter'       " easy code commenting
+Plugin 'scrooloose/syntastic'           " automatic linting inside vim
+Plugin 'skammer/vim-css-color'          " color hex colors in terminal
+Plugin 'tpope/vim-endwise'              " autocomplete 'end's
+Plugin 'tpope/vim-surround'             " change surrounding characters quickly
+Plugin 'evansalter/vim-checklist'       " sweet markdown checklists
+Plugin 'gcmt/taboo.vim'                 " rename tabs for easier code navigation
+Plugin 'ecomba/vim-ruby-refactoring'    " faster ruby/rails refactoring
+Plugin 'tpope/vim-bundler'              " wrapper for bundler
+Plugin 'tpope/vim-rails'                " rails shortcuts
+Plugin 'tpope/vim-fugitive'             " useful git commands
+Plugin 'mattn/emmet-vim'                " faster html/JSX
+Plugin 'wakatime/vim-wakatime'          " for tracking coding
+Plugin 'flowtype/vim-flow'              " do flow syntax checking on save
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
-Plugin 'editorconfig/editorconfig-vim' " detect .editorconfigs and adjust my settings
-Plugin 'majutsushi/tagbar.git'         " tagbar to display ctags
-Plugin 'nazo/pt.vim'                   " for using Pt to search files
+Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
+Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
+Plugin 'nazo/pt.vim'                    " for using Pt to search files
 
 " Themes
 " Plugin 'nanotech/jellybeans.vim'  " yummy
@@ -291,6 +292,9 @@ map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
 map <leader>en :vsplit ~/Dropbox/docs/notes.md<cr>
 map <leader>er :vsplit ~/Dropbox/docs/reading-notes.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
+
+" Useful git helpers
+map <leader>gs :Gstatus<cr>
 
 " Rename vim tabs quickly
 map <leader>tr :TabooRename

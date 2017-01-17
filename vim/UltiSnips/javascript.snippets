@@ -249,6 +249,10 @@ snippet act
 export const ${1:ActionName} = '$1';
 endsnippet
 
+snippet actn
+export const ${1:ActionName} = \`\$\{NAME\}/$1\`;
+endsnippet
+
 snippet action
 export const ${1:ActionName} = (${2}) => ({
 	type: ${0},

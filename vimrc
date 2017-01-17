@@ -192,10 +192,9 @@ set statusline+=%*
 let g:ycm_key_list_previous_completion=['<Up>']
 
 "" Ultisnips
-let g:UltiSnipsExpandTrigger="<C-l>"
-let g:UltiSnipsListSnippets="<c-s-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Vim Checklist
 let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']

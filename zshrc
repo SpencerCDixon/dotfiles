@@ -12,8 +12,10 @@ plugins=(osx git node)
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
+export PATH="$PATH:$HOME/n/bin"
+
 # Add yarn to my path for npm dep management
-export PATH="$PATH:$HOME/.yarn/bin"
+export PATH="$PATH:`yarn global bin`"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -47,6 +49,7 @@ source $HOME/.dotfiles/functions
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # set up golang home and include go bin in path
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 

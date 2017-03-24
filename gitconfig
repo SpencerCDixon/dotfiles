@@ -23,5 +23,3 @@
   undo = reset HEAD~1 --mixed
 [core]
   editor = vim
-[credential]
-	helper = osxkeychain

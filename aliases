@@ -32,10 +32,12 @@ alias rdytogo='cd $GOPATH/src/github.com/spencercdixon'
 alias goblue='cd $GOPATH/src/github.com/bluearchive/main/ui/console'
 alias gobluem='cd $GOPATH/src/github.com/bluearchive/main'
 alias rdytojs='cd $HOME/CurrentProjects/Javascript'
+alias rdytorn='cd $HOME/CurrentProjects/ReactNative'
 alias blog='cd $HOME/apps/spencercdixon'
 alias lv='cd ~/apps/lv'
 alias lvt='cd ~/apps/lv/lv-test'
 alias lva='cd ~/apps/lv/lv-api'
+alias fin='cd ~/apps/finnest'
 
 ####################
 # Git Aliases
@@ -84,6 +86,11 @@ alias ns='npm start'
 alias nt='npm test'
 alias ntd='npm run test:dev'
 alias nd='node-docs'
+
+####################
+# Go Aliases
+####################
+alias godocserv='godoc -http=:6060 & open http://localhost:6060/pkg/'
 
 ####################
 # Databases

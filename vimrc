@@ -31,7 +31,6 @@ Plugin 'godlygeek/tabular'              " text aligning
 Plugin 'honza/vim-snippets'             " basic snippets to use with UltiSnips
 Plugin 'scrooloose/nerdcommenter'       " easy code commenting
 Plugin 'scrooloose/syntastic'           " automatic linting inside vim
-Plugin 'skammer/vim-css-color'          " color hex colors in terminal
 Plugin 'tpope/vim-endwise'              " autocomplete 'end's
 Plugin 'tpope/vim-surround'             " change surrounding characters quickly
 Plugin 'evansalter/vim-checklist'       " sweet markdown checklists
@@ -49,7 +48,6 @@ Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'nazo/pt.vim'                    " for using Pt to search files
 
 " Themes
-" Plugin 'nanotech/jellybeans.vim'  " yummy
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
 Plugin 'trevordmiller/nova-vim'   " modern looking flat colors for es6
 Plugin 'fatih/molokai'
@@ -59,7 +57,6 @@ Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
 
 " Searching
 Plugin 'ctrlpvim/ctrlp.vim'       " search file system
-" Plugin 'rking/ag.vim'             " integrate with silver searcher
 
 " Navigation
 Plugin 'scrooloose/nerdtree'      " file system bar
@@ -67,7 +64,7 @@ Plugin 'scrooloose/nerdtree'      " file system bar
 " Nova Plugins
 Plugin 'pangloss/vim-javascript'   
 Plugin 'mxw/vim-jsx'
-Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'          " HTML5 syntax highlighting
 
 " General languages
@@ -76,7 +73,6 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
-Plugin 'vim-perl/vim-perl'
 Plugin 'kovisoft/slimv'            " Lisp development
 Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-emoji'
@@ -217,6 +213,7 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 " Tagbar settings for go
 let g:tagbar_type_go = {  
@@ -450,14 +447,13 @@ augroup vimrcEx
 augroup END
 
 " convert md to markdown for syntax highlighting
-au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,README.md,*.md setf markdown
-au BufNewFile,BufRead *.styles setf css
+au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md setf markdown
 
 " convert CSS file types
 au BufNewFile,BufRead *.styles setf css
 
 " convert Perl file types
-au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
+" au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
 
 " use better colorscheme for go programming
 " au BufNewFile,BufRead *.go colorscheme molokai

@@ -35,17 +35,18 @@ Plugin 'tpope/vim-endwise'              " autocomplete 'end's
 Plugin 'tpope/vim-surround'             " change surrounding characters quickly
 Plugin 'evansalter/vim-checklist'       " sweet markdown checklists
 Plugin 'gcmt/taboo.vim'                 " rename tabs for easier code navigation
-Plugin 'ecomba/vim-ruby-refactoring'    " faster ruby/rails refactoring
+" Plugin 'ecomba/vim-ruby-refactoring'    " faster ruby/rails refactoring
 Plugin 'tpope/vim-bundler'              " wrapper for bundler
 Plugin 'tpope/vim-rails'                " rails shortcuts
 Plugin 'tpope/vim-fugitive'             " useful git commands
-Plugin 'mattn/emmet-vim'                " faster html/JSX
+" Plugin 'mattn/emmet-vim'                " faster html/JSX (slow bootup time)
 Plugin 'wakatime/vim-wakatime'          " for tracking coding
 Plugin 'flowtype/vim-flow'              " do flow syntax checking on save
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
 Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
 Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'nazo/pt.vim'                    " for using Pt to search files
+Plugin 'fleischie/vim-styled-components' " 
 
 " Themes
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
@@ -76,6 +77,7 @@ Plugin 'elzr/vim-json'
 Plugin 'kovisoft/slimv'            " Lisp development
 Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-emoji'
+Plugin 'posva/vim-vue'
 
 
 " All of your Plugins must be added before the following line
@@ -106,6 +108,7 @@ set background=dark
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp       " don't clutter up dir with swp and tmp files
+" set noswapfile                 " DANGEROUS!!! Just fed up with tmux issues...
 set expandtab                  " use soft tabs
 set hidden                     " allow hidden, unsaved buffers
 set history=750                " keep 750 lines of command line history
@@ -129,6 +132,7 @@ set splitright                 " add new windows towards the right
 set swapfile                   " keep swapfiles
 " set t_Co=256                   " terminal colors
 set termguicolors              " set true color to work with themes
+
 set tabstop=2                  " tab settings
 set textwidth=80               " line wrap at 80 characters for Ruby Convention
 " set wildmode=list:longest      " bash-like tab completion
@@ -196,12 +200,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']
 
 " Emmet configuration
-let g:user_emmet_leader_key='<C-A>'
-let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'jsx',
-\  },
-\}
+" let g:user_emmet_leader_key='<C-A>'
+" let g:user_emmet_settings = {
+" \  'javascript' : {
+" \      'extends' : 'jsx',
+" \  },
+" \}
 
 " If this is set to 1, the |quickfix| window opened when the plugin finds an error will close automatically.
 let g:flow#autoclose=1
@@ -214,6 +218,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_term_mode = "vsplit"
 
 " Tagbar settings for go
 let g:tagbar_type_go = {  
@@ -285,7 +290,7 @@ map <leader>eb :vsplit ~/Dropbox/docs/blog-posts.md<cr>
 map <leader>edj :vsplit ~/Dropbox/docs/dream-journal.md<cr>
 map <leader>eg :vsplit ~/Dropbox/docs/goals.md<cr>
 map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
-map <leader>en :vsplit ~/Dropbox/docs/notes.md<cr>
+map <leader>en :vsplit ~/notes/readme.md<cr>
 map <leader>er :vsplit ~/Dropbox/docs/reading-notes.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
 
@@ -410,7 +415,6 @@ iab @@ spencercdixon@gmail.com
 iab adn and
 iab que queue
 iab teh the
-iab req request
 iab iv I've
 iab il I'll
 iab monday Monday
@@ -457,6 +461,7 @@ au BufNewFile,BufRead *.styles setf css
 
 " use better colorscheme for go programming
 " au BufNewFile,BufRead *.go colorscheme molokai
+
 
 " ========================================================================
 " Custom Functions

@@ -23,6 +23,7 @@
   save = !git add -A && git commit -m 'SAVEPOINT'
   undo = reset HEAD~1 --mixed
   prune = fetch --prune
+  remote-ls = remote --verbose
 [core]
   editor = vim
 [status]

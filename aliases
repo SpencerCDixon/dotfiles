@@ -65,6 +65,7 @@ alias greignore='git rm --cached -r .'
 # Global aliases can appear anywhere in the terminal string
 alias -g G='| grep' # now you can do: ls foo G something
 alias -g BA='--endpoint-url https://s3.bluearchivedev.com'
+alias -g WE='--endpoint-url https://s3.wasabisys.com --profile wasabi'
 
 ####################
 # Docker Aliases

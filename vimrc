@@ -47,6 +47,7 @@ Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my se
 Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'nazo/pt.vim'                    " for using Pt to search files
 Plugin 'fleischie/vim-styled-components' " 
+Plugin 'prettier/vim-prettier'           " Adds support for prettier
 
 " Themes
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
@@ -254,6 +255,40 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" Vim Prettier Settings
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
+
+" max line length that prettier will wrap on
+g:prettier#config#print_width = 80
+
+" number of spaces per indentation level
+g:prettier#config#tab_width = 2
+
+" use tabs over spaces
+g:prettier#config#use_tabs = 'false'
+
+" print semicolons
+g:prettier#config#semi = 'true'
+
+" single quotes over double quotes
+g:prettier#config#single_quote = 'true'
+
+" print spaces between brackets
+g:prettier#config#bracket_spacing = 'true'
+
+" put > on the last line instead of new line
+g:prettier#config#jsx_bracket_same_line = 'true'
+
+" none|es5|all
+g:prettier#config#trailing_comma = 'all'
+
+" flow|babylon|typescript|postcss|json|graphql
+g:prettier#config#parser = 'babylon'
+
+" cli-override|file-override|prefer-file
+g:prettier#config#config_precedence = 'prefer-file'
 
 " ========================================================================
 " Searching

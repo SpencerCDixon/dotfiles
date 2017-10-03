@@ -264,34 +264,34 @@ let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
 
 " max line length that prettier will wrap on
-g:prettier#config#print_width = 80
+let g:prettier#config#print_width = 80
 
 " number of spaces per indentation level
-g:prettier#config#tab_width = 2
+let g:prettier#config#tab_width = 2
 
 " use tabs over spaces
-g:prettier#config#use_tabs = 'false'
+let g:prettier#config#use_tabs = 'false'
 
 " print semicolons
-g:prettier#config#semi = 'true'
+let g:prettier#config#semi = 'true'
 
 " single quotes over double quotes
-g:prettier#config#single_quote = 'true'
+let g:prettier#config#single_quote = 'true'
 
 " print spaces between brackets
-g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#bracket_spacing = 'true'
 
 " put > on the last line instead of new line
-g:prettier#config#jsx_bracket_same_line = 'true'
+let g:prettier#config#jsx_bracket_same_line = 'true'
 
 " none|es5|all
-g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#trailing_comma = 'all'
 
 " flow|babylon|typescript|postcss|json|graphql
-g:prettier#config#parser = 'babylon'
+let g:prettier#config#parser = 'babylon'
 
 " cli-override|file-override|prefer-file
-g:prettier#config#config_precedence = 'prefer-file'
+let g:prettier#config#config_precedence = 'prefer-file'
 
 " ========================================================================
 " Searching

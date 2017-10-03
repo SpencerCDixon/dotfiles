@@ -155,6 +155,11 @@ alias s3config='v ~/.s3cfg'
 alias blue='cd ~/bluearchive'
 
 ####################
+# Rio
+####################
+alias rio='cd ~/work/rio-ui'
+
+####################
 # Virtual Machines
 ####################
 alias vmbox='ssh spence-VirtualBox.local'

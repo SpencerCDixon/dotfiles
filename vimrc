@@ -47,11 +47,12 @@ Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my se
 Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'nazo/pt.vim'                    " for using Pt to search files
 Plugin 'fleischie/vim-styled-components' " 
+Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
 
 " Themes
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
 Plugin 'trevordmiller/nova-vim'   " modern looking flat colors for es6
-Plugin 'fatih/molokai'
+Plugin 'fatih/molokai'            " useful colorscheme for Go code
 
 " Airline
 Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
@@ -78,6 +79,7 @@ Plugin 'kovisoft/slimv'            " Lisp development
 Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-emoji'
 Plugin 'posva/vim-vue'
+Plugin 'jparise/vim-graphql'
 
 
 " All of your Plugins must be added before the following line
@@ -225,6 +227,7 @@ let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_deadline = "5s"
 let g:go_term_mode = "vsplit"
+let g:go_list_type = "quickfix"
 
 " Tagbar settings for go
 let g:tagbar_type_go = {  
@@ -423,6 +426,10 @@ au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
+
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+map <C-k> :cclose<CR>
 
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')

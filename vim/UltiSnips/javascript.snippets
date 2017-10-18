@@ -131,6 +131,10 @@ snippet ic
 import ${1} from 'components/$1';
 endsnippet
 
+snippet irc
+import { ${1} } from '@covered/rio-component-${0}';
+endsnippet
+
 snippet rrc
 import { connect } from 'react-redux';
 endsnippet
@@ -349,6 +353,12 @@ it('${1}', function() {
 });
 endsnippet
 
+snippet ss
+const ss = felaSnapshot(${0});
+expect(ss.component).toMatchSnapshot();
+expect(ss.styles).toMatchSnapshot();
+endsnippet
+
 snippet desc
 describe('${1}', function() {
 	${0}
@@ -362,7 +372,7 @@ context('${1}', function() {
 endsnippet
 
 snippet expect
-expect(${1}).to.${2}(${0});
+expect(${1}).toEqual${2}(${0});
 endsnippet
 
 snippet redt

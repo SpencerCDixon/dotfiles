@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+tmux new-session -d -s 'rio-dev'
+tmux split-window -v 'rio'
+tmux select-pane -t 0
+tmux send-keys "rio" C-m
+tmux send-keys "yarn start" C-m
+
+tmux -2 attach-session -t 'rio-dev'

@@ -7,12 +7,12 @@ filetype off     " Required by vundle
 " Based on http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
 let need_to_install_plugins=0
 if empty(system("grep lazy_load ~/.vim/bundle/vundle/autoload/vundle.vim"))
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !rm -rf ~/.vim/bundle/vundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let need_to_install_plugins=1
+  echo "Installing Vundle..."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !rm -rf ~/.vim/bundle/vundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+  let need_to_install_plugins=1
 endif
 
 " Set runtime path to include Vundle
@@ -41,14 +41,16 @@ Plugin 'tpope/vim-rails'                " rails shortcuts
 Plugin 'tpope/vim-fugitive'             " useful git commands
 " Plugin 'mattn/emmet-vim'                " faster html/JSX (slow bootup time)
 Plugin 'wakatime/vim-wakatime'          " for tracking coding
-Plugin 'flowtype/vim-flow'              " do flow syntax checking on save
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
 Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
 Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'nazo/pt.vim'                    " for using Pt to search files
 Plugin 'fleischie/vim-styled-components' " 
 Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
+
+" JS code vormatting
 Plugin 'prettier/vim-prettier'           " Adds support for prettier
+Plugin 'flowtype/vim-flow'              " do flow syntax checking on save
 
 " Themes
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
@@ -178,10 +180,12 @@ let ruby_operators=1
 set updatetime=250
 
 " Syntastic settings
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
 let g:syntastic_jsx_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = '`npm bin`/eslint'
 let g:syntastic_jsx_eslint_exec = '`npm bin`/eslint'
+" let g:syntastic_javascript_flow_exe = 'flow'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -212,6 +216,16 @@ let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']
 
 " If this is set to 1, the |quickfix| window opened when the plugin finds an error will close automatically.
 let g:flow#autoclose=1
+let g:flow#errjmp=1
+
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+  let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
 
 " Vim Go Settings
 let g:go_highlight_functions = 1
@@ -462,9 +476,10 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
+" These might be messing with my quickfix window
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-map <C-k> :cclose<CR>
+" map <C-q> :cclose<CR>
 
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
@@ -528,6 +543,9 @@ au BufNewFile,BufRead *.styles setf css
 " use better colorscheme for go programming
 " au BufNewFile,BufRead *.go colorscheme molokai
 
+" In the quickfix window, <CR> is used to jump to the error under the" cursor,
+" so undefine the mapping there.
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 " ========================================================================
 " Custom Functions

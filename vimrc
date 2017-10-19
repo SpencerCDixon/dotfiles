@@ -181,7 +181,7 @@ set updatetime=250
 
 " Syntastic settings
 " let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_jsx_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = '`npm bin`/eslint'
 let g:syntastic_jsx_eslint_exec = '`npm bin`/eslint'
@@ -245,33 +245,33 @@ let g:go_term_mode = "vsplit"
 let g:go_list_type = "quickfix"
 
 " Tagbar settings for go
-let g:tagbar_type_go = {  
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+" let g:tagbar_type_go = {  
+      " \ 'ctagstype' : 'go',
+      " \ 'kinds'     : [
+      " \ 'p:package',
+      " \ 'i:imports:1',
+      " \ 'c:constants',
+      " \ 'v:variables',
+      " \ 't:types',
+      " \ 'n:interfaces',
+      " \ 'w:fields',
+      " \ 'e:embedded',
+      " \ 'm:methods',
+      " \ 'r:constructor',
+      " \ 'f:functions'
+      " \ ],
+      " \ 'sro' : '.',
+      " \ 'kind2scope' : {
+      " \ 't' : 'ctype',
+      " \ 'n' : 'ntype'
+      " \ },
+      " \ 'scope2kind' : {
+      " \ 'ctype' : 't',
+      " \ 'ntype' : 'n'
+      " \ },
+      " \ 'ctagsbin'  : 'gotags',
+      " \ 'ctagsargs' : '-sort -silent'
+      " \ }
 
 " Vim Prettier Settings
 let g:prettier#autoformat = 0
@@ -517,9 +517,9 @@ augroup vimrcEx
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -541,7 +541,7 @@ au BufNewFile,BufRead *.styles setf css
 " au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
 
 " use better colorscheme for go programming
-" au BufNewFile,BufRead *.go colorscheme molokai
+au BufNewFile,BufRead *.go colorscheme molokai
 
 " In the quickfix window, <CR> is used to jump to the error under the" cursor,
 " so undefine the mapping there.
@@ -550,13 +550,3 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " ========================================================================
 " Custom Functions
 " ========================================================================
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction

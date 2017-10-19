@@ -1,9 +1,33 @@
 #!/usr/bin/env bash
 
-tmux new-session -d -s 'rio-dev'
-tmux split-window -v 'rio'
-tmux select-pane -t 0
-tmux send-keys "rio" C-m
-tmux send-keys "yarn start" C-m
+# Create new session with default name of editor and immediately detach
+tmux new-session -s rio-dev -n editor -d
+# Go to project directory and open vim
+tmux send-keys -t rio-dev 'rio && v' C-m
+
+# Open a terminal at bottom of screen
+# tmux split-window -v -t rio-dev
+# tmux select-layout -t rio-dev main-horizontal
+
+# Open project in terminal
+tmux send-keys -t rio-dev:1.1 'rio' C-m
+
+# Create new window for building/testing
+tmux new-window -n build -t rio-dev
+tmux split-window -h -p 50 -t rio-dev
+tmux send-keys -t rio-dev:2.0 'rio' C-m
+tmux send-keys -t rio-dev:2.0 'yarn start' C-m
+tmux send-keys -t rio-dev:2.1 'rio' C-m
+tmux send-keys -t rio-dev:2.1 'yarn run test:watch' C-m
+
+# Create a new window for API
+tmux new-window -n api -t rio-dev
+tmux send-keys -t rio-dev:3.0 'rioapi' C-m
+
+# Keep cursor on editor when attaching
+tmux select-window -t rio-dev:1
+
+# Open browser to the UI kit
+open http://localhost:6060
 
 tmux -2 attach-session -t 'rio-dev'

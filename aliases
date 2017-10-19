@@ -158,6 +158,7 @@ alias blue='cd ~/bluearchive'
 # Rio
 ####################
 alias rio='cd ~/work/rio-ui'
+alias rioapi='cd $GOPATH/src/github.com/coveredteam/api'
 
 ####################
 # Virtual Machines

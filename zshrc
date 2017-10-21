@@ -4,8 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Theme I want to use
 ZSH_THEME="xiong-chiamiov-plus"
 
-# Import all zsh related files
-source $HOME/.dotfiles/aliases
+# Add useful functions
 source $HOME/.dotfiles/functions
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
@@ -24,6 +23,9 @@ export PATH="$PATH:`yarn global bin`"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# Add in aliases
+source $HOME/.dotfiles/aliases
 
 # Add autocomplete for fzf and zsh
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then

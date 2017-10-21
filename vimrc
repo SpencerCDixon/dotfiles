@@ -32,26 +32,25 @@ Plugin 'honza/vim-snippets'             " basic snippets to use with UltiSnips
 Plugin 'scrooloose/nerdcommenter'       " easy code commenting
 Plugin 'tpope/vim-endwise'              " autocomplete 'end's
 Plugin 'tpope/vim-surround'             " change surrounding characters quickly
+Plugin 'tpope/vim-repeat'               " allow '.' repeat for vim-surround
 Plugin 'evansalter/vim-checklist'       " sweet markdown checklists
 Plugin 'gcmt/taboo.vim'                 " rename tabs for easier code navigation
-" Plugin 'ecomba/vim-ruby-refactoring'    " faster ruby/rails refactoring
 Plugin 'tpope/vim-bundler'              " wrapper for bundler
 Plugin 'tpope/vim-rails'                " rails shortcuts
 Plugin 'tpope/vim-fugitive'             " useful git commands
-" Plugin 'mattn/emmet-vim'                " faster html/JSX (slow bootup time)
 Plugin 'wakatime/vim-wakatime'          " for tracking coding
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
 Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
 Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
-Plugin 'nazo/pt.vim'                    " for using Pt to search files
-Plugin 'fleischie/vim-styled-components' " 
 Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
-Plugin 'itchyny/lightline.vim'  " meta data airline
+Plugin 'itchyny/lightline.vim'          " minimal airline that is easier to configure
 
 " Code Formatting
-Plugin 'prettier/vim-prettier'          " Adds support for prettier
-Plugin 'flowtype/vim-flow'              " do flow syntax checking on save
-Plugin 'w0rp/ale'                       " async linting/formatting
+Plugin 'prettier/vim-prettier'           " Adds support for prettier
+Plugin 'flowtype/vim-flow'               " do flow syntax checking on save
+Plugin 'w0rp/ale'                        " async linting/formatting
+Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
+Plugin 'fleischie/vim-styled-components' " format styled components properly
 
 " Themes
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
@@ -60,7 +59,7 @@ Plugin 'fatih/molokai'            " useful colorscheme for Go code
 
 " Searching
 Plugin 'junegunn/fzf.vim'
-set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf       " Adds fzf to vim PATH
 
 " Navigation
 Plugin 'scrooloose/nerdtree'      " file system bar
@@ -68,16 +67,14 @@ Plugin 'scrooloose/nerdtree'      " file system bar
 " Nova Plugins
 Plugin 'pangloss/vim-javascript'   
 Plugin 'mxw/vim-jsx'
-" Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/html5.vim'          " HTML5 syntax highlighting
 
 " General languages
-" Plugin 'othree/yajs.vim'           " better js highlighting
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
-Plugin 'kovisoft/slimv'            " Lisp development
+Plugin 'kovisoft/slimv'            
 Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-emoji'
 Plugin 'posva/vim-vue'
@@ -111,7 +108,6 @@ set background=dark
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp       " don't clutter up dir with swp and tmp files
-" set noswapfile                 " DANGEROUS!!! Just fed up with tmux issues...
 set expandtab                  " use soft tabs
 set hidden                     " allow hidden, unsaved buffers
 set history=750                " keep 750 lines of command line history
@@ -133,8 +129,11 @@ set shiftround                 " use multiple of shiftwidth when indenting with 
 set splitbelow                 " add new windows towards the bottom
 set splitright                 " add new windows towards the right
 set swapfile                   " keep swapfiles
-" set t_Co=256                   " terminal colors
 set termguicolors              " set true color to work with themes
+
+if !has('gui_running')
+  set t_Co=256                 " terminal colors
+endif
 
 set tabstop=2                  " tab settings
 set textwidth=80               " line wrap at 80 characters for Ruby Convention
@@ -157,8 +156,6 @@ autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or vim
 " Don't fold markdown
 let g:vim_markdown_folding_disabled = 1
 
-" Map ctrlP 'f' for 'find'
-" let g:ctrlp_map = '<leader>f'
 
 " Pad comment delimeters with spaces
 let NERDSpaceDelims = 1
@@ -178,8 +175,8 @@ set updatetime=250
 let g:ale_linters = {
 \   'javascript': ['eslint', 'flow'],
 \}
-let g:ale_sign_warning = '▲'
-let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '🙊'
+let g:ale_sign_error = '🔥'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 
@@ -236,58 +233,19 @@ let g:go_metalinter_deadline = "5s"
 let g:go_term_mode = "vsplit"
 let g:go_list_type = "quickfix"
 
-" Tagbar settings for go
-" let g:tagbar_type_go = {  
-      " \ 'ctagstype' : 'go',
-      " \ 'kinds'     : [
-      " \ 'p:package',
-      " \ 'i:imports:1',
-      " \ 'c:constants',
-      " \ 'v:variables',
-      " \ 't:types',
-      " \ 'n:interfaces',
-      " \ 'w:fields',
-      " \ 'e:embedded',
-      " \ 'm:methods',
-      " \ 'r:constructor',
-      " \ 'f:functions'
-      " \ ],
-      " \ 'sro' : '.',
-      " \ 'kind2scope' : {
-      " \ 't' : 'ctype',
-      " \ 'n' : 'ntype'
-      " \ },
-      " \ 'scope2kind' : {
-      " \ 'ctype' : 't',
-      " \ 'ntype' : 'n'
-      " \ },
-      " \ 'ctagsbin'  : 'gotags',
-      " \ 'ctagsargs' : '-sort -silent'
-      " \ }
-
 " Vim Prettier Settings
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
-" max line length that prettier will wrap on
-let g:prettier#config#print_width = 80
-" number of spaces per indentation level
-let g:prettier#config#tab_width = 2
-" use tabs over spaces
-let g:prettier#config#use_tabs = 'false'
-" print semicolons
-let g:prettier#config#semi = 'true'
-" single quotes over double quotes
-let g:prettier#config#single_quote = 'true'
-" print spaces between brackets
-let g:prettier#config#bracket_spacing = 'true'
-" put > on the last line instead of new line
-let g:prettier#config#jsx_bracket_same_line = 'true'
-" none|es5|all
-let g:prettier#config#trailing_comma = 'all'
-" flow|babylon|typescript|postcss|json|graphql
-let g:prettier#config#parser = 'babylon'
-" cli-override|file-override|prefer-file
-let g:prettier#config#config_precedence = 'prefer-file'
+let g:prettier#config#print_width = 80 " max line length that prettier will wrap on
+let g:prettier#config#tab_width = 2 " number of spaces per indentation level
+let g:prettier#config#use_tabs = 'false' " use tabs over spaces
+let g:prettier#config#semi = 'true' " print semicolons
+let g:prettier#config#single_quote = 'true' " single quotes over double quotes
+let g:prettier#config#bracket_spacing = 'true' " print spaces between brackets
+let g:prettier#config#jsx_bracket_same_line = 'true' " put > on the last line instead of new line
+let g:prettier#config#trailing_comma = 'all' " none|es5|all
+let g:prettier#config#parser = 'babylon' " flow|babylon|typescript|postcss|json|graphql
+let g:prettier#config#config_precedence = 'prefer-file' " cli-override|file-override|prefer-file
 
 " Git Gutter Settings
 let g:gitgutter_sign_added = '∙'
@@ -318,19 +276,19 @@ function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ▲', all_non_errors)
+  return l:counts.total == 0 ? '' : printf('%d 🙊', all_non_errors)
 endfunction
 function! LightlineLinterErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+  return l:counts.total == 0 ? '' : printf('%d 🔥', all_errors)
 endfunction
 function! LightlineLinterOK() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓ ' : ''
+  return l:counts.total == 0 ? '😎 ' : ''
 endfunction
 
 " Update and show lightline but only if it's visible (e.g., not in Goyo)
@@ -344,30 +302,13 @@ endfunction
 " ========================================================================
 " Searching
 " ========================================================================
-" Use Platinum Searcher instead of grep - brew install pt
-set wildignore+=tmp/**                " Ignore stuff that can't be opened
-
-" if executable('pt')
- " " Use ag over grep
-  " set grepprg=pt\ --nogroup\ --nocolor
-
-  " " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  " " Without --hidden, it never finds .travis.yml since it starts with a dot
-  " let g:ctrlp_user_command = 'pt %s -l --hidden --nocolor -g ""'
-
-  " " pt is fast enough that CtrlP doesn't need to cache
-  " let g:ctrlp_use_caching = 0
-" else
-  " " https://github.com/kien/ctrlp.vim/issues/174
-  " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-" endif
+set wildignore+=tmp/**  " Ignore stuff that won't really be opened frequently
 
 " ========================================================================
 " Key mappings
 " ========================================================================
 
 " Useful macros:
-
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 " nmap <Leader>r :Tags<CR>
@@ -415,16 +356,13 @@ map <leader>6 :tabn 6<CR>
 map <leader>7 :tabn 7<CR>
 map <leader>8 :tabn 8<CR>
 map <leader>9 :tabn 9<CR>
-map <leader>t :tabe<CR>
-map <leader>tc :tabc<CR>
-map <leader>to :tabo<CR>
 
 " Checklists
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
 vnoremap <leader>ct :ChecklistToggleCheckbox<cr>
 
 " File tree browser
-map \ :NERDTreeToggle<cr>
+map \e :NERDTreeToggle<cr>
 " File tree browser showing current file - pipe (shift-backslash)
 map \| :NERDTreeFind<cr>
 
@@ -490,7 +428,6 @@ nnoremap <leader>h <C-w>s
 
 " Rails
 nmap <leader>b :BundleInstall<CR>
-nmap <leader>et :AV<CR>
 
 " Go Vim Mappings
 " run :GoBuild or :GoTestCompile based on the go file
@@ -503,21 +440,16 @@ function! s:build_go_files()
   endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+au FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>a :GoAlternate<cr>
-
-" leader c to check coverage and toggle highlighting off
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-
+au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
@@ -583,9 +515,6 @@ au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md setf markdown
 
 " convert CSS file types
 au BufNewFile,BufRead *.styles setf css
-
-" convert Perl file types
-" au BufNewFile,BufRead *.t,*.pl,*.pm setf perl
 
 " use better colorscheme for go programming
 au BufNewFile,BufRead *.go colorscheme molokai

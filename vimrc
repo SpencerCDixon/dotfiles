@@ -39,7 +39,6 @@ Plugin 'tpope/vim-bundler'              " wrapper for bundler
 Plugin 'tpope/vim-rails'                " rails shortcuts
 Plugin 'tpope/vim-fugitive'             " useful git commands
 Plugin 'wakatime/vim-wakatime'          " for tracking coding
-Plugin 'davidbeckingsale/writegood.vim' " write better english 
 Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
 Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
@@ -53,9 +52,10 @@ Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
 Plugin 'fleischie/vim-styled-components' " format styled components properly
 
 " Themes
-Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
-Plugin 'trevordmiller/nova-vim'   " modern looking flat colors for es6
-Plugin 'fatih/molokai'            " useful colorscheme for Go code
+" Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development
+" Plugin 'lifepillar/vim-solarized8'   " solarized for writing prose
+Plugin 'trevordmiller/nova-vim'      " modern looking flat colors for es6
+Plugin 'fatih/molokai'               " useful colorscheme for Go code
 
 " Searching
 Plugin 'junegunn/fzf.vim'
@@ -79,6 +79,10 @@ Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-emoji'
 Plugin 'posva/vim-vue'
 Plugin 'jparise/vim-graphql'
+
+" Writing Prose
+Plugin 'junegunn/goyo.vim'              " enter zen prose mode
+Plugin 'davidbeckingsale/writegood.vim' " write better english 
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -133,6 +137,12 @@ set termguicolors              " set true color to work with themes
 
 if !has('gui_running')
   set t_Co=256                 " terminal colors
+
+  " Fix weird tmux background color issues
+  " https://stackoverflow.com/questions/6427650/vim-in-tmux-background-color-changes-when-paging
+  if $TMUX != ""
+    set t_ut=
+  endif
 endif
 
 set tabstop=2                  " tab settings
@@ -311,11 +321,13 @@ set wildignore+=tmp/**  " Ignore stuff that won't really be opened frequently
 " Useful macros:
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
-" nmap <Leader>r :Tags<CR>
+nmap <Leader>r :Tags<CR>
 " Close quickfix window
 nmap \x :cclose<cr> 
 " Send repeat command to console tmux pane
 " nmap \r :call TmuxPaneRepeat()<cr>
+command! ProseMode call ProseMode()
+nmap \p :ProseMode<CR>
 
 " Re-source my vimrc
 map <Leader>sv :so $MYVIMRC<cr>
@@ -526,3 +538,10 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " ========================================================================
 " Custom Functions
 " ========================================================================
+
+function! ProseMode()
+  " TODO: Change the color scheme to something nice for writing prose
+  call goyo#execute(0, [])
+  set spell noci nosi noai nolist noshowmode noshowcmd
+  set complete+=s
+endfunction

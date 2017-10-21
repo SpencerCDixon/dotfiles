@@ -1,7 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Theme I want to use
 ZSH_THEME="xiong-chiamiov-plus"
+
+# Import all zsh related files
+source $HOME/.dotfiles/aliases
+source $HOME/.dotfiles/functions
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -20,6 +25,23 @@ export PATH="$PATH:`yarn global bin`"
 
 source $ZSH/oh-my-zsh.sh
 
+# Add autocomplete for fzf and zsh
+if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+# fzf + ag configuration
+if _has fzf && _has ag; then
+  export FZF_DEFAULT_COMMAND='ag --nogroup --nocolor -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='
+  --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
+  --color info:108,prompt:109,spinner:108,pointer:168,marker:168
+  '
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -36,9 +58,6 @@ export EDITOR='vim'
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
 
-# import all zsh related files
-source $HOME/.dotfiles/aliases
-source $HOME/.dotfiles/functions
 
 # set up golang home and include go bin in path
 export PATH=$PATH:/usr/local/go/bin

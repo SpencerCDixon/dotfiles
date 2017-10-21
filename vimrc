@@ -30,7 +30,6 @@ Plugin 'ervandew/supertab'              " util for <tab> with snippets
 Plugin 'godlygeek/tabular'              " text aligning
 Plugin 'honza/vim-snippets'             " basic snippets to use with UltiSnips
 Plugin 'scrooloose/nerdcommenter'       " easy code commenting
-Plugin 'scrooloose/syntastic'           " automatic linting inside vim
 Plugin 'tpope/vim-endwise'              " autocomplete 'end's
 Plugin 'tpope/vim-surround'             " change surrounding characters quickly
 Plugin 'evansalter/vim-checklist'       " sweet markdown checklists
@@ -47,21 +46,21 @@ Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
 Plugin 'nazo/pt.vim'                    " for using Pt to search files
 Plugin 'fleischie/vim-styled-components' " 
 Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
+Plugin 'itchyny/lightline.vim'  " meta data airline
 
-" JS code vormatting
-Plugin 'prettier/vim-prettier'           " Adds support for prettier
+" Code Formatting
+Plugin 'prettier/vim-prettier'          " Adds support for prettier
 Plugin 'flowtype/vim-flow'              " do flow syntax checking on save
+Plugin 'w0rp/ale'                       " async linting/formatting
 
 " Themes
 Plugin 'mhartington/oceanic-next' " ideal for React/ES6 development
 Plugin 'trevordmiller/nova-vim'   " modern looking flat colors for es6
 Plugin 'fatih/molokai'            " useful colorscheme for Go code
 
-" Airline
-Plugin 'vim-airline/vim-airline'  " useful metadata and mode identifier
-
 " Searching
-Plugin 'ctrlpvim/ctrlp.vim'       " search file system
+Plugin 'junegunn/fzf.vim'
+set rtp+=/usr/local/opt/fzf
 
 " Navigation
 Plugin 'scrooloose/nerdtree'      " file system bar
@@ -83,7 +82,6 @@ Plugin 'fatih/vim-go'
 Plugin 'junegunn/vim-emoji'
 Plugin 'posva/vim-vue'
 Plugin 'jparise/vim-graphql'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -145,13 +143,13 @@ set wildmenu                   " zsh like tab completion
 set wildmode=full              " ^
 set nrformats=                 " treat all numbers as base 10
 set clipboard=unnamed          " fix copy paste with tmux
-
+set noshowmode                 " --INSERT -- no longer needed with the lightline
 " Make tabs look pretty
 set listchars=tab:\|\ 
 
 " Write all writeable buffers when changing buffers or losing focus.
 set autowriteall                " Save when doing various buffer-switching things.
-autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or MacVim loses focus.
+autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or vim loses focus.
 
 " ========================================================================
 " Plugin Settings
@@ -160,15 +158,12 @@ autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or Mac
 let g:vim_markdown_folding_disabled = 1
 
 " Map ctrlP 'f' for 'find'
-let g:ctrlp_map = '<leader>f'
+" let g:ctrlp_map = '<leader>f'
 
 " Pad comment delimeters with spaces
 let NERDSpaceDelims = 1
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
-
-" Use consistent theme for airline
-let g:airline_theme='oceanicnext'
 
 " Allow jsx syntax highlighting with .js extensions
 let g:jsx_ext_required=0
@@ -179,21 +174,14 @@ let ruby_operators=1
 " Recommended by gitgutter
 set updatetime=250
 
-" Syntastic settings
-" let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_jsx_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = '`npm bin`/eslint'
-let g:syntastic_jsx_eslint_exec = '`npm bin`/eslint'
-" let g:syntastic_javascript_flow_exe = 'flow'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+" ALE Settings
+let g:ale_linters = {
+\   'javascript': ['eslint', 'flow'],
+\}
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
 
 "" YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']
@@ -215,8 +203,12 @@ let g:checklist_filetypes = ['txt', 'md', 'markdown', 'text']
 " \}
 
 " If this is set to 1, the |quickfix| window opened when the plugin finds an error will close automatically.
-let g:flow#autoclose=1
-let g:flow#errjmp=1
+let g:flow#autoclose= 1
+let g:flow#errjmp= 1
+" stop type checking on :w
+let g:flow#enable = 0
+" useful since I use ALE 
+let g:flow#showquickfix = 0
 
 "Use locally installed flow
 let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
@@ -276,36 +268,78 @@ let g:go_list_type = "quickfix"
 " Vim Prettier Settings
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
-
 " max line length that prettier will wrap on
 let g:prettier#config#print_width = 80
-
 " number of spaces per indentation level
 let g:prettier#config#tab_width = 2
-
 " use tabs over spaces
 let g:prettier#config#use_tabs = 'false'
-
 " print semicolons
 let g:prettier#config#semi = 'true'
-
 " single quotes over double quotes
 let g:prettier#config#single_quote = 'true'
-
 " print spaces between brackets
 let g:prettier#config#bracket_spacing = 'true'
-
 " put > on the last line instead of new line
 let g:prettier#config#jsx_bracket_same_line = 'true'
-
 " none|es5|all
 let g:prettier#config#trailing_comma = 'all'
-
 " flow|babylon|typescript|postcss|json|graphql
 let g:prettier#config#parser = 'babylon'
-
 " cli-override|file-override|prefer-file
 let g:prettier#config#config_precedence = 'prefer-file'
+
+" Git Gutter Settings
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+
+" Lightline Settings
+" Lightline
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ▲', all_non_errors)
+endfunction
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+autocmd User ALELint call s:MaybeUpdateLightline()
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
 
 " ========================================================================
 " Searching
@@ -313,29 +347,41 @@ let g:prettier#config#config_precedence = 'prefer-file'
 " Use Platinum Searcher instead of grep - brew install pt
 set wildignore+=tmp/**                " Ignore stuff that can't be opened
 
-if executable('pt')
-  " Use ag over grep
-  set grepprg=pt\ --nogroup\ --nocolor
+" if executable('pt')
+ " " Use ag over grep
+  " set grepprg=pt\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  " Without --hidden, it never finds .travis.yml since it starts with a dot
-  let g:ctrlp_user_command = 'pt %s -l --hidden --nocolor -g ""'
+  " " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  " " Without --hidden, it never finds .travis.yml since it starts with a dot
+  " let g:ctrlp_user_command = 'pt %s -l --hidden --nocolor -g ""'
 
-  " pt is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-else
-  " https://github.com/kien/ctrlp.vim/issues/174
-  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-endif
+  " " pt is fast enough that CtrlP doesn't need to cache
+  " let g:ctrlp_use_caching = 0
+" else
+  " " https://github.com/kien/ctrlp.vim/issues/174
+  " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" endif
 
 " ========================================================================
 " Key mappings
 " ========================================================================
+
+" Useful macros:
+
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+" nmap <Leader>r :Tags<CR>
+" Close quickfix window
+nmap \x :cclose<cr> 
+" Send repeat command to console tmux pane
+" nmap \r :call TmuxPaneRepeat()<cr>
+
 " Re-source my vimrc
 map <Leader>sv :so $MYVIMRC<cr>
 
 " Install Vundle Plugins
 map <Leader>pi :PluginInstall<cr>
+map <Leader>pu :PluginUpdate<cr>
 
 " Edit <useful files>
 map <leader>ev :vsplit $MYVIMRC<cr>
@@ -348,6 +394,7 @@ map <leader>eb :vsplit ~/Dropbox/docs/blog-posts.md<cr>
 map <leader>edj :vsplit ~/Dropbox/docs/dream-journal.md<cr>
 map <leader>eg :vsplit ~/Dropbox/docs/goals.md<cr>
 map <leader>ek :vsplit ~/Dropbox/docs/kira.rb<cr>
+map <leader>ef :vsplit ~/Dropbox/docs/flow.md<cr>
 map <leader>en :vsplit ~/notes/readme.md<cr>
 map <leader>er :vsplit ~/Dropbox/docs/reading-notes.md<cr>
 map <leader>es :UltiSnipsEdit<cr>
@@ -396,7 +443,7 @@ vmap <Leader>a: :Tabularize /:\zs<cr>
 vmap <Leader>af :Tabularize /from<cr>
 
 " Automatically align text when in insert mode - http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+" inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 "indent/unindent visual mode selection with tab/shift+tab
 vmap <tab> >gv

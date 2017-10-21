@@ -50,3 +50,8 @@ hide_icons() {
   defaults write com.apple.finder CreateDesktop false
   killall Finder
 }
+
+# Returns whether the given command is executable or aliased.
+_has() {
+  return $( whence $1 >/dev/null )
+}

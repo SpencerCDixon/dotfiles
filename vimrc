@@ -23,33 +23,33 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'        " vim package manager
 
 " General Editing
+Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
 Plugin 'SirVer/ultisnips'               " snippets
 Plugin 'Valloric/YouCompleteMe'         " inline autocomplete
 Plugin 'airblade/vim-gitgutter'         " git changes in gutter
+Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
 Plugin 'ervandew/supertab'              " util for <tab> with snippets
-Plugin 'godlygeek/tabular'              " text aligning
-Plugin 'honza/vim-snippets'             " basic snippets to use with UltiSnips
-Plugin 'scrooloose/nerdcommenter'       " easy code commenting
-Plugin 'tpope/vim-endwise'              " autocomplete 'end's
-Plugin 'tpope/vim-surround'             " change surrounding characters quickly
-Plugin 'tpope/vim-repeat'               " allow '.' repeat for vim-surround
 Plugin 'evansalter/vim-checklist'       " sweet markdown checklists
 Plugin 'gcmt/taboo.vim'                 " rename tabs for easier code navigation
-Plugin 'tpope/vim-bundler'              " wrapper for bundler
-Plugin 'tpope/vim-rails'                " rails shortcuts
-Plugin 'tpope/vim-fugitive'             " useful git commands
-Plugin 'wakatime/vim-wakatime'          " for tracking coding
-Plugin 'editorconfig/editorconfig-vim'  " detect .editorconfigs and adjust my settings
-Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
-Plugin 'AndrewRadev/splitjoin.vim'      " Allows gS and gJ in Go for easy struct changing
+Plugin 'godlygeek/tabular'              " text aligning
+Plugin 'honza/vim-snippets'             " basic snippets to use with UltiSnips
 Plugin 'itchyny/lightline.vim'          " minimal airline that is easier to configure
+Plugin 'majutsushi/tagbar.git'          " tagbar to display ctags
+Plugin 'scrooloose/nerdcommenter'       " easy code commenting
+Plugin 'tpope/vim-bundler'              " wrapper for bundler
+Plugin 'tpope/vim-endwise'              " autocomplete 'end's
+Plugin 'tpope/vim-fugitive'             " useful git commands
+Plugin 'tpope/vim-rails'                " rails shortcuts
+Plugin 'tpope/vim-repeat'               " allow '.' repeat for vim-surround
+Plugin 'tpope/vim-surround'             " change surrounding characters quickly
+Plugin 'wakatime/vim-wakatime'          " for tracking coding
 
 " Code Formatting
-Plugin 'prettier/vim-prettier'           " Adds support for prettier
-Plugin 'flowtype/vim-flow'               " do flow syntax checking on save
-Plugin 'w0rp/ale'                        " async linting/formatting
-Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
 Plugin 'fleischie/vim-styled-components' " format styled components properly
+Plugin 'flowtype/vim-flow'               " do flow syntax checking on save
+Plugin 'prettier/vim-prettier'           " Adds support for prettier
+Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
+Plugin 'w0rp/ale'                        " async linting/formatting
 
 " Themes
 " Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development
@@ -64,25 +64,25 @@ set rtp+=/usr/local/opt/fzf       " Adds fzf to vim PATH
 " Navigation
 Plugin 'scrooloose/nerdtree'      " file system bar
 
-" Nova Plugins
+" Nova Plugins (required to get nice JS styles)
 Plugin 'pangloss/vim-javascript'   
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/html5.vim'          " HTML5 syntax highlighting
 
 " General languages
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
-Plugin 'kovisoft/slimv'            
 Plugin 'fatih/vim-go'
-Plugin 'junegunn/vim-emoji'
-Plugin 'posva/vim-vue'
 Plugin 'jparise/vim-graphql'
+Plugin 'junegunn/vim-emoji'
+Plugin 'kovisoft/slimv'            
+Plugin 'plasticboy/vim-markdown'
+Plugin 'posva/vim-vue'
+Plugin 'vim-ruby/vim-ruby'
 
 " Writing Prose
-Plugin 'junegunn/goyo.vim'              " enter zen prose mode
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
+Plugin 'junegunn/goyo.vim'              " enter zen prose mode
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -165,7 +165,6 @@ autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or vim
 " ========================================================================
 " Don't fold markdown
 let g:vim_markdown_folding_disabled = 1
-
 
 " Pad comment delimeters with spaces
 let NERDSpaceDelims = 1
@@ -286,13 +285,13 @@ function! LightlineLinterWarnings() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d 🙊', all_non_errors)
+  return l:counts.total == 0 ? '' : printf('%d ▲', all_non_errors)
 endfunction
 function! LightlineLinterErrors() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:all_errors = l:counts.error + l:counts.style_error
   let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d 🔥', all_errors)
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
 endfunction
 function! LightlineLinterOK() abort
   let l:counts = ale#statusline#Count(bufnr(''))
@@ -309,6 +308,12 @@ function! s:MaybeUpdateLightline()
   end
 endfunction
 
+" FZF configuration
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
 " ========================================================================
 " Searching
 " ========================================================================
@@ -322,6 +327,7 @@ set wildignore+=tmp/**  " Ignore stuff that won't really be opened frequently
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
+nmap <Leader>l :Lines<CR>
 " Close quickfix window
 nmap \x :cclose<cr> 
 " Send repeat command to console tmux pane

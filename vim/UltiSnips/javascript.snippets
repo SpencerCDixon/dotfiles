@@ -13,8 +13,8 @@ snippet imp
 import ${1} from ${2};
 endsnippet
 
-snippet n
-import cn from 'classnames';
+snippet rcn
+import { classnames as cn } from '@covered/rio-style-tools';
 endsnippet
 
 snippet impc
@@ -127,12 +127,25 @@ snippet cn
 import cn from 'classnames';
 endsnippet
 
+snippet cnp
+/** Optional css extension */
+className: PropTypes.string,
+endsnippet
+
 snippet ic
 import ${1} from 'components/$1';
 endsnippet
 
 snippet irc
 import { ${1} } from '@covered/rio-component-${0}';
+endsnippet
+
+snippet iru
+import { ${1} } from '@covered/rio-util-${0}';
+endsnippet
+
+snippet irs
+import { ${1} } from '@covered/rio-style-${0}';
 endsnippet
 
 snippet rrc
@@ -261,6 +274,13 @@ const propTypes = {
 };
 endsnippet
 
+snippet imsg
+${1}: {
+	id: \`\${prefix\}.$1\`,
+	defaultMessage: '${0}',
+},
+endsnippet
+
 ########################
 # Redux Related Snippets
 ########################
@@ -272,7 +292,7 @@ export default connect(
 )(${1});
 endsnippet
 
-snippet saga
+snippet isaga
 import { ${0} } from 'redux-saga/effects';
 endsnippet
 
@@ -298,7 +318,11 @@ snippet actn
 export const ${1:ActionName} = \`\$\{NAME\}/$1\`;
 endsnippet
 
-snippet action
+snippet cactn
+export const ${1:ActionName} = \`covered/\$\{NAME\}/$1\`;
+endsnippet
+
+snippet actionfn
 export const ${1:ActionName} = (${2}) => ({
 	type: ${0},
 });
@@ -361,6 +385,10 @@ snippet ss
 const ss = felaSnapshot(${0});
 expect(ss.component).toMatchSnapshot();
 expect(ss.styles).toMatchSnapshot();
+endsnippet
+
+snippet debug
+console.log(wrapper.debug())
 endsnippet
 
 snippet desc

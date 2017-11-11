@@ -50,6 +50,7 @@ Plugin 'flowtype/vim-flow'               " do flow syntax checking on save
 Plugin 'prettier/vim-prettier'           " Adds support for prettier
 Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
 Plugin 'w0rp/ale'                        " async linting/formatting
+Plugin 'alvan/vim-closetag'              " auto close tags
 
 " Themes
 " Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development
@@ -314,6 +315,8 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+let g:closetag_filenames = '*.html,*.jsx'
+
 " ========================================================================
 " Searching
 " ========================================================================
@@ -540,6 +543,9 @@ au BufNewFile,BufRead *.go colorscheme molokai
 " In the quickfix window, <CR> is used to jump to the error under the" cursor,
 " so undefine the mapping there.
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+" Put quickfix window ALWAYS at the bottom
+autocmd FileType qf wincmd J
 
 " ========================================================================
 " Custom Functions

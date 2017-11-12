@@ -69,7 +69,7 @@ export PATH=$PATH:$GOPATH/bin
 # Added by n-install (see http://git.io/n-install-repo).
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  
 
-# Add tmux scripts for common dev environments
-export PATH=$HOME/.dotfiles/tmux-scripts:$PATH
+# Add custom binaries to PATH
+export PATH=$HOME/.dotfiles/bin:$PATH
 
 export TERM=xterm-256color

@@ -17,6 +17,7 @@ brew install pt
 brew install tree  
 brew install mysql  
 brew install v8-315  
+brew install fzf
 brew link --force v8-315  
 brew tap homebrew/binary
 
@@ -101,3 +102,12 @@ Settings
 `rc` - rails console  
 `rg` - rails generate  
 `rs` - rails server  
+
+
+
+---------------------
+Exocortex Notes
+
+1. Install Brew
+2. Tap brew bundle: `brew tap homebrew/bundle`
+3. Run `brew bundle`

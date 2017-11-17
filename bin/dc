@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# Borrowed from @ggerrietts
+
+function dc_rebuild {
+    docker-compose build "$@" && docker-compose stop "$@" && docker-compose up -d "$@"
+}
+
+function dc_cycle {
+    docker-compose stop "$@" && docker-compose up -d "$@"
+}
+
+function dc_clean {
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q -f dangling=true)
+}
+
+function dc_nuke {
+    docker kill $(docker ps -q)
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q)
+}
+
+function dc_console {
+    docker-compose exec "$1" /bin/bash
+}
+
+function dc_ports {
+    docker ps --filter name="$1" --format "{{.Names}}: {{.Ports}}"
+}
+
+if [[ $# > 0 ]]; then
+  case "$1" in
+    clean )
+      dc_clean
+      ;;
+    console )
+      shift
+      dc_console "$@"
+      ;;
+    cycle )
+      shift
+      dc_cycle "$@"
+      ;;
+    nuke )
+      dc_nuke
+      ;;
+    ports )
+      shift
+      dc_ports "$@"
+      ;;
+    rebuild )
+      shift
+      dc_rebuild "$@"
+      ;;
+    *)
+      docker-compose "$@"
+      ;;
+  esac
+else
+  docker-compose
+fi

@@ -547,6 +547,13 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 " Put quickfix window ALWAYS at the bottom
 autocmd FileType qf wincmd J
 
+" Toggle relative numbers when switching panes
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
 " ========================================================================
 " Custom Functions
 " ========================================================================

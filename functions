@@ -18,6 +18,15 @@ function v() {
         fi;
 }
 
+function g {
+  if [[ $# > 0 ]]; then
+    git "$@"
+  else
+    echo "Last commit: $(time_since_last_commit) ago"
+    git status --short --branch
+  fi
+}
+
 # Create a new directory and enter it
 function mkd() {
         mkdir -p "$@" && cd "$_";
@@ -55,3 +64,4 @@ hide_icons() {
 _has() {
   return $( whence $1 >/dev/null )
 }
+

@@ -20,7 +20,8 @@ checkForCmdInPath() {
   var=$1
 
   if [ "$var" != "" ] ; then
-    if [ "${var%${var#?}}" = "/" ] ; then
+    # Check if the program is being referenced with fully qualified path
+    if [ "${var:0:1}" = "/" ] ; then
       if [ ! -x $var ] ; then
         return 1
       fi
@@ -30,15 +31,17 @@ checkForCmdInPath() {
   fi
 }
 
-if [ $# -ne 1 ] ; then
-  echo "Usage: inpath <executable>" >&2 ; exit 1
-fi
+# For Testing:
 
-checkForCmdInPath "$1"
-case $? in
-  0 ) echo "$1 found in PATH" ;;
-  1 ) echo "$1 not found or not executable" ;;
-  2 ) echo "$1 not found in PATH" ;;
-esac
+# if [ $# -ne 1 ] ; then
+  # echo "Usage: inpath <executable>" >&2 ; exit 1
+# fi
 
-exit 0
+# checkForCmdInPath "$1"
+# case $? in
+  # 0 ) echo "$1 found in PATH" ;;
+  # 1 ) echo "$1 not found or not executable" ;;
+  # 2 ) echo "$1 not found in PATH" ;;
+# esac
+
+# exit 0

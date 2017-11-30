@@ -66,6 +66,7 @@ alias greignore='git rm --cached -r .'
 alias -g G='| grep' # now you can do: ls foo G something
 alias -g BA='--endpoint-url https://s3.bluearchivedev.com'
 alias -g WE='--endpoint-url https://s3.wasabisys.com --profile wasabi'
+alias man='tldr'
 
 ####################
 # Docker Aliases

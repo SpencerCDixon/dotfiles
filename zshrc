@@ -60,14 +60,15 @@ export EDITOR='vim'
 # source /usr/local/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
 
-
 # set up golang home and include go bin in path
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-# add pip to path
+# Add Python3 pip support
 export PATH=$PATH:~/Library/Python/3.6/bin
+# Add the hardware simulator tools to PATH while building the HACK computer
+export PATH=$PATH:~/Desktop/nand2tetris/tools
 
 # Added by n-install (see http://git.io/n-install-repo).
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  

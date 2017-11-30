@@ -51,6 +51,7 @@ Plugin 'prettier/vim-prettier'           " Adds support for prettier
 Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
 Plugin 'w0rp/ale'                        " async linting/formatting
 Plugin 'alvan/vim-closetag'              " auto close tags
+Plugin 'hashivim/vim-terraform'          " autoformatting for terraform
 
 " Themes
 " Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development

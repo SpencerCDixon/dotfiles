@@ -332,6 +332,10 @@ nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>l :Lines<CR>
+
+" Send messages to tmux window
+nmap \r :!tmux send-keys -t rio-dev:1.2 C-p C-j <CR><CR>
+
 " Close quickfix window
 nmap \x :cclose<cr> 
 " Send repeat command to console tmux pane

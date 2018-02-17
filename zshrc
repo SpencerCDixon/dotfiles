@@ -44,14 +44,8 @@ if _has fzf && _has ag; then
   '
 fi
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 # Always prefer vim for text editor
 export EDITOR='vim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -74,4 +68,8 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 # Add custom binaries to PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
 
+# Set terminal colors for tmux/iterm
 export TERM=xterm-256color
+
+# Set my personal wiki location
+export EXO_WIKI=$HOME/notes

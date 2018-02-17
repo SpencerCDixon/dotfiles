@@ -64,9 +64,6 @@ alias greignore='git rm --cached -r .'
 ####################
 # Global aliases can appear anywhere in the terminal string
 alias -g G='| grep' # now you can do: ls foo G something
-alias -g BA='--endpoint-url https://s3.bluearchivedev.com'
-alias -g WE='--endpoint-url https://s3.wasabisys.com --profile wasabi'
-alias man='tldr'
 
 ####################
 # Docker Aliases
@@ -86,6 +83,7 @@ alias rdbm='rake db:migrate'
 ####################
 # Node/Javascript
 ####################
+alias killnode='killall -9 node'
 alias ns='npm start'
 alias nt='npm test'
 alias ntd='npm run test:dev'
@@ -135,25 +133,6 @@ alias on3000='lsof -i tcp:3000'
 # Typo Convenience
 ####################
 alias mastre='master'
-
-####################
-# Athena Health
-####################
-alias dev='ssh sdixon@dev109.athenahealth.com'
-
-####################
-# Smart Scheduling
-####################
-alias prodc='ssh atlas -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c production\""'
-alias stagec='ssh staging -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c staging\""'
-alias prevc='ssh preview -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c production\""'
-alias evalc='ssh eval -t "sudo su - deploy -c \"cd /srv/www/evaluation/current && bundle exec rails c production\""'
-
-####################
-# Blue Archive
-####################
-alias s3config='v ~/.s3cfg'
-alias blue='cd ~/bluearchive'
 
 ####################
 # Rio

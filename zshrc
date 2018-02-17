@@ -59,6 +59,8 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# Add Python3 pip support
+export PATH=$PATH:~/Library/Python/3.6/bin
 # Add the hardware simulator tools to PATH while building the HACK computer
 export PATH=$PATH:~/Desktop/nand2tetris/tools
 

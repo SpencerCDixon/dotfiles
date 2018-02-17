@@ -51,6 +51,7 @@ Plugin 'prettier/vim-prettier'           " Adds support for prettier
 Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
 Plugin 'w0rp/ale'                        " async linting/formatting
 Plugin 'alvan/vim-closetag'              " auto close tags
+Plugin 'hashivim/vim-terraform'          " autoformatting for terraform
 
 " Themes
 " Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development
@@ -331,6 +332,10 @@ nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>l :Lines<CR>
+
+" Send messages to tmux window
+nmap \r :!tmux send-keys -t rio-dev:1.2 C-p C-j <CR><CR>
+
 " Close quickfix window
 nmap \x :cclose<cr> 
 " Send repeat command to console tmux pane

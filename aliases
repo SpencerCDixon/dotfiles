@@ -153,3 +153,9 @@ alias tmux='tmux -2 -u'
 alias ta='tmux attach -t'
 alias tns='tmux new -s '
 alias tls='tmux ls'
+
+####################
+# Navigation Utils
+####################
+alias p='pushd'
+alias o='popd'

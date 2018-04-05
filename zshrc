@@ -53,9 +53,6 @@ fi
 # Always prefer vim for text editor
 export EDITOR='vim'
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -74,11 +71,13 @@ export PATH=$PATH:~/Library/Python/3.6/bin
 export PATH=$PATH:~/Desktop/nand2tetris/tools
 
 # Added by n-install (see http://git.io/n-install-repo).
-# export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  
 
 # Add custom binaries to PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
 
+# Set terminal colors for tmux/iterm
 export TERM=xterm-256color
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+# Set my personal wiki location
+export EXO_WIKI=$HOME/notes

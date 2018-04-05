@@ -18,6 +18,7 @@ brew install tree
 brew install mysql  
 brew install v8-315  
 brew install fzf
+brew install tldr 
 brew link --force v8-315  
 brew tap homebrew/binary
 

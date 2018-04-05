@@ -81,6 +81,8 @@ Plugin 'kovisoft/slimv'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'cespare/vim-toml'
+" Plugin 'python-mode/python-mode'
 
 " Writing Prose
 Plugin 'davidbeckingsale/writegood.vim' " write better english 
@@ -334,7 +336,7 @@ nmap <Leader>r :Tags<CR>
 nmap <Leader>l :Lines<CR>
 
 " Send messages to tmux window
-nmap \r :!tmux send-keys -t rio-dev:1.2 C-p C-j <CR><CR>
+nmap \r :!tmux send-keys -t go:1.2 C-p C-j <CR><CR>
 
 " Close quickfix window
 nmap \x :cclose<cr> 

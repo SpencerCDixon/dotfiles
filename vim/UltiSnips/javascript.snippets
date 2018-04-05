@@ -144,6 +144,10 @@ snippet irc
 import { ${1} } from '@covered/rio-component-${0}';
 endsnippet
 
+snippet irca
+import { ${1} } from '@covered/rio-calc-${0}';
+endsnippet
+
 snippet iru
 import { ${1} } from '@covered/rio-util-${0}';
 endsnippet
@@ -162,6 +166,10 @@ endsnippet
 
 snippet flx
 import { Flex, Box } from 'reflexbox';
+endsnippet
+
+snippet rflxf
+import { Flex } from '@covered/rio-component-flex';
 endsnippet
 
 snippet rflx
@@ -285,6 +293,10 @@ ${1}: {
 },
 endsnippet
 
+snippet lgr
+import Log from '@covered/rio-util-logger';
+endsnippet
+
 ########################
 # Redux Related Snippets
 ########################
@@ -336,6 +348,12 @@ snippet acta
 export const $1 = \`\${NAME\}/$1\`;
 export const $1_SUCCESS = \`\${NAME\}/$1_SUCCESS\`;
 export const ${1:ActionName}_FAIL = \`\${NAME\}/$1_FAIL\`;
+endsnippet
+
+snippet cenhance
+const enhance = compose(
+	${0}
+);
 endsnippet
 
 snippet cruda
@@ -434,3 +452,42 @@ before(function() {
 	${0}
 });
 endsnippet
+
+########################
+# GQL Snippets
+########################
+snippet gimp
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import { mapProps, compose } from 'recompose';
+import { withError, withLoading } from 'utility/hoc';
+endsnippet
+
+snippet gquery
+const ${1} = gql\`
+  query ${2}(${3}) {
+		${4}
+  }
+\`;
+
+const with${5} = graphql($1, {
+  options: {
+		${0}
+  },
+});
+endsnippet
+
+snippet gmut
+const ${1} = gql\`
+  mutation ${2}(${3}) {
+		${4}
+  }
+\`;
+
+const with${5} = graphql($1, {
+  options: {
+		${0}
+  },
+});
+endsnippet
+

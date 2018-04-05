@@ -1,0 +1,12 @@
+pane	rio	1	:editor	0	:-	1	:/Users/spence/work/rio-ui	1	zsh	:
+pane	rio	2	:server	1	:*	1	:/Users/spence/work/rio-ui	0	node	:npm  
+pane	rio	2	:server	1	:*	2	:/Users/spence/work/rio-ui	0	node	:node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js run start:web
+pane	rio	2	:server	1	:*	3	:/Users/spence/work/rio-ui	1	zsh	:
+pane	rio-example	1	:[tmux]	1	:*	1	:/Users/spence/work/rio-ui	0	zsh	:
+pane	rio-example	1	:[tmux]	1	:*	2	:/Users/spence/work/rio-ui	1	zsh	:
+pane	rio-example	1	:[tmux]	1	:*	3	:/Users/spence/work/rio-ui	0	zsh	:
+pane	rio-example	1	:[tmux]	1	:*	4	:/Users/spence/work/rio-ui	0	zsh	:
+window	rio	1	0	:-	c244,364x83,0,0,7
+window	rio	2	1	:*	7e9e,364x83,0,0[364x41,0,0{182x41,0,0,8,181x41,183,0,11},364x41,0,42,10]
+window	rio-example	1	1	:*	74ca,364x82,0,0{182x82,0,0[182x41,0,0{91x41,0,0,3,90x41,92,0,6},182x40,0,42,5],181x82,183,0,4}
+state	rio	

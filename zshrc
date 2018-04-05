@@ -44,6 +44,9 @@ if _has fzf && _has ag; then
   '
 fi
 
+# autojump integration
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -71,9 +74,11 @@ export PATH=$PATH:~/Library/Python/3.6/bin
 export PATH=$PATH:~/Desktop/nand2tetris/tools
 
 # Added by n-install (see http://git.io/n-install-repo).
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  
+# export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  
 
 # Add custom binaries to PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
 
 export TERM=xterm-256color
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

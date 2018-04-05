@@ -1,0 +1,17 @@
+pane	rio	1	:editor	1	:*	1	:/Users/spence/work/rio-ui	1	zsh	:
+pane	rio	2	:server	0	:	1	:/Users/spence/work/rio-ui	0	node	:npm  
+pane	rio	2	:server	0	:	2	:/Users/spence/work/rio-ui	0	node	:node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js run start:web
+pane	rio	2	:server	0	:	3	:/Users/spence/work/rio-ui	1	zsh	:
+pane	rio	3	:infra	0	:	1	:/Users/spence/work/infrastructure-modules	0	zsh	:
+pane	rio	3	:infra	0	:	2	:/Users/spence/work/infrastructure-modules	1	zsh	:
+pane	rio	3	:infra	0	:	3	:/Users/spence/work/infrastructure-live	0	zsh	:
+pane	rio	3	:infra	0	:	4	:/Users/spence/work/infrastructure-live	0	zsh	:
+pane	rio	4	:ssh	0	:-	1	:/Users/spence/work/infrastructure-modules	1	zsh	:
+pane	rio	4	:ssh	0	:-	2	:/Users/spence/work/infrastructure-modules	0	zsh	:
+pane	rio-example	1	:zsh	1	:*	1	:/Users/spence/work/rio-ui	1	zsh	:
+window	rio	1	1	:*	c244,364x83,0,0,7
+window	rio	2	0	:	27a0,364x83,0,0[364x29,0,0{182x29,0,0,8,181x29,183,0,11},364x53,0,30,10]
+window	rio	3	0	:	c445,364x83,0,0{182x83,0,0[182x41,0,0,12,182x41,0,42,16],181x83,183,0[181x41,183,0,14,181x41,183,42,15]}
+window	rio	4	0	:-	040c,364x83,0,0{182x83,0,0,17,181x83,183,0,18}
+window	rio-example	1	1	:*	c241,364x83,0,0,4
+state	rio	rio-example

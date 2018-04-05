@@ -23,22 +23,12 @@ alias athena='v ~/Dropbox/docs/athena.md'
 # Project Utils
 ####################
 alias sbox='cd ~/.sbox'
-alias ss='cd ~/work/ss'
 alias work='cd ~/work'
-alias integrate='cd ~/work/athenaintegration && v'
-alias waf='cd ~/apps/wish-alert-frontend'
-alias wab='cd ~/apps/wish-alert-backend'
 alias exl='cd ~/apps/exloc'
 alias rdytogo='cd $GOPATH/src/github.com/spencercdixon'
-alias goblue='cd $GOPATH/src/github.com/bluearchive/main/ui/console'
-alias gobluem='cd $GOPATH/src/github.com/bluearchive/main'
 alias rdytojs='cd $HOME/CurrentProjects/Javascript'
 alias rdytorn='cd $HOME/CurrentProjects/ReactNative'
 alias blog='cd $HOME/apps/spencercdixon'
-alias lv='cd ~/apps/lv'
-alias lvt='cd ~/apps/lv/lv-test'
-alias lva='cd ~/apps/lv/lv-api'
-alias fin='cd ~/go/src/github.com/spencercdixon/finnest'
 alias notes='cd ~/notes'
 
 ####################
@@ -50,12 +40,16 @@ alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
 alias gd='git diff'
 alias gco='git checkout'
+alias gcom='git checkout master'
+alias gcod='git checkout develop'
 alias gl='git lola'
 alias gpoh='git push origin head'
 alias gag='git commit --amend --no-edit && git push origin HEAD -f'
 alias gia='git commit --amend --no-edit'
 alias gcm='git ci -m'
 alias gpom='git pull origin master'
+alias gpod='git pull origin develop'
+alias gcd='git checkout develop'
 alias gignore='git ls-files --other --ignored --exclude-standard'
 alias greignore='git rm --cached -r .'
 
@@ -66,7 +60,7 @@ alias greignore='git rm --cached -r .'
 alias -g G='| grep' # now you can do: ls foo G something
 alias -g BA='--endpoint-url https://s3.bluearchivedev.com'
 alias -g WE='--endpoint-url https://s3.wasabisys.com --profile wasabi'
-alias man='tldr'
+# alias man='tldr'
 
 ####################
 # Docker Aliases
@@ -96,6 +90,11 @@ alias nd='node-docs'
 ####################
 alias godocserv='godoc -http=:6060 & open http://localhost:6060/pkg/'
 alias make='mmake' # Tj's mmake adds useful features on top of make
+
+####################
+# Python
+####################
+alias p3='python3'
 
 ####################
 # Databases
@@ -137,11 +136,6 @@ alias on3000='lsof -i tcp:3000'
 alias mastre='master'
 
 ####################
-# Athena Health
-####################
-alias dev='ssh sdixon@dev109.athenahealth.com'
-
-####################
 # Smart Scheduling
 ####################
 alias prodc='ssh atlas -t "sudo su - deploy -c \"cd /srv/www/smart_scheduling/current && bundle exec rails c production\""'
@@ -159,7 +153,17 @@ alias blue='cd ~/bluearchive'
 # Rio
 ####################
 alias rio='cd ~/work/rio-ui'
-alias rioapi='cd $GOPATH/src/github.com/coveredteam/api'
+alias capi='cd ~/work/covered-api'
+alias devops='cd ~/work/devops'
+alias infram='cd ~/work/infrastructure-modules'
+alias infral='cd ~/work/infrastructure-live'
+alias rgql='cd $GOPATH/src/github.com/coveredteam/api'
+alias dev='aws-vault exec dev --' 
+alias stage='aws-vault exec stage --' 
+alias shared='aws-vault exec shared --' 
+alias jenkins='ssh spencer@10.10.21.222'
+alias riomongo='ssh spencer@10.2.40.35'
+alias riovpn='ssh spencer@10.10.1.12'
 
 ####################
 # Virtual Machines

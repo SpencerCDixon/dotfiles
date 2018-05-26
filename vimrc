@@ -52,6 +52,8 @@ Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
 Plugin 'w0rp/ale'                        " async linting/formatting
 Plugin 'alvan/vim-closetag'              " auto close tags
 Plugin 'hashivim/vim-terraform'          " autoformatting for terraform
+Plugin 'octol/vim-cpp-enhanced-highlight' 
+Plugin 'rhysd/vim-clang-format'          
 
 " Themes
 " Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development
@@ -186,7 +188,7 @@ set updatetime=250
 
 " ALE Settings
 let g:ale_linters = {
-\   'javascript': ['eslint', 'flow'],
+\   'javascript': ['eslint'],
 \}
 let g:ale_sign_warning = '🙊'
 let g:ale_sign_error = '🔥'
@@ -245,6 +247,15 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_deadline = "5s"
 let g:go_term_mode = "vsplit"
 let g:go_list_type = "quickfix"
+
+" Vim C-family Settings
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup"}
+autocmd FileType c ClangFormatAutoEnable " Autoformat on C files
 
 " Vim Prettier Settings
 let g:prettier#autoformat = 0

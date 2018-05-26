@@ -110,7 +110,8 @@ import injectSheet from 'react-jss'
 endsnippet
 
 snippet fcls
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function ${1:ClassName}({ $2 }) {
 	return (
@@ -138,6 +139,26 @@ endsnippet
 
 snippet ic
 import ${1} from 'components/$1';
+endsnippet
+
+snippet iq
+import ${1}Query from 'queries/$1Query';
+endsnippet
+
+snippet im
+import ${1}Mutation from 'mutations/$1Mutation';
+endsnippet
+
+snippet iff
+import ${1}Form from 'forms/$1Form';
+endsnippet
+
+snippet iv
+import ${1}View from 'views/$1View';
+endsnippet
+
+snippet isu
+import { ${1} } from 'semantic-ui-react';
 endsnippet
 
 snippet irc

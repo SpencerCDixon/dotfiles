@@ -30,6 +30,7 @@ alias rdytojs='cd $HOME/CurrentProjects/Javascript'
 alias rdytorn='cd $HOME/CurrentProjects/ReactNative'
 alias blog='cd $HOME/apps/spencercdixon'
 alias notes='cd ~/notes'
+alias code='cd ~/code'
 
 ####################
 # Git Aliases
@@ -134,20 +135,9 @@ alias on3000='lsof -i tcp:3000'
 alias mastre='master'
 
 ####################
-# Rio
+# Tuple
 ####################
-alias rio='cd ~/work/rio-ui'
-alias capi='cd ~/work/covered-api'
-alias devops='cd ~/work/devops'
-alias infram='cd ~/work/infrastructure-modules'
-alias infral='cd ~/work/infrastructure-live'
-alias rgql='cd $GOPATH/src/github.com/coveredteam/api'
-alias dev='aws-vault exec dev --' 
-alias stage='aws-vault exec stage --' 
-alias shared='aws-vault exec shared --' 
-alias jenkins='ssh spencer@10.10.21.222'
-alias riomongo='ssh spencer@10.2.40.35'
-alias riovpn='ssh spencer@10.10.1.12'
+alias t='cd ~/code/tuple'
 
 ####################
 # Virtual Machines

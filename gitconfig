@@ -1,7 +1,7 @@
 [filter "media"]
   required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  clean = git media clean %f
+  smudge = git media smudge %f
 [user]
   name = Spencer Dixon
   email = spencercdixon@gmail.com
@@ -29,9 +29,9 @@
 [status]
   showUntrackedFiles = all
 [credential]
-	helper = store
+  helper = store
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

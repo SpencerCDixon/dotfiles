@@ -3,7 +3,7 @@
 # bootstrap installs things.
 
 DOTFILES_ROOT=$(pwd -P)
-FILES_TO_SYMLINK="ctags gitconfig railsrc rspec vimrc zshrc tmux.conf tmux-osx.conf vim tmux"
+FILES_TO_SYMLINK="ctags gitconfig rspec vimrc zshrc tmux.conf tmux-osx.conf vim tmux"
 
 set -e
 

@@ -13,21 +13,13 @@ alias reload='source ~/.zshrc'
 # Personal 
 ####################
 alias drop='cd ~/Dropbox'
-alias todos='mvim ~/Dropbox/docs/todos.md'
-alias shop='mvim ~/Dropbox/docs/shopping.md'
-alias bugs='mvim ~/Dropbox/docs/bug-journal.md'
-alias jokes='mvim ~/Dropbox/docs/jokes.md'
-alias athena='v ~/Dropbox/docs/athena.md'
+alias todos='v ~/Dropbox/docs/todos.md'
 
 ####################
 # Project Utils
 ####################
 alias sbox='cd ~/.sbox'
-alias work='cd ~/work'
-alias exl='cd ~/apps/exloc'
 alias rdytogo='cd $GOPATH/src/github.com/spencercdixon'
-alias rdytojs='cd $HOME/CurrentProjects/Javascript'
-alias rdytorn='cd $HOME/CurrentProjects/ReactNative'
 alias blog='cd $HOME/apps/spencercdixon'
 alias notes='cd ~/notes'
 alias code='cd ~/code'

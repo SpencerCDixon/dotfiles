@@ -64,4 +64,3 @@ hide_icons() {
 _has() {
   return $( whence $1 >/dev/null )
 }
-

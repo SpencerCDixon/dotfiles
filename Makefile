@@ -19,14 +19,14 @@ install: .vim .deps-$(OS) .zsh
 	@which ctags || brew install ctags
 	@which reattach-to-user-namespace || brew install reattach-to-user-namespace
 
-.deps-Linux:
-	@echo Installing dependencies for Linux...
-	@which cmake || sudo apt install cmake -y
-	@which zsh || sudo apt install zsh -y
-	@which pt || go get github.com/monochromegane/the_platinum_searcher && go install github.com/monochromegane/the_platinum_searcher/cmd/pt
-	@which tree || sudo apt install tree
-	@which n || curl -L https://git.io/n-install | bash
-	@which ctags || sudo apt install exuberant-ctags
+# .deps-Linux:
+	# @echo Installing dependencies for Linux...
+	# @which cmake || sudo apt install cmake -y
+	# @which zsh || sudo apt install zsh -y
+	# @which pt || go get github.com/monochromegane/the_platinum_searcher && go install github.com/monochromegane/the_platinum_searcher/cmd/pt
+	# @which tree || sudo apt install tree
+	# @which n || curl -L https://git.io/n-install | bash
+	# @which ctags || sudo apt install exuberant-ctags
 
 .vim:
 	mkdir $HOME/.vim-tmp

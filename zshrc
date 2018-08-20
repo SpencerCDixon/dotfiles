@@ -75,9 +75,13 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 # Add custom binaries to PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
+# export PATH=$PATH:~/code/depot_tools
 
 # Set terminal colors for tmux/iterm
 export TERM=xterm-256color
 
 # Set my personal wiki location
 export EXO_WIKI=$HOME/notes
+
+# export OPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2k 
+# export OPENSSL_LIBRARIES=/usr/local/Cellar/openssl/1.0.2k/lib

@@ -21,6 +21,14 @@ snippet impc
 import { ${1} } from ${2};
 endsnippet
 
+snippet impfc
+import ${1} from 'common/${2}';
+endsnippet
+
+snippet impx
+import { action, computed, observable } from 'mobx';
+endsnippet
+
 snippet impt
 import type { ${1} } from 'types/${2}';
 endsnippet
@@ -512,3 +520,9 @@ const with${5} = graphql($1, {
 });
 endsnippet
 
+########################
+# Mobx Snippets
+########################
+snippet @ob
+@observable ${1} = ${2};
+endsnippet

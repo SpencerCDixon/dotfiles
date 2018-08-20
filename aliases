@@ -39,7 +39,7 @@ alias gfp='git push origin HEAD -f'
 alias gap='git add -N .;git add -p'
 alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
-alias gd='git diff'
+# alias gd='git diff'
 alias gco='git checkout'
 alias gcom='git checkout master'
 alias gcod='git checkout develop'
@@ -158,3 +158,9 @@ alias tls='tmux ls'
 ####################
 alias p='pushd'
 alias o='popd'
+
+####################
+# Swift Aliases
+####################
+alias st='swift test'
+alias sb='swift build'

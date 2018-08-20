@@ -45,7 +45,7 @@ Plugin 'tpope/vim-surround'             " change surrounding characters quickly
 Plugin 'wakatime/vim-wakatime'          " for tracking coding
 
 " Code Formatting
-Plugin 'fleischie/vim-styled-components' " format styled components properly
+" Plugin 'fleischie/vim-styled-components' " format styled components properly
 Plugin 'flowtype/vim-flow'               " do flow syntax checking on save
 Plugin 'prettier/vim-prettier'           " Adds support for prettier
 Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
@@ -54,12 +54,17 @@ Plugin 'alvan/vim-closetag'              " auto close tags
 Plugin 'hashivim/vim-terraform'          " autoformatting for terraform
 Plugin 'octol/vim-cpp-enhanced-highlight' 
 Plugin 'rhysd/vim-clang-format'          
+" Plugin 'leafgarland/typescript-vim'      " syntax highlighting for typescript
+" Plugin 'Quramy/tsuquyomi'                " autocomplete for typescript
+" Plugin 'Shougo/vimproc.vim'              " Required for tsuquoyomi to work
+Plugin 'keith/swift.vim'
 
 " Themes
 " Plugin 'mhartington/oceanic-next'  " ideal for React/ES6 development
 " Plugin 'lifepillar/vim-solarized8'   " solarized for writing prose
 Plugin 'trevordmiller/nova-vim'      " modern looking flat colors for es6
 Plugin 'fatih/molokai'               " useful colorscheme for Go code
+" Plugin 'cocopon/iceberg.vim'
 
 " Searching
 Plugin 'junegunn/fzf.vim'
@@ -197,6 +202,10 @@ highlight link ALEErrorSign Title
 
 "" YouCompleteMe
 let g:ycm_key_list_previous_completion=['<Up>']
+if !exists("g:ycm_semantic_triggers") 
+  let g:ycm_semantic_triggers = {}
+  let g:ycm_semantic_triggers['typescript'] = ['.']
+endif
 
 "" Ultisnips
 let g:UltiSnipsExpandTrigger = '<C-j>'
@@ -255,7 +264,14 @@ let g:clang_format#style_options = {
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "Standard" : "C++11",
             \ "BreakBeforeBraces" : "Stroustrup"}
-autocmd FileType c ClangFormatAutoEnable " Autoformat on C files
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+autocmd FileType c,cpp ClangFormatAutoEnable
 
 " Vim Prettier Settings
 let g:prettier#autoformat = 0
@@ -571,6 +587,12 @@ autocmd FileType qf wincmd J
   " autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   " autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 " augroup END
+
+" Set typescript properly for syntax highlighting
+autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+" autocmd BufNewFile,BufRead *.ts colorscheme iceberg
+" autocmd BufNewFile,BufRead *.js colorscheme nova
+
 
 " ========================================================================
 " Custom Functions

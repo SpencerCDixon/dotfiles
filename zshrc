@@ -67,21 +67,15 @@ export PATH=$PATH:$GOPATH/bin
 
 # Add Python3 pip support
 export PATH=$PATH:~/Library/Python/3.6/bin
-# Add the hardware simulator tools to PATH while building the HACK computer
-export PATH=$PATH:~/Desktop/nand2tetris/tools
 
 # Added by n-install (see http://git.io/n-install-repo).
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  
 
 # Add custom binaries to PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
-# export PATH=$PATH:~/code/depot_tools
 
 # Set terminal colors for tmux/iterm
 export TERM=xterm-256color
 
 # Set my personal wiki location
-export EXO_WIKI=$HOME/notes
-
-# export OPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2k 
-# export OPENSSL_LIBRARIES=/usr/local/Cellar/openssl/1.0.2k/lib
+export EXO_WIKI=$HOME/Exocortex

@@ -11,7 +11,7 @@ source $HOME/.dotfiles/functions
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx git node go)
+plugins=(osx git go)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
@@ -26,6 +26,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Add in aliases
 source $HOME/.dotfiles/aliases
+
+# Add useful completions
+source $HOME/.dotfiles/completions/tmuxinator.zsh
 
 # Add autocomplete for fzf and zsh
 if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
@@ -57,8 +60,8 @@ export EDITOR='vim'
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # chruby auto switching on .ruby-version
-# source /usr/local/share/chruby/chruby.sh
-# source /usr/local/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # set up golang home and include go bin in path
 export PATH=$PATH:/usr/local/go/bin
@@ -79,3 +82,7 @@ export TERM=xterm-256color
 
 # Set my personal wiki location
 export EXO_WIKI=$HOME/Exocortex
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

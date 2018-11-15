@@ -40,6 +40,7 @@ alias gpoh='git push origin head'
 alias gag='git commit --amend --no-edit && git push origin HEAD -f'
 alias gia='git commit --amend --no-edit'
 alias gcm='git ci -m'
+alias gbdd='git branch -D'
 alias gpom='git pull origin master'
 alias gpod='git pull origin develop'
 alias gcd='git checkout develop'
@@ -80,7 +81,6 @@ alias nd='node-docs'
 # Go Aliases
 ####################
 alias godocserv='godoc -http=:6060 & open http://localhost:6060/pkg/'
-alias make='mmake' # Tj's mmake adds useful features on top of make
 
 ####################
 # Python
@@ -120,6 +120,8 @@ alias onstart="launchctl list | grep -v com.apple"
 # Show how many lines of code a project has
 alias loc='cloc $(git ls-files)'
 alias on3000='lsof -i tcp:3000'
+alias make='mmake' # Tj's mmake adds useful features on top of make
+alias cat='bat'
 
 ####################
 # Typo Convenience
@@ -130,6 +132,8 @@ alias mastre='master'
 # Tuple
 ####################
 alias t='cd ~/code/tuple'
+alias tcs='cd ~/code/tuple/backend && heroku run rails c --app tuple-backend-staging'
+alias tcp='cd ~/code/tuple/backend && heroku run rails c --app tuple-backend-production'
 
 ####################
 # Virtual Machines

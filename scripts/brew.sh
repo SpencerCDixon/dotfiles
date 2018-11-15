@@ -22,6 +22,7 @@ brew install tmux
 brew install redis
 brew install youtube-dl
 brew install vim
+brew install carthage
 
 # Fuzzy finder
 brew install fzf

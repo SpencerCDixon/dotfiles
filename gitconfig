@@ -26,6 +26,7 @@
   remote-ls = remote --verbose
 [core]
   editor = vim
+	precomposeUnicode = true
 [status]
   showUntrackedFiles = all
 [credential]

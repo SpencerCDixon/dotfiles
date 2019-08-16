@@ -10,6 +10,11 @@ alias d='cd ~/.dotfiles'
 alias reload='source ~/.zshrc'
 
 ####################
+# General Utility 
+####################
+alias ldk='ls ~/Desktop'
+
+####################
 # Personal 
 ####################
 alias drop='cd ~/Dropbox'
@@ -33,11 +38,12 @@ alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
 # alias gd='git diff'
 alias gco='git checkout'
+alias gccl='git commit -m "CHANGELOG"'
 alias gcom='git checkout master'
 alias gcod='git checkout develop'
 alias gl='git lola'
 alias gpoh='git push origin head'
-alias gag='git commit --amend --no-edit && git push origin HEAD -f'
+alias gag='git add -A && git commit --amend --no-edit && git push origin HEAD -f'
 alias gia='git commit --amend --no-edit'
 alias gcm='git ci -m'
 alias gbdd='git branch -D'
@@ -46,6 +52,7 @@ alias gpod='git pull origin develop'
 alias gcd='git checkout develop'
 alias gignore='git ls-files --other --ignored --exclude-standard'
 alias greignore='git rm --cached -r .'
+alias ogt='hub browse tupleapp/macapp'
 
 ####################
 # Global Aliases
@@ -122,6 +129,7 @@ alias loc='cloc $(git ls-files)'
 alias on3000='lsof -i tcp:3000'
 alias make='mmake' # Tj's mmake adds useful features on top of make
 alias cat='bat'
+alias caliases='bat ~/.dotfiles/aliases'
 
 ####################
 # Typo Convenience
@@ -134,6 +142,29 @@ alias mastre='master'
 alias t='cd ~/code/tuple'
 alias tcs='cd ~/code/tuple/backend && heroku run rails c --app tuple-backend-staging'
 alias tcp='cd ~/code/tuple/backend && heroku run rails c --app tuple-backend-production'
+alias tlogp='cd ~/code/tuple/backend && heroku logs -t --app tuple-backend-production'
+alias tlogs='cd ~/code/tuple/backend && heroku logs -t --app tuple-backend-staging'
+alias tsigns='codesign --verify --deep --strict --verbose=2 /Applications/TupleStaging.app && spctl -a -t exec -vv /Applications/TupleStaging.app'
+alias tsignp='codesign --verify --deep --strict --verbose=2 /Applications/Tuple.app && spctl -a -t exec -vv /Applications/Tuple.app'
+alias tinstalls='curl -L https://git.io/tuple-install-staging | bash'
+alias tinstallp='curl -L https://git.io/tuple-install | bash'
+alias openrtc='open ~/code/tuple/macapp/Dependencies/webrtc-checkout/src/out/Debug/all.xcworkspace'
+alias opentuple='open ~/code/tuple/macapp/Tuple.xcworkspace'
+alias rt='open ~/code/tuple/macapp/DerivedData/Tuple/Build/Products/Debug/Tuple.app'
+alias -g TP='-a tuple-backend-production' 
+alias -g TS='-a tuple-backend-staging' 
+alias thelp='
+  echo "tcs       - console staging"
+  echo "tcp       - console prod"
+  echo "tlogp     - tail logs prod"
+  echo "tlogs     - tail logs stage"
+  echo "tsigns    - check code sign on staging"
+  echo "tsignp    - check code sign on prod"
+  echo "tinstalls - install tuple staging using bash script"
+  echo "tinstallp - install tuple prod using bash script"
+  echo "openrtc   - open webrtc in Xcode"
+  echo "opentuple - open tuple macapp in Xcode"
+'
 
 ####################
 # Virtual Machines
@@ -160,3 +191,8 @@ alias o='popd'
 ####################
 alias st='swift test'
 alias sb='swift build'
+
+####################
+# Mr. Thank You
+####################
+alias mtyprod='ssh -i ~/.ssh/id_rsa deployer@159.65.164.104 -p 8646'

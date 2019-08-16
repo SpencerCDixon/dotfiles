@@ -21,6 +21,14 @@ snippet impc
 import { ${1} } from ${2};
 endsnippet
 
+snippet impp
+import { ${1} } from 'components/primitives';
+endsnippet
+
+snippet implog
+import { debug, info, error } from 'util/bridge';
+endsnippet
+
 snippet impfc
 import ${1} from 'common/${2}';
 endsnippet
@@ -195,6 +203,12 @@ endsnippet
 
 snippet flx
 import { Flex, Box } from 'reflexbox';
+endsnippet
+
+snippet fx
+<Flex>
+	${0}
+</Flex>
 endsnippet
 
 snippet rflxf

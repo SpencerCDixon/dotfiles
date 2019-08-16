@@ -20,6 +20,7 @@ export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 # Add yarn to my path for npm dep management
 export PATH="$PATH:`yarn global bin`"
+export PATH="$PATH:$HOME/Code/tuple/macapp/Dependencies/depot_tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -62,11 +63,15 @@ export EDITOR='vim'
 # chruby auto switching on .ruby-version
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+chruby 2.5.1
 
 # set up golang home and include go bin in path
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# set up Rust to include cargo bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 # Add Python3 pip support
 export PATH=$PATH:~/Library/Python/3.6/bin
@@ -86,3 +91,15 @@ export EXO_WIKI=$HOME/Exocortex
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc

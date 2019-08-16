@@ -45,7 +45,7 @@ Plugin 'tpope/vim-surround'             " change surrounding characters quickly
 Plugin 'wakatime/vim-wakatime'          " for tracking coding
 
 " Code Formatting
-" Plugin 'fleischie/vim-styled-components' " format styled components properly
+Plugin 'fleischie/vim-styled-components' " format styled components properly
 Plugin 'flowtype/vim-flow'               " do flow syntax checking on save
 Plugin 'prettier/vim-prettier'           " Adds support for prettier
 Plugin 'ternjs/tern_for_vim'             " required for youcompleteme in JS
@@ -89,6 +89,8 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'posva/vim-vue'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'cespare/vim-toml'
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 " Plugin 'python-mode/python-mode'
 
 " Writing Prose
@@ -256,6 +258,9 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_deadline = "5s"
 let g:go_term_mode = "vsplit"
 let g:go_list_type = "quickfix"
+
+" Vim Rust Settings
+let g:rustfmt_autosave = 1
 
 " Vim C-family Settings
 let g:clang_format#style_options = {
@@ -510,6 +515,12 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 
+" Rust Vim Mappings
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 " These might be messing with my quickfix window
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
@@ -522,6 +533,7 @@ autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 " Adds ctags tag bar 
 nmap <leader>tb :TagbarToggle <cr>
+nmap <leader>a :TagbarToggle <cr>
 
 " ========================================================================
 " Abbreviations

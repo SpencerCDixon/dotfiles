@@ -74,6 +74,7 @@ alias dcrw='docker-compose run web'
 alias killruby='killall -9 ruby'
 alias rsapi='rails s -p 3001'
 alias rdbm='rake db:migrate'
+alias rs='./bin/rspec spec'
 
 ####################
 # Node/Javascript
@@ -99,6 +100,7 @@ alias p3='python3'
 ####################
 alias sql='mysql.server start'
 alias redis='redis-server /usr/local/etc/redis.conf'
+alias fixpostgres='rm /Users/spence/Library/Application Support/Postgres/var-10/postmaster.pid'
 
 ####################
 # System Utilities 
@@ -153,6 +155,8 @@ alias opentuple='open ~/code/tuple/macapp/Tuple.xcworkspace'
 alias rt='open ~/code/tuple/macapp/DerivedData/Tuple/Build/Products/Debug/Tuple.app'
 alias -g TP='-a tuple-backend-production' 
 alias -g TS='-a tuple-backend-staging' 
+alias tslack='ngrok http 3000 -subdomain=tuple-slack-dev'
+alias tsso='ngrok http 3000 -subdomain=tuple-okta-sso'
 alias thelp='
   echo "tcs       - console staging"
   echo "tcp       - console prod"
@@ -164,6 +168,8 @@ alias thelp='
   echo "tinstallp - install tuple prod using bash script"
   echo "openrtc   - open webrtc in Xcode"
   echo "opentuple - open tuple macapp in Xcode"
+  echo "tslack    - open ngrok tunnel to do slack debugging"
+  echo "tsso      - open ngrok tunnel to do okta SSO debugging"
 '
 
 ####################

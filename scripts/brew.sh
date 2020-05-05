@@ -23,6 +23,8 @@ brew install redis
 brew install youtube-dl
 brew install vim
 brew install carthage
+brew install git-delta
+brew install bat
 
 # Fuzzy finder
 brew install fzf

@@ -26,7 +26,10 @@
   remote-ls = remote --verbose
 [core]
   editor = vim
-	precomposeUnicode = true
+  precomposeUnicode = true
+  pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+[interactive]
+  diffFilter = delta --color-only
 [status]
   showUntrackedFiles = all
 [credential]

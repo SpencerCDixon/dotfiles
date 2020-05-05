@@ -2,7 +2,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme I want to use
-ZSH_THEME="xiong-chiamiov-plus"
+# ZSH_THEME="xiong-chiamiov-plus"
 
 # Add useful functions
 source $HOME/.dotfiles/functions
@@ -72,6 +72,7 @@ export PATH=$PATH:$GOPATH/bin
 
 # set up Rust to include cargo bin
 export PATH=$PATH:$HOME/.cargo/bin
+fpath+=~/.zfunc
 
 # Add Python3 pip support
 export PATH=$PATH:~/Library/Python/3.6/bin
@@ -103,3 +104,5 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+eval "$(starship init zsh)"

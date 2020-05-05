@@ -82,15 +82,17 @@ Plugin 'othree/html5.vim'          " HTML5 syntax highlighting
 Plugin 'chrisbra/csv.vim'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
-Plugin 'jparise/vim-graphql'
+" Plugin 'jparise/vim-graphql'
 Plugin 'junegunn/vim-emoji'
-Plugin 'kovisoft/slimv'            
+" Plugin 'kovisoft/slimv'            
 Plugin 'plasticboy/vim-markdown'
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'cespare/vim-toml'
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
+Plugin 'pboettch/vim-cmake-syntax'
+" Plugin 'cstrahan/vim-capnp'
 " Plugin 'python-mode/python-mode'
 
 " Writing Prose
@@ -168,10 +170,15 @@ set clipboard=unnamed          " fix copy paste with tmux
 set noshowmode                 " --INSERT -- no longer needed with the lightline
 " Make tabs look pretty
 set listchars=tab:\|\ 
+set backupcopy=yes             " play nice with parcel.js hot reloading
 
 " Write all writeable buffers when changing buffers or losing focus.
 set autowriteall                " Save when doing various buffer-switching things.
 autocmd BufLeave,FocusLost * silent! wa  " Save anytime we leave a buffer or vim loses focus.
+
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " ========================================================================
 " Plugin Settings
@@ -261,14 +268,9 @@ let g:go_list_type = "quickfix"
 
 " Vim Rust Settings
 let g:rustfmt_autosave = 1
+let g:racer_experimental_completer = 1
 
 " Vim C-family Settings
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Stroustrup"}
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
@@ -279,7 +281,7 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 autocmd FileType c,cpp ClangFormatAutoEnable
 
 " Vim Prettier Settings
-let g:prettier#autoformat = 0
+let g:prettier#autoformat = 1
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql Prettier
 let g:prettier#config#print_width = 80 " max line length that prettier will wrap on
 let g:prettier#config#tab_width = 2 " number of spaces per indentation level
@@ -351,6 +353,10 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 let g:closetag_filenames = '*.html,*.jsx'
+
+" AutoSaving
+
+let g:auto_save = 0
 
 " ========================================================================
 " Searching
@@ -455,6 +461,7 @@ map <C-l> <C-w>l
 
 " Substitution
 nmap <Leader>s  :%s/
+nmap <Leader>ss  :w<cr>
 
 " Alphabetically Sort
 vmap <Leader>as :sort<cr>
@@ -553,6 +560,7 @@ iab saturday Saturday
 iab sunday Sunday
 iab *shrug* ¯\_(ツ)_/¯
 iab fliptable （╯°□°）╯ ┻━┻
+iab td // TODO(scd):
 
 " ========================================================================
 " Autocommands
@@ -579,6 +587,7 @@ augroup END
 
 " convert md to markdown for syntax highlighting
 au BufNewFile,BufRead *.markdown,*.mdown,*.mkd,*.mkdn,*.md setf markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " convert CSS file types
 au BufNewFile,BufRead *.styles setf css

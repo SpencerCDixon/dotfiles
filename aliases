@@ -13,6 +13,7 @@ alias reload='source ~/.zshrc'
 # General Utility 
 ####################
 alias ldk='ls ~/Desktop'
+alias proof='pbpaste | say -v Daniel -r 85'
 
 ####################
 # Personal 
@@ -33,6 +34,7 @@ alias code='cd ~/code'
 # Git Aliases
 ####################
 alias gfp='git push origin HEAD -f'
+alias gas='git add -A && git stash'
 alias gap='git add -N .;git add -p'
 alias gsync='git fetch upstream; git checkout master; git merge upstream/master'
 alias gs='git status'
@@ -53,6 +55,7 @@ alias gcd='git checkout develop'
 alias gignore='git ls-files --other --ignored --exclude-standard'
 alias greignore='git rm --cached -r .'
 alias ogt='hub browse tupleapp/macapp'
+alias cdr='cd $(git rev-parse --show-toplevel)'
 
 ####################
 # Global Aliases
@@ -74,7 +77,16 @@ alias dcrw='docker-compose run web'
 alias killruby='killall -9 ruby'
 alias rsapi='rails s -p 3001'
 alias rdbm='rake db:migrate'
-alias rs='./bin/rspec spec'
+alias b='./bin/rspec spec'
+alias rbs='./bin/rspec spec'
+alias rs='./bin/rails server'
+alias rc='./bin/rails console'
+
+####################
+# Rust
+####################
+alias cr='cargo run'
+alias rustlint='rustc -W help'
 
 ####################
 # Node/Javascript
@@ -141,6 +153,8 @@ alias mastre='master'
 ####################
 # Tuple
 ####################
+alias newui='defaults write app.tuple.dev useNewUI true'
+alias oldui='defaults write app.tuple.dev useNewUI false'
 alias t='cd ~/code/tuple'
 alias tcs='cd ~/code/tuple/backend && heroku run rails c --app tuple-backend-staging'
 alias tcp='cd ~/code/tuple/backend && heroku run rails c --app tuple-backend-production'
@@ -152,11 +166,14 @@ alias tinstalls='curl -L https://git.io/tuple-install-staging | bash'
 alias tinstallp='curl -L https://git.io/tuple-install | bash'
 alias openrtc='open ~/code/tuple/macapp/Dependencies/webrtc-checkout/src/out/Debug/all.xcworkspace'
 alias opentuple='open ~/code/tuple/macapp/Tuple.xcworkspace'
+alias ot='open ~/code/tuple/macapp/Tuple.xcworkspace'
 alias rt='open ~/code/tuple/macapp/DerivedData/Tuple/Build/Products/Debug/Tuple.app'
 alias -g TP='-a tuple-backend-production' 
 alias -g TS='-a tuple-backend-staging' 
 alias tslack='ngrok http 3000 -subdomain=tuple-slack-dev'
 alias tsso='ngrok http 3000 -subdomain=tuple-okta-sso'
+alias xc-10-1='sudo xcode-select -s /Applications/Xcode10.1.app/Contents/Developer && xcode-select -p /Applications/Xcode10.1.app/Contents/Developer'
+alias xc-10-2='sudo xcode-select -s /Applications/Xcode10.2.app/Contents/Developer && xcode-select -p /Applications/Xcode10.2.app/Contents/Developer'
 alias thelp='
   echo "tcs       - console staging"
   echo "tcp       - console prod"
@@ -170,7 +187,10 @@ alias thelp='
   echo "opentuple - open tuple macapp in Xcode"
   echo "tslack    - open ngrok tunnel to do slack debugging"
   echo "tsso      - open ngrok tunnel to do okta SSO debugging"
+  echo "xc-10-1   - set Xcode version 10.1 as default"
+  echo "xc-10-2   - set Xcode version 10.2 as default"
 '
+alias codesignident='security find-identity -v -p codesigning'
 
 ####################
 # Virtual Machines

@@ -15,8 +15,11 @@ plugins=(osx git go)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/n/bin"
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+# Not sure why I needed this... commenting out for now
+# export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 # Add yarn to my path for npm dep management
 export PATH="$PATH:`yarn global bin`"
